@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 700);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  //   font-family: "Open Sans", "sans-serif";
+  //   font-size: 14px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
