@@ -1,3 +1,25 @@
-<p>
-  bottom-section works!
-</p>
+<footer id="footer" [ngClass]="{ visible: visible }">
+  <div class="container">
+    <button (click)="toggleFooter()" id="footerToggle">
+      <i class="fa fa-angle-up"></i>
+    </button>
+
+    <div id="footerNav">
+      <i
+        (mouseover)="slideRight($event)"
+        (mouseleave)="slideStop($event)"
+        class="sliderControls fa fa-angle-left"
+      ></i>
+      <ul class="sliderContainer">
+        <li #footerMenu *ngFor="let menu of menuItems" class="footerNavItem">
+          <a class="noselect" href="{{ menu.link }}">{{ menu.item }}</a>
+        </li>
+      </ul>
+      <i
+        (mouseover)="slideLeft($event)"
+        (mouseleave)="slideStop($event)"
+        class="sliderControls fa fa-angle-right"
+      ></i>
+    </div>
+  </div>
+</footer>

@@ -1,3 +1,21 @@
-<p>
-  left-section works!
-</p>
+<div class="verticalLeftSlider">
+  <!-- Left Vertical Slider start -->
+  <i class="fas fa-angle-up sliderControls" aria-hidden="true"></i>
+  <ul class="sliderContainer">
+    <li *ngFor="let item of mainItems">
+      <a href="#">
+        <!-- <i class="fas fa-xs {{ item.icon }}" aria-hidden="true"></i> -->
+        <!-- <div class="left-inner-menu">
+          <div class="layer-bg">
+            <a href="{{ item['common-link'] }}">{{ item.parent }}</a>
+            <span>|</span>
+            <a href="{{ item?.link }}">{{ item.item || "item" }}</a>
+          </div>
+        </div> -->
+
+        {{ item.name }}
+      </a>
+    </li>
+  </ul>
+  <i class="fas fa-angle-down sliderControls" aria-hidden="true"></i>
+</div>

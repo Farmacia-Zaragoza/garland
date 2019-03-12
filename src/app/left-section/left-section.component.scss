@@ -1,0 +1,68 @@
+.verticalLeftSlider {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+  
+  .verticalLeftSlider .left-inner-menu {
+    position: absolute;
+    left: calc(100% - 20px);
+    background-color: transparent;
+    padding-left: 25px;
+    display: none;
+  }
+  .verticalLeftSlider .left-inner-menu .layer-bg {
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #22a6b3;
+    display: flex;
+  }
+  .verticalLeftSlider .left-inner-menu .layer-bg span {
+    font-size: 14px;
+    color: #fff;
+    margin: auto 0;
+  }
+  .verticalLeftSlider .left-inner-menu a {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+  
+  .verticalLeftSlider > i {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    font-size: 30px;
+    width: 30px;
+    line-height: 29px;
+    color: #78c55f;
+    transition: 0.5s;
+    margin: 5px auto;
+    padding-left: 5px;
+  }
+  
+  .verticalLeftSlider > i:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .verticalLeftSlider ul {
+    overflow: hidden;
+  }
+  .verticalLeftSlider > ul > li {
+    text-align: center;
+  }
+  .verticalLeftSlider ul li a {
+    font-size: 5em;
+    color: #fff;
+    transition: 0.5s;
+    display: inline-flex;
+    margin: 10px auto;
+  }
+  .verticalLeftSlider ul li a:hover {
+    color: #f5774f;
+  }
