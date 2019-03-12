@@ -6,8 +6,8 @@
 
     <div id="footerNav">
       <i
-        (mouseover)="slideRight($event)"
-        (mouseleave)="slideStop($event)"
+        (mouseover)="sService.slideRight($event)"
+        (mouseleave)="sService.slideStop($event)"
         class="sliderControls fa fa-angle-left"
       ></i>
       <ul class="sliderContainer">
@@ -16,8 +16,8 @@
         </li>
       </ul>
       <i
-        (mouseover)="slideLeft($event)"
-        (mouseleave)="slideStop($event)"
+        (mouseover)="sService.slideLeft($event)"
+        (mouseleave)="sService.slideStop($event)"
         class="sliderControls fa fa-angle-right"
       ></i>
     </div>

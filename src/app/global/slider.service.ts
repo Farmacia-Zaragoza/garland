@@ -12,8 +12,9 @@ export class SliderService {
   remLength;
   scrollable;
 
-  slideLeft(btn) {
-    this.sliderContainer = $(btn).siblings(".this.sliderContainer");
+  slideLeft({ currentTarget }) {
+    let btn = currentTarget;
+    this.sliderContainer = $(btn).siblings(".sliderContainer");
     this.remLength =
       $(this.sliderContainer)[0].scrollWidth - $(this.sliderContainer).width();
     this.scrollable = this.remLength - $(this.sliderContainer).scrollLeft();
@@ -26,8 +27,9 @@ export class SliderService {
     );
   }
 
-  slideRight(btn) {
-    this.sliderContainer = $(btn).siblings(".this.sliderContainer");
+  slideRight({ currentTarget }) {
+    let btn = currentTarget;
+    this.sliderContainer = $(btn).siblings(".sliderContainer");
 
     $(this.sliderContainer).animate(
       {
@@ -37,8 +39,9 @@ export class SliderService {
     );
   }
 
-  slideDown(btn) {
-    this.sliderContainer = $(btn).siblings(".this.sliderContainer");
+  slideDown({ currentTarget }) {
+    let btn = currentTarget;
+    this.sliderContainer = $(btn).siblings(".sliderContainer");
     this.remLength =
       $(this.sliderContainer)[0].scrollHeight -
       $(this.sliderContainer).height();
@@ -52,8 +55,9 @@ export class SliderService {
     );
   }
 
-  slideUp(btn) {
-    this.sliderContainer = $(btn).siblings(".this.sliderContainer");
+  slideUp({ currentTarget }) {
+    let btn = currentTarget;
+    this.sliderContainer = $(btn).siblings(".sliderContainer");
 
     $(this.sliderContainer).animate(
       {
@@ -63,9 +67,10 @@ export class SliderService {
     );
   }
 
-  slideStop(btn) {
+  slideStop({ currentTarget }) {
+    let btn = currentTarget;
     $(btn)
-      .siblings(".this.sliderContainer")
+      .siblings(".sliderContainer")
       .stop();
   }
 }

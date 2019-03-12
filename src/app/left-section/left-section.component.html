@@ -1,6 +1,11 @@
 <div class="verticalLeftSlider">
   <!-- Left Vertical Slider start -->
-  <i class="fas fa-angle-up sliderControls" aria-hidden="true"></i>
+  <i
+    (mouseover)="sService.slideUp($event)"
+    (mouseleave)="sService.slideStop($event)"
+    class="fas fa-angle-up sliderControls"
+    aria-hidden="true"
+  ></i>
   <ul class="sliderContainer">
     <li *ngFor="let item of mainItems">
       <a href="#">
@@ -17,5 +22,10 @@
       </a>
     </li>
   </ul>
-  <i class="fas fa-angle-down sliderControls" aria-hidden="true"></i>
+  <i
+    (mouseover)="sService.slideDown($event)"
+    (mouseleave)="sService.slideStop($event)"
+    class="fas fa-angle-down sliderControls"
+    aria-hidden="true"
+  ></i>
 </div>

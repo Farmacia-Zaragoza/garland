@@ -1,3 +1,4 @@
+import { SliderService } from "./../global/slider.service";
 import { Component, OnInit } from "@angular/core";
 import {
   slideRight,
@@ -11,7 +12,7 @@ import {
   styleUrls: ["./bottom-section.component.scss"]
 })
 export class BottomSectionComponent implements OnInit {
-  constructor() {}
+  constructor(public sService: SliderService) {}
   visible = false;
 
   menuItems = [

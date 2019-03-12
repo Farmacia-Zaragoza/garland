@@ -1,3 +1,4 @@
+import { SliderService } from "./../global/slider.service";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./left-section.component.scss"]
 })
 export class LeftSectionComponent implements OnInit {
-  constructor() {}
+  constructor(public sService: SliderService) {}
 
   mainItems = [
     { name: "item 1" },
@@ -15,6 +16,14 @@ export class LeftSectionComponent implements OnInit {
     { name: "item 4" },
     { name: "item 5" },
     { name: "item 6" },
+    { name: "item 7" },
+    { name: "item 7" },
+    { name: "item 7" },
+    { name: "item 7" },
+    { name: "item 7" },
+    { name: "item 7" },
+    { name: "item 7" },
+    { name: "item 7" },
     { name: "item 7" }
   ];
 
