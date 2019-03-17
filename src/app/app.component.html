@@ -1,9 +1,29 @@
+<!-- <horizontal-slider id="horizontal" style="width: 500px" [duration]="5">
+  <i class="left-control sliderControls fa fa-angle-left"></i>
+  <div class="items">
+    <a *ngFor="let menu of menuItems" class="noselect" href="{{ menu.link }}">{{
+      menu.item
+    }}</a>
+  </div>
+  <i class="right-control sliderControls fa fa-angle-right"></i>
+</horizontal-slider> -->
+
+<!-- <vertical-slider style="height: 300px">
+  <i class="up-control sliderControls fa fa-angle-up"></i>
+  <ul class="items">
+    <li *ngFor="let menu of menuItems">
+      <a class="noselect" href="{{ menu.link }}">{{ menu.item }}</a>
+    </li>
+  </ul>
+  <i class="down-control sliderControls fa fa-angle-down"></i>
+</vertical-slider> -->
+
 <app-top-section></app-top-section>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col"><app-left-section></app-left-section></div>
 
-    <div class="col-6"><app-main></app-main></div>
+    <div class="col-8"><app-main></app-main></div>
 
     <div class="col"><app-right-section></app-right-section></div>
   </div>

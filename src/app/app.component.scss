@@ -1,0 +1,22 @@
+.items {
+  li {
+    // display: inline-block;
+    padding: 15px 35px;
+
+    a {
+      color: inherit;
+    }
+  }
+}
+
+#horizontal {
+  a {
+    // display: inline-block;
+    padding: 10px;
+  }
+}
+
+.sliderControls {
+  color: red;
+  font-size: 2em;
+}

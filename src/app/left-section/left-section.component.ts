@@ -1,5 +1,6 @@
 import { SliderService } from "./../global/slider.service";
 import { Component, OnInit } from "@angular/core";
+declare var $: any;
 
 @Component({
   selector: "app-left-section",
@@ -28,4 +29,12 @@ export class LeftSectionComponent implements OnInit {
   ];
 
   ngOnInit() {}
+
+  toggleInnerMenu({ target }) {
+    const left = $(target).width() + $(target).position().left;
+    $(target)
+      .children(".left-inner-menu")
+      // .css({ top: $(target).position().top + "px", left: $(target).width +"calc(100% - 52px)" });
+      .css({ top: $(target).position().top + 5 + "px", left: left + "px" });
+  }
 }

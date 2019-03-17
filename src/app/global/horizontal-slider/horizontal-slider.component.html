@@ -1,0 +1,17 @@
+<!-- <i
+  (mouseover)="sService.slideRight($event)"
+  (mouseleave)="sService.slideStop($event)"
+  class="right-control sliderControls fa fa-angle-left"
+></i> -->
+<!-- <div class="slider-wrapper"> -->
+<span (mouseover)="slideRight($event)" (mouseleave)="slideStop($event)">
+  <ng-content select=".left-control"></ng-content>
+</span>
+
+<div #sliderContainer class="sliderContainer">
+  <ng-content select=".items"></ng-content>
+</div>
+<span (mouseover)="slideLeft($event)" (mouseleave)="slideStop($event)">
+  <ng-content select=".right-control"></ng-content>
+</span>
+<!-- </div> -->

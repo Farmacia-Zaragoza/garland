@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  box-sizing: border-box;
+}
+
+span {
+  margin: auto 0;
+  cursor: pointer;
+}
+
+.sliderContainer {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: auto 0;
+}

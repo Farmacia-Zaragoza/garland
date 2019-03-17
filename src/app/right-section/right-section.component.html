@@ -1,1 +1,22 @@
-<app-left-section></app-left-section>
+<div class="side-bar">
+  <vertical-slider>
+    <i class="up-control main-slider-controls fa fa-angle-up"></i>
+    <ul class="items">
+      <li (mouseenter)="toggleInnerMenu($event)" *ngFor="let item of mainItems">
+        <a href="#">
+          {{ item.name }}
+        </a>
+        <div class="left-inner-menu">
+          <horizontal-slider>
+            <i class="left-control fa fa-angle-left slider-controls"></i>
+            <div class="items">
+              <a *ngFor="let itemi of mainItems" href="">{{ itemi.name }}</a>
+            </div>
+            <i class="right-control fa fa-angle-right slider-controls"></i>
+          </horizontal-slider>
+        </div>
+      </li>
+    </ul>
+    <i class="down-control main-slider-controls fa fa-angle-down"></i>
+  </vertical-slider>
+</div>

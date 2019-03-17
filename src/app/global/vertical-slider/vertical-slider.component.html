@@ -1,0 +1,10 @@
+<span (mouseover)="slideUp($event)" (mouseleave)="slideStop($event)">
+  <ng-content select=".up-control"></ng-content>
+</span>
+
+<div class="sliderContainer">
+  <ng-content select=".items"></ng-content>
+</div>
+<span (mouseover)="slideDown($event)" (mouseleave)="slideStop($event)">
+  <ng-content select=".down-control"></ng-content>
+</span>

@@ -1,31 +1,22 @@
-<div class="verticalLeftSlider">
-  <!-- Left Vertical Slider start -->
-  <i
-    (mouseover)="sService.slideUp($event)"
-    (mouseleave)="sService.slideStop($event)"
-    class="fas fa-angle-up sliderControls"
-    aria-hidden="true"
-  ></i>
-  <ul class="sliderContainer">
-    <li *ngFor="let item of mainItems">
-      <a href="#">
-        <!-- <i class="fas fa-xs {{ item.icon }}" aria-hidden="true"></i> -->
-        <!-- <div class="left-inner-menu">
-          <div class="layer-bg">
-            <a href="{{ item['common-link'] }}">{{ item.parent }}</a>
-            <span>|</span>
-            <a href="{{ item?.link }}">{{ item.item || "item" }}</a>
-          </div>
-        </div> -->
-
-        {{ item.name }}
-      </a>
-    </li>
-  </ul>
-  <i
-    (mouseover)="sService.slideDown($event)"
-    (mouseleave)="sService.slideStop($event)"
-    class="fas fa-angle-down sliderControls"
-    aria-hidden="true"
-  ></i>
+<div class="side-bar">
+  <vertical-slider>
+    <i class="up-control main-slider-controls fa fa-angle-up"></i>
+    <ul class="items">
+      <li (mouseenter)="toggleInnerMenu($event)" *ngFor="let item of mainItems">
+        <a href="#">
+          {{ item.name }}
+        </a>
+        <div class="left-inner-menu">
+          <horizontal-slider>
+            <i class="left-control fa fa-angle-left slider-controls"></i>
+            <div class="items">
+              <a *ngFor="let itemi of mainItems" href="">{{ itemi.name }}</a>
+            </div>
+            <i class="right-control fa fa-angle-right slider-controls"></i>
+          </horizontal-slider>
+        </div>
+      </li>
+    </ul>
+    <i class="down-control main-slider-controls fa fa-angle-down"></i>
+  </vertical-slider>
 </div>
