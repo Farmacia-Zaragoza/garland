@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { PageService } from "../page.service";
 
 @Component({
   selector: "app-top-section",
@@ -12,7 +13,11 @@ export class TopSectionComponent implements OnInit {
       "url(http://cica.dbrqx.com/rimg/cica/images/brqx_hozdepriegotajoosa_0512x0192.png)"
   };
 
-  constructor() {}
+  constructor(private service: PageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.done.subscribe(res => {
+      console.log(res);
+    });
+  }
 }

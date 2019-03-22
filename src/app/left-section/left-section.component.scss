@@ -32,9 +32,9 @@ $hover-color: #f5774f;
       text-align: center;
       margin: 15px 0;
       &:hover {
-        .left-inner-menu {
-          display: block;
-        }
+        // .left-inner-menu {
+        //   display: block;
+        // }
 
         & > a {
           color: $hover-color;
@@ -61,6 +61,7 @@ $hover-color: #f5774f;
     width: 250px;
     background: #78c55f;
     padding: 10px;
+    padding-bottom: 25px;
     border-radius: 5px;
     transition: none;
 
@@ -83,6 +84,19 @@ $hover-color: #f5774f;
       &:hover {
         color: $hover-color;
       }
+    }
+  }
+
+  i.sticky {
+    position: absolute;
+    bottom: 5px;
+    font-size: 12px;
+    cursor: pointer;
+
+    &.pinned {
+      background: rgb(163, 157, 157);
+      padding: 2px;
+      border-radius: 50%;
     }
   }
 }

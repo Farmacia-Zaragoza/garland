@@ -2,7 +2,11 @@
   <vertical-slider>
     <i class="up-control main-slider-controls fa fa-angle-up"></i>
     <ul class="items">
-      <li (mouseenter)="toggleInnerMenu($event)" *ngFor="let item of mainItems">
+      <li
+        (mouseenter)="showInnerMenu($event)"
+        (mouseleave)="hideInnerMenu($event)"
+        *ngFor="let item of mainItems"
+      >
         <a href="#">
           {{ item.name }}
         </a>
@@ -14,6 +18,11 @@
             </div>
             <i class="right-control fa fa-angle-right slider-controls"></i>
           </horizontal-slider>
+          <i
+            (click)="toggleSticky()"
+            [class.pinned]="pinned"
+            class="fa fa-asterisk sticky"
+          ></i>
         </div>
       </li>
     </ul>

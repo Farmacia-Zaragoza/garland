@@ -28,13 +28,32 @@ export class LeftSectionComponent implements OnInit {
     { name: "item 7" }
   ];
 
+  pinned = false;
+
   ngOnInit() {}
 
-  toggleInnerMenu({ target }) {
+  showInnerMenu({ target }) {
+    if (this.pinned) return;
     const left = $(target).width() + $(target).position().left;
     $(target)
       .children(".left-inner-menu")
-      // .css({ top: $(target).position().top + "px", left: $(target).width +"calc(100% - 52px)" });
-      .css({ top: $(target).position().top + 5 + "px", left: left + "px" });
+      .css({
+        display: "block",
+        top: $(target).position().top + 5 + "px",
+        left: left + "px"
+      });
+  }
+  hideInnerMenu({ target }) {
+    if (this.pinned) return;
+    $(target)
+      .children(".left-inner-menu")
+      .css({
+        display: "none"
+      });
+  }
+
+  toggleSticky() {
+    this.pinned = !this.pinned;
+    // alert(this.pinned);
   }
 }
