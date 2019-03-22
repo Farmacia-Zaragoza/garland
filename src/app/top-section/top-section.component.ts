@@ -17,7 +17,7 @@ export class TopSectionComponent implements OnInit {
 
   ngOnInit() {
     this.service.done.subscribe(res => {
-      console.log(res);
+      console.log(res["common_json"]);
     });
   }
 }

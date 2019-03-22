@@ -7,14 +7,18 @@
         (mouseleave)="hideInnerMenu($event)"
         *ngFor="let item of mainItems"
       >
-        <a href="#">
+        <a href="{{ item.clink }}">
           {{ item.name }}
         </a>
-        <div class="left-inner-menu">
+        <div *ngIf="item.childrens" class="left-inner-menu">
           <horizontal-slider>
             <i class="left-control fa fa-angle-left slider-controls"></i>
             <div class="items">
-              <a *ngFor="let itemi of mainItems" href="">{{ itemi.name }}</a>
+              <a
+                *ngFor="let pItem of item['pull02']"
+                href="{{ pItem.clink }}"
+                >{{ pItem.name }}</a
+              >
             </div>
             <i class="right-control fa fa-angle-right slider-controls"></i>
           </horizontal-slider>

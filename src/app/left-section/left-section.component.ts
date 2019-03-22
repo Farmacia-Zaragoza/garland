@@ -1,4 +1,4 @@
-import { SliderService } from "./../global/slider.service";
+import { PageService } from "./../page.service";
 import { Component, OnInit } from "@angular/core";
 declare var $: any;
 
@@ -8,7 +8,7 @@ declare var $: any;
   styleUrls: ["./left-section.component.scss"]
 })
 export class LeftSectionComponent implements OnInit {
-  constructor(public sService: SliderService) {}
+  constructor(public service: PageService) {}
 
   mainItems = [
     { name: "item 1" },
@@ -30,7 +30,12 @@ export class LeftSectionComponent implements OnInit {
 
   pinned = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.done.subscribe(data => {
+      this.mainItems = data["common_json"]["left"];
+      // console.log(this.mainItems);
+    });
+  }
 
   showInnerMenu({ target }) {
     if (this.pinned) return;
