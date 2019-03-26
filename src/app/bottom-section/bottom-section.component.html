@@ -1,6 +1,14 @@
-<footer id="footer" [ngClass]="{ visible: visible }">
+<footer
+  id="footer"
+  [ngClass]="{ visible: visible }"
+  [style.background]="'#' + config?.bgcolor"
+>
   <div class="container">
-    <button (click)="toggleFooter()" id="footerToggle">
+    <button
+      [style.background]="'#' + config?.bgcolor"
+      (click)="toggleFooter()"
+      id="footerToggle"
+    >
       <i class="fa fa-angle-up"></i>
     </button>
 
@@ -12,7 +20,7 @@
       ></i>
       <ul class="sliderContainer">
         <li #footerMenu *ngFor="let menu of menuItems" class="footerNavItem">
-          <a class="noselect" href="{{ menu.link }}">{{ menu.item }}</a>
+          <a class="noselect" href="{{ menu.clink }}">{{ menu.name }}</a>
         </li>
       </ul>
       <i

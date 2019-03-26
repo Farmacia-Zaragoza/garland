@@ -2,6 +2,9 @@
 
 // @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 700);
 
+$text-color: rgb(33, 37, 41);
+$hover-color: #f5774f;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +12,7 @@
 body {
   //   font-family: "Open Sans", "sans-serif";
   //   font-size: 14px;
+  color: $text-color;
 }
 
 ul {

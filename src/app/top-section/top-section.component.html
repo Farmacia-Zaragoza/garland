@@ -1,3 +1,16 @@
-<div [ngStyle]="styles" class="container-fluid">
-  <!-- <p>{{ topSection.bgImage }}</p> -->
+<!-- <div [ngStyle]="styles" class="container-fluid"> -->
+<div [style.background]="'#' + topConfig?.bgcolor" class="container-fluid">
+  <div class="row" *ngIf="topConfig?.type === 'menu'">
+    <div class="container">
+      <horizontal-slider>
+        <i class="left-control fa fa-angle-left slider-controls"></i>
+        <div class="items">
+          <a *ngFor="let item of menuItems" href="{{ item.clink }}">{{
+            item.name
+          }}</a>
+        </div>
+        <i class="right-control fa fa-angle-right slider-controls"></i>
+      </horizontal-slider>
+    </div>
+  </div>
 </div>

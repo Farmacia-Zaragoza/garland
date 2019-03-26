@@ -21,13 +21,22 @@
 <app-top-section></app-top-section>
 <div class="container-fluid">
   <div class="row">
-    <div class="col"><app-left-section></app-left-section></div>
+    <div [style.background]="'#' + leftConfig()?.bgcolor" class="col">
+      <div class="side-bar">
+        <app-left-section [config]="leftConfig()"></app-left-section>
+      </div>
+    </div>
 
     <div class="col-8"><app-main></app-main></div>
 
-    <div class="col"><app-right-section></app-right-section></div>
+    <div [style.background]="'#' + rightConfig()?.bgcolor" class="col">
+      <div class="side-bar">
+        <app-right-section [config]="rightConfig()"></app-right-section>
+        <!-- <app-left-section [config]="rightConfig()"></app-left-section> -->
+      </div>
+    </div>
   </div>
 </div>
-<div class="container">
-  <app-bottom-section></app-bottom-section>
-</div>
+<!-- <div class="container-fluid"> -->
+<app-bottom-section></app-bottom-section>
+<!-- </div> -->

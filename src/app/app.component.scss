@@ -20,3 +20,12 @@
   color: red;
   font-size: 2em;
 }
+.side-bar {
+  height: calc(100vh - 110px);
+  display: flex;
+  padding: 0 0 0 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}

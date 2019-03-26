@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { PageService } from "../page.service";
 declare var $: any;
 @Component({
   selector: "app-right-section",
@@ -6,32 +7,49 @@ declare var $: any;
   styleUrls: ["./right-section.component.scss"]
 })
 export class RightSectionComponent implements OnInit {
-  constructor() {}
-  mainItems = [
-    { name: "item 1" },
-    { name: "item 2" },
-    { name: "item 3" },
-    { name: "item 4" },
-    { name: "item 5" },
-    { name: "item 6" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" }
-  ];
+  // toggleInnerMenu({ target }) {
+  //   const left = $(target).width();
+  //   $(target)
+  //     .children(".left-inner-menu")
+  //     // .css({ top: $(target).position().top + "px", left: $(target).width +"calc(100% - 52px)" });
+  //     .css({ top: $(target).position().top + 5 + "px", right: left + "px" });
+  // }
 
-  ngOnInit() {}
+  constructor(public service: PageService) {}
 
-  toggleInnerMenu({ target }) {
+  mainItems = [];
+  @Input("config") config = {};
+
+  pinned = false;
+
+  ngOnInit() {
+    this.service.done.subscribe(data => {
+      this.mainItems = data["common_json"]["right"];
+    });
+  }
+
+  showInnerMenu({ target }) {
+    if (this.pinned) return;
     const left = $(target).width();
     $(target)
       .children(".left-inner-menu")
-      // .css({ top: $(target).position().top + "px", left: $(target).width +"calc(100% - 52px)" });
-      .css({ top: $(target).position().top + 5 + "px", right: left + "px" });
+      .css({
+        display: "block",
+        top: $(target).position().top + 5 + "px",
+        right: left + "px"
+      });
+  }
+  hideInnerMenu({ target }) {
+    if (this.pinned) return;
+    $(target)
+      .children(".left-inner-menu")
+      .css({
+        display: "none"
+      });
+  }
+
+  toggleSticky() {
+    this.pinned = !this.pinned;
+    // alert(this.pinned);
   }
 }

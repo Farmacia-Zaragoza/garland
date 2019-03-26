@@ -1,12 +1,15 @@
-import { Component } from "@angular/core";
+import { PageService } from "./page.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
-export class AppComponent {
-  title = "garland";
+export class AppComponent implements OnInit {
+  constructor(private service: PageService) {}
+
+  configs = [];
 
   menuItems = [
     { link: "#", item: "item1" },
@@ -25,4 +28,20 @@ export class AppComponent {
     { link: "#", item: "item11" },
     { link: "#", item: "item11" }
   ];
+
+  ngOnInit() {
+    this.service.done.subscribe(data => {
+      this.configs = data["common_json"]["main"];
+      // console.log(this.configs);
+      // console.log(this.mainItems);
+    });
+  }
+
+  leftConfig() {
+    return this.configs.filter(config => config.name === "left")[0];
+  }
+
+  rightConfig() {
+    return this.configs.filter(config => config.name === "right")[0];
+  }
 }

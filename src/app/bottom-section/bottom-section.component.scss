@@ -1,85 +1,91 @@
+$text-color: rgb(33, 37, 41);
+$hover-color: #f5774f;
+
 #footer {
-    position: fixed;
-    bottom: -35px;
-    left: 0;
-    background: #e8fcfb;
-    color: #13d7d6;
-    font-weight: 400;
-    z-index: 99;
-    display: block;
-    width: 100%;
-    transition: 0.5s ease-out;
+  position: fixed;
+  bottom: -35px;
+  left: 0;
+  // background: #e8fcfb;
+  color: $text-color;
+  font-weight: 400;
+  z-index: 99;
+  display: block;
+  width: 100%;
+  transition: 0.5s ease-out;
+}
+#footer.visible {
+  bottom: 0;
+}
+
+#footerNav {
+  display: flex;
+  justify-content: center;
+}
+#footerNav i.sliderControls:hover {
+  cursor: pointer;
+}
+#footerNav i.sliderControls {
+  margin: auto 0;
+  font-size: 30px;
+}
+
+ul.sliderContainer {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 30px;
+}
+
+ul.sliderContainer li {
+  display: inline-block;
+  padding: 15px 35px;
+}
+
+ul.sliderContainer li a {
+  color: $text-color;
+
+  &:hover {
+    color: $hover-color;
   }
-  #footer.visible {
-    bottom: 0;
+}
+
+#footerToggle {
+  position: absolute;
+  top: -25px;
+  left: calc(50% - 32px);
+  border: none;
+  z-index: 100;
+  // background-color: #e8fcfb;
+  border-radius: 5px;
+}
+#footerToggle:focus {
+  outline: none;
+}
+#footerToggle:hover {
+  cursor: pointer;
+}
+#footerToggle i {
+  color: $text-color;
+  padding: 0px 25px;
+  font-size: 30px;
+  transition-delay: 0.5s;
+  transition: 1s ease-out;
+}
+
+#footer.visible #footerToggle i {
+  transform: rotateX(180deg);
+}
+
+@media (min-width: 2100px) {
+  #footer {
+    bottom: -50px;
   }
-  
-  #footerNav {
-    display: flex;
-    justify-content: center;
-  }
-  #footerNav i.sliderControls:hover {
-    cursor: pointer;
-  }
-  #footerNav i.sliderControls {
-    margin: auto 0;
-    font-size: 30px;
-  }
-  
-  ul.sliderContainer {
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 30px;
-  }
-  
-  ul.sliderContainer li {
-    display: inline-block;
-    padding: 15px 35px;
-  }
-  
-  ul.sliderContainer li a {
-    color: #13d7d6;
-  }
-  
+
   #footerToggle {
-    position: absolute;
-    top: -25px;
-    left: calc(50% - 32px);
-    border: none;
-    z-index: 100;
-    background-color: #e8fcfb;
-    border-radius: 5px;
+    top: -40px;
+    padding: 0 5px;
   }
-  #footerToggle:focus {
-    outline: none;
-  }
-  #footerToggle:hover {
-    cursor: pointer;
-  }
+
   #footerToggle i {
-    color: #13d7d6;
-    padding: 0px 25px;
-    font-size: 30px;
-    transition-delay: 0.5s;
-    transition: 1s ease-out;
+    font-size: 60px;
   }
-  
-  #footer.visible #footerToggle i {
-    transform: rotateX(180deg);
-  }
-  
-  @media (min-width: 2100px) {
-    #footer {
-      bottom: -50px;
-    }
-  
-    #footerToggle {
-      top: -40px;
-      padding: 0 5px;
-    }
-  
-    #footerToggle i {
-      font-size: 60px;
-    }
-  }
-  
+}

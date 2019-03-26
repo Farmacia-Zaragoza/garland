@@ -1,3 +1,25 @@
+$text-color: rgb(33, 37, 41);
+$hover-color: #f5774f;
+
 .container-fluid {
-  height: 200px;
+  height: auto;
+}
+
+horizontal-slider {
+  .slider-controls {
+    font-size: 2em;
+    margin: auto 10px;
+    color: #78c55f;
+  }
+  .items {
+    a {
+      display: inline-block;
+      padding: 10px;
+      color: $text-color;
+      transition: 0.3s ease-in;
+      &:hover {
+        color: $hover-color;
+      }
+    }
+  }
 }

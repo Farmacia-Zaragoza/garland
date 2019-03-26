@@ -1,5 +1,5 @@
 import { PageService } from "./../page.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 declare var $: any;
 
 @Component({
@@ -10,30 +10,14 @@ declare var $: any;
 export class LeftSectionComponent implements OnInit {
   constructor(public service: PageService) {}
 
-  mainItems = [
-    { name: "item 1" },
-    { name: "item 2" },
-    { name: "item 3" },
-    { name: "item 4" },
-    { name: "item 5" },
-    { name: "item 6" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" },
-    { name: "item 7" }
-  ];
+  mainItems = [];
+  @Input("config") config = {};
 
   pinned = false;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
       this.mainItems = data["common_json"]["left"];
-      // console.log(this.mainItems);
     });
   }
 
