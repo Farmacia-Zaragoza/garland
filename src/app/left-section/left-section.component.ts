@@ -11,7 +11,7 @@ export class LeftSectionComponent implements OnInit {
   constructor(public service: PageService) {}
 
   mainItems = [];
-  @Input("config") config = {};
+  @Input("config") config: any = {};
 
   pinned = false;
 

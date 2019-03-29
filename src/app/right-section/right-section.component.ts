@@ -18,7 +18,7 @@ export class RightSectionComponent implements OnInit {
   constructor(public service: PageService) {}
 
   mainItems = [];
-  @Input("config") config = {};
+  @Input("config") config: any = {};
 
   pinned = false;
 

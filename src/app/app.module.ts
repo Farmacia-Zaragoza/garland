@@ -10,6 +10,7 @@ import { BottomSectionComponent } from "./bottom-section/bottom-section.componen
 import { MainComponent } from "./main/main.component";
 import { HorizontalSliderComponent } from "./global/horizontal-slider/horizontal-slider.component";
 import { VerticalSliderComponent } from "./global/vertical-slider/vertical-slider.component";
+import { TopHeaderComponent } from './top-header/top-header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { VerticalSliderComponent } from "./global/vertical-slider/vertical-slide
     BottomSectionComponent,
     MainComponent,
     HorizontalSliderComponent,
-    VerticalSliderComponent
+    VerticalSliderComponent,
+    TopHeaderComponent
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [{ provide: "AppData", useValue: (<any>window).APP_DATA }],

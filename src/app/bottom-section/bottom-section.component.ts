@@ -16,20 +16,8 @@ export class BottomSectionComponent implements OnInit {
   constructor(public sService: SliderService, private service: PageService) {}
   visible = false;
 
-  menuItems = [
-    { link: "#", item: "item1" },
-    { link: "#", item: "item2" },
-    { link: "#", item: "item3" },
-    { link: "#", item: "item4" },
-    { link: "#", item: "item5" },
-    { link: "#", item: "item6" },
-    { link: "#", item: "item7" },
-    { link: "#", item: "item8" },
-    { link: "#", item: "item9" },
-    { link: "#", item: "item10" },
-    { link: "#", item: "item11" }
-  ];
-  config = {};
+  menuItems = [];
+  config: any = {};
 
   ngOnInit() {
     this.service.done.subscribe(res => {
@@ -38,7 +26,7 @@ export class BottomSectionComponent implements OnInit {
       this.config = res["common_json"]["main"].filter(
         (items: any) => items.name === "footer"
       )[0];
-      console.log(this.menuItems);
+      // console.log(this.menuItems);
     });
   }
 
