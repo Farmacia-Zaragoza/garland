@@ -1,4 +1,21 @@
 .container-fluid {
   height: 200px;
   background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  #flag-horizontal {
+    width: 50%;
+
+    .sliderControls {
+      font-size: 2rem;
+      margin: 5px;
+    }
+    .items {
+      a {
+        padding: 5px 10px;
+      }
+    }
+  }
 }
