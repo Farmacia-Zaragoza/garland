@@ -28,7 +28,7 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
-            "scripts": ["./node_modules/jquery/dist/jquery.min.js"],
+            "scripts": [],
             "es5BrowserSupport": true
           },
           "configurations": {

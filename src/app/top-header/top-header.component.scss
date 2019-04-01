@@ -4,6 +4,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
 
   #flag-horizontal {
     width: 50%;
@@ -11,10 +24,15 @@
     .sliderControls {
       font-size: 2rem;
       margin: 5px;
+      color: #78c55f;
     }
     .items {
       a {
         padding: 5px 10px;
+
+        img {
+          width: 60px;
+        }
       }
     }
   }
