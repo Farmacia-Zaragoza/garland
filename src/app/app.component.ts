@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.service.done.subscribe(data => {
       this.configs = data["common_json"]["main"];
-      // console.log(this.configs);
+      console.log(this.rightConfig());
       // console.log(this.mainItems);
     });
   }

@@ -10,24 +10,49 @@
         <a href="{{ item.clink }}">
           {{ item.name }}
         </a>
-        <div *ngIf="item.childrens" class="left-inner-menu">
-          <horizontal-slider>
-            <i class="left-control fa fa-angle-left slider-controls"></i>
-            <div class="items">
-              <a
-                *ngFor="let pItem of item['pull02']"
-                href="{{ pItem.clink }}"
-                >{{ pItem.name }}</a
-              >
+        <ng-template [ngIf]="item.childrens">
+          <div
+            *ngIf="config.value === 'more'; else oneBlock"
+            class="left-inner-menu"
+          >
+            <horizontal-slider>
+              <i class="left-control fa fa-angle-left slider-controls"></i>
+              <div class="items">
+                <a
+                  *ngFor="let pItem of item['pull02']"
+                  href="{{ pItem.clink }}"
+                  >{{ pItem.name }}</a
+                >
+              </div>
+              <i class="right-control fa fa-angle-right slider-controls"></i>
+            </horizontal-slider>
+            <i
+              (click)="toggleSticky()"
+              [class.pinned]="pinned"
+              class="fa fa-asterisk sticky"
+            ></i>
+          </div>
+
+          <ng-template #oneBlock>
+            <div class="left-inner-menu">
+              <div class="oneItems">
+                <div
+                  #oneItems
+                  *ngFor="let pItem of item['pull02']"
+                  class="oneItem"
+                >
+                  <a href="{{ pItem.clink }}">{{ pItem.name }}</a>
+                </div>
+              </div>
+
+              <i
+                (click)="toggleSticky()"
+                [class.pinned]="pinned"
+                class="fa fa-asterisk sticky"
+              ></i>
             </div>
-            <i class="right-control fa fa-angle-right slider-controls"></i>
-          </horizontal-slider>
-          <i
-            (click)="toggleSticky()"
-            [class.pinned]="pinned"
-            class="fa fa-asterisk sticky"
-          ></i>
-        </div>
+          </ng-template>
+        </ng-template>
       </li>
     </ul>
     <i class="down-control main-slider-controls fa fa-angle-down"></i>

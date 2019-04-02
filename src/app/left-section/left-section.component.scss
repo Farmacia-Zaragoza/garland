@@ -89,6 +89,20 @@ vertical-slider {
       }
     }
 
+    .oneItems {
+      background: #78c55f;
+      padding: 10px;
+      padding-bottom: 25px;
+      width: 250px;
+
+      .oneItem {
+        a {
+          // display: block;
+          padding: 10px;
+        }
+      }
+    }
+
     i.sticky {
       position: absolute;
       bottom: 5px;

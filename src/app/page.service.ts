@@ -21,7 +21,7 @@ export class PageService {
     this.lang_common_json_url = appData.lang_common_json;
     this.lang_spec_json_url = appData.lang_spec_json;
 
-    console.log(window.location.hostname);
+    // console.log(window.location.hostname);
     // this.getPageContent();
     // this.getGlobalCommonData();
     // this.getLangCommonData();

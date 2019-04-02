@@ -1,5 +1,12 @@
 import { PageService } from "./../page.service";
-import { Component, OnInit, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  AfterViewInit,
+  ViewChildren,
+  QueryList
+} from "@angular/core";
 declare var $: any;
 
 @Component({
@@ -7,17 +14,26 @@ declare var $: any;
   templateUrl: "./left-section.component.html",
   styleUrls: ["./left-section.component.scss"]
 })
-export class LeftSectionComponent implements OnInit {
+export class LeftSectionComponent implements OnInit, AfterViewInit {
   constructor(public service: PageService) {}
 
   mainItems = [];
   @Input("config") config: any = {};
+  @ViewChildren("oneItems") oneItems: QueryList<any>;
 
   pinned = false;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
       this.mainItems = data["common_json"]["left"];
+    });
+  }
+
+  ngAfterViewInit() {
+    // console.log(this.config);
+    this.oneItems.changes.subscribe(t => {
+      console.log("working view children");
+      this.initOneSlider();
     });
   }
 
@@ -44,5 +60,15 @@ export class LeftSectionComponent implements OnInit {
   toggleSticky() {
     this.pinned = !this.pinned;
     // alert(this.pinned);
+  }
+
+  initOneSlider() {
+    $(".oneItems").slick({
+      prevArrow: `<i class="fa fa-angle-left"></i>`,
+      nextArrow: `<i class="fa fa-angle-right"></i>`,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    });
   }
 }
