@@ -16,12 +16,12 @@ export class TopHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      this.config = data.common_json.main.filter(
-        item => item.name === "top"
-      )[0];
-      this.logo = data.common_json.main.filter(item => item.name === "logo")[0];
-      this.langs = data.common_json.langs;
-      console.log(this.langs);
+      // this.config = data.common_json.main.filter(
+      //   item => item.name === "top"
+      // )[0];
+      // this.logo = data.common_json.main.filter(item => item.name === "logo")[0];
+      // this.langs = data.common_json.langs;
+      // console.log(this.langs);
     });
   }
 

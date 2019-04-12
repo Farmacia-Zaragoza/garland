@@ -33,7 +33,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
     // console.log(this.config);
     this.oneItems.changes.subscribe(t => {
       console.log("working view children");
-      this.initOneSlider();
+      // this.initOneSlider();
     });
   }
 

@@ -16,16 +16,14 @@ export class BottomSectionComponent implements OnInit {
   constructor(public sService: SliderService, private service: PageService) {}
   visible = false;
 
-  menuItems = [];
-  config: any = {};
+  menuItems = {};
+  style: any = {};
 
   ngOnInit() {
     this.service.done.subscribe(res => {
       // console.log(res["common_json"]);
-      this.menuItems = res["common_json"]["bottom"];
-      this.config = res["common_json"]["main"].filter(
-        (items: any) => items.name === "footer"
-      )[0];
+      this.menuItems = this.service.getBottomMenu();
+      this.style = this.service.getBottomStyle();
       // console.log(this.menuItems);
     });
   }

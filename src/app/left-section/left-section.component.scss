@@ -58,6 +58,7 @@ vertical-slider {
     background-color: transparent;
     padding-left: 25px;
     display: none;
+    // background: #78c55f;
 
     horizontal-slider {
       width: 250px;
@@ -89,19 +90,22 @@ vertical-slider {
       }
     }
 
-    .oneItems {
-      background: #78c55f;
-      padding: 10px;
-      padding-bottom: 25px;
-      width: 250px;
+    // .oneItems {
+    //   background: #78c55f;
+    //   padding: 10px 30px 55px 10px;
+    //   width: 250px;
+    //   // overflow: hidden;
+    //   // display: flex;
 
-      .oneItem {
-        a {
-          // display: block;
-          padding: 10px;
-        }
-      }
-    }
+    //   .oneItem {
+    //     display: inline;
+
+    //     a {
+    //       // display: block;
+    //       padding: 10px;
+    //     }
+    //   }
+    // }
 
     i.sticky {
       position: absolute;

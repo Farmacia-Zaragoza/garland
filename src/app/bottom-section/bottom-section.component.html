@@ -1,11 +1,11 @@
 <footer
   id="footer"
   [ngClass]="{ visible: visible }"
-  [style.background]="'#' + config?.bgcolor"
+  [style.background]="'#' + style?.value"
 >
   <div class="container">
     <button
-      [style.background]="'#' + config?.bgcolor"
+      [style.background]="'#' + style?.value"
       (click)="toggleFooter()"
       id="footerToggle"
     >
@@ -19,8 +19,12 @@
         class="sliderControls fa fa-angle-left"
       ></i>
       <ul class="sliderContainer">
-        <li #footerMenu *ngFor="let menu of menuItems" class="footerNavItem">
-          <a class="noselect" href="{{ menu.clink }}">{{ menu.name }}</a>
+        <li
+          #footerMenu
+          *ngFor="let item of (menuItems | keyvalue)"
+          class="footerNavItem"
+        >
+          <a class="noselect" href="{{ item.value.clink }}">{{ item.key }}</a>
         </li>
       </ul>
       <i
