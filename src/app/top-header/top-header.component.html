@@ -1,13 +1,13 @@
 <div [ngStyle]="topBgUrl()" class="container-fluid">
   <a href="/" id="logo">
-    <img *ngIf="logo" src="{{ server + logo?.value }}" alt="" />
+    <!-- <img *ngIf="logo" src="{{ server + logo?.value }}" alt="" /> -->
   </a>
 
   <horizontal-slider id="flag-horizontal">
     <i class="left-control sliderControls fa fa-angle-left"></i>
     <div class="items">
-      <a *ngFor="let lang of langs" href="{{ lang.clink }}">
-        <img src="{{ server + lang.flag }}" alt="{{ lang.name }}" />
+      <a *ngFor="let lang of (langs | keyvalue)" href="{{ lang.value.clink }}">
+        <img src="{{ server + lang.value.flag }}" alt="{{ lang.value.name }}" />
       </a>
     </div>
     <i class="right-control sliderControls fa fa-angle-right"></i>

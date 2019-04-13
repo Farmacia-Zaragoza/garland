@@ -12,7 +12,7 @@ export class TopHeaderComponent implements OnInit {
   server: string = environment.server;
   config: any;
   logo: any;
-  langs: Array<any>;
+  langs: {};
 
   ngOnInit() {
     this.service.done.subscribe(data => {
@@ -22,13 +22,19 @@ export class TopHeaderComponent implements OnInit {
       // this.logo = data.common_json.main.filter(item => item.name === "logo")[0];
       // this.langs = data.common_json.langs;
       // console.log(this.langs);
+
+      const top = this.service.getTop();
+      // console.log(top);
+      this.config = top.styles;
+      this.langs = top.langs;
+      this.logo = top.logo;
     });
   }
 
   topBgUrl() {
     if (!this.config) return {};
     const style = {
-      backgroundImage: `url(${this.server + this.config.value})`
+      backgroundImage: `url(${this.server + this.config.img})`
     };
     return style;
   }

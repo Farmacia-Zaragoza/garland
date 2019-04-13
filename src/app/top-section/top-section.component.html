@@ -1,13 +1,15 @@
 <!-- <div [ngStyle]="styles" class="container-fluid"> -->
-<div [style.background]="'#' + topConfig?.bgcolor" class="container-fluid">
+<div [style.background]="'#' + bgColor" class="container-fluid">
   <div class="row">
     <div class="container">
       <horizontal-slider>
         <i class="left-control fa fa-angle-left slider-controls"></i>
         <div class="items">
-          <a *ngFor="let item of menuItems" href="{{ item.clink }}">{{
-            item.name
-          }}</a>
+          <a
+            *ngFor="let item of (menuItems | keyvalue)"
+            href="{{ item.value.clink }}"
+            >{{ item.value.name }}</a
+          >
         </div>
         <i class="right-control fa fa-angle-right slider-controls"></i>
       </horizontal-slider>

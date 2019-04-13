@@ -49,4 +49,19 @@ export class PageService {
   public getBottomStyle() {
     return this.allData.common_json.regions.bottom.pull02.style;
   }
+
+  public getTop() {
+    const styles = this.allData.common_json.regions.top.pull02.style;
+    const langs = this.allData.common_json.langs;
+    const logo = {};
+
+    return { styles, langs, logo };
+  }
+
+  public getHeader() {
+    const styles = this.allData.common_json.regions.header.pull02.style;
+    const menus = this.allData.common_json.regions.header.pull02.content.pull03;
+
+    return { styles, menus };
+  }
 }

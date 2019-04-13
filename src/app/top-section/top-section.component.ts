@@ -14,14 +14,7 @@ export class TopSectionComponent implements OnInit {
   };
 
   menuItems = [];
-  topConfig = {
-    bgcolor: "ECE3E9",
-    clink: "taxonomy/top",
-    index: "003",
-    name: "top",
-    type: "menu",
-    value: ""
-  };
+  bgColor;
 
   constructor(private service: PageService) {}
 
@@ -33,6 +26,10 @@ export class TopSectionComponent implements OnInit {
       //   (items: any) => items.name === "top"
       // )[0];
       // console.log(this.topConfig)
+      const header = this.service.getHeader();
+      // console.log(header);
+      this.bgColor = header.styles.value;
+      this.menuItems = header.menus;
     });
   }
 }
