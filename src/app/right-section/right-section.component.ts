@@ -17,14 +17,18 @@ export class RightSectionComponent implements OnInit {
 
   constructor(public service: PageService) {}
 
-  mainItems = [];
+  mainItems = {};
   @Input("config") config: any = {};
+  // style
 
   pinned = false;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      this.mainItems = data["common_json"]["right"];
+      // this.mainItems = data["common_json"]["right"];
+      const right = this.service.getRight();
+      this.mainItems = right.menus;
+      console.log(this.mainItems);
     });
   }
 

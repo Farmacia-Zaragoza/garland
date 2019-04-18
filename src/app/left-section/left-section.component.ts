@@ -17,7 +17,7 @@ declare var $: any;
 export class LeftSectionComponent implements OnInit, AfterViewInit {
   constructor(public service: PageService) {}
 
-  mainItems = [];
+  mainItems = {};
   @Input("config") config: any = {};
   @ViewChildren("oneItems") oneItems: QueryList<any>;
 
@@ -25,16 +25,23 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      this.mainItems = data["common_json"]["left"];
+      // this.mainItems = data["common_json"]["left"];
+      const left = this.service.getLeft();
+      this.mainItems = left.menus;
+      // this.styles = left.styles;
+
+      // this.config.value = ""; // quick fix
+
+      // console.log(this.mainItems);
     });
   }
 
   ngAfterViewInit() {
     // console.log(this.config);
-    this.oneItems.changes.subscribe(t => {
-      console.log("working view children");
-      // this.initOneSlider();
-    });
+    // this.oneItems.changes.subscribe(t => {
+    //   console.log("working view children");
+    //   // this.initOneSlider();
+    // });
   }
 
   showInnerMenu({ target }) {
@@ -59,7 +66,6 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
 
   toggleSticky() {
     this.pinned = !this.pinned;
-    // alert(this.pinned);
   }
 
   initOneSlider() {

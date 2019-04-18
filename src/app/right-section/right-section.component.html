@@ -1,23 +1,24 @@
-<div *ngIf="config?.type === 'doublemenu'" class="contentontainer">
+<!-- <div *ngIf="config?.type === 'doublemenu'" class="contentontainer"> -->
+<div class="contentontainer">
   <vertical-slider>
     <i class="up-control main-slider-controls fa fa-angle-up"></i>
     <ul class="items">
       <li
         (mouseenter)="showInnerMenu($event)"
         (mouseleave)="hideInnerMenu($event)"
-        *ngFor="let item of mainItems"
+        *ngFor="let item of (mainItems | keyvalue)"
       >
-        <a href="{{ item.clink }}">
-          {{ item.name }}
+        <a href="{{ item.value.clink }}">
+          {{ item.value.id }}
         </a>
-        <div *ngIf="item.childrens" class="left-inner-menu">
+        <div *ngIf="item.value.childrens" class="left-inner-menu">
           <horizontal-slider>
             <i class="left-control fa fa-angle-left slider-controls"></i>
             <div class="items">
               <a
-                *ngFor="let pItem of item['pull02']"
-                href="{{ pItem.clink }}"
-                >{{ pItem.name }}</a
+                *ngFor="let pItem of (item.value.pull04 | keyvalue)"
+                href="{{ pItem.value.clink }}"
+                >{{ pItem.value.name }}</a
               >
             </div>
             <i class="right-control fa fa-angle-right slider-controls"></i>

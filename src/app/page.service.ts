@@ -64,4 +64,24 @@ export class PageService {
 
     return { styles, menus };
   }
+
+  public getLeft() {
+    const styles = this.allData.common_json.regions.left.pull02.style;
+    const menus = this.allData.common_json.regions.left.pull02.content.pull03;
+
+    return { styles, menus };
+  }
+
+  public getRight() {
+    const styles = this.allData.common_json.regions.right.pull02.style;
+    const menus = this.allData.common_json.regions.right.pull02.content.pull03;
+
+    return { styles, menus };
+  }
+
+  getSiteLogo() {
+    const logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+      .stl_site_logo.img;
+    return logo;
+  }
 }

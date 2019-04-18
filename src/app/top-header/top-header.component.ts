@@ -27,7 +27,7 @@ export class TopHeaderComponent implements OnInit {
       // console.log(top);
       this.config = top.styles;
       this.langs = top.langs;
-      this.logo = top.logo;
+      this.logo = this.service.getSiteLogo();
     });
   }
 

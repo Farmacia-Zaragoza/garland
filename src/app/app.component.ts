@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
   constructor(private service: PageService) {}
 
   configs = [];
+  leftStyle = {};
+  rightStyle = {};
 
   menuItems = [
     { link: "#", item: "item1" },
@@ -31,6 +33,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.service.done.subscribe(data => {
+      this.leftStyle = this.service.getLeft().styles;
+
+      this.rightStyle = this.service.getRight().styles;
+
+      // console.log(this.leftStyle);
       // this.configs = data["common_json"]["main"];
       // console.log(this.rightConfig());
       // console.log(this.mainItems);

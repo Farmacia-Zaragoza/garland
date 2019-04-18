@@ -22,7 +22,7 @@
 <app-top-section></app-top-section>
 <div class="container-fluid">
   <div class="row">
-    <div [style.background]="'#' + leftConfig()?.bgcolor" class="col">
+    <div [style.background]="'#' + leftStyle.value" class="col">
       <div class="side-bar">
         <app-left-section [config]="leftConfig()"></app-left-section>
       </div>
@@ -30,7 +30,7 @@
 
     <div class="col-8"><app-main></app-main></div>
 
-    <div [style.background]="'#' + rightConfig()?.bgcolor" class="col">
+    <div [style.background]="'#' + rightStyle.value" class="col">
       <div class="side-bar">
         <app-right-section [config]="rightConfig()"></app-right-section>
         <!-- <app-left-section [config]="rightConfig()"></app-left-section> -->
