@@ -47,11 +47,12 @@ export class PageService {
   }
 
   public getBottomStyle() {
-    return this.allData.common_json.regions.bottom.pull02.style;
+    return this.allData.common_json.regions.bottom.pull02.style.pull03.bgcolor;
   }
 
   public getTop() {
-    const styles = this.allData.common_json.regions.top.pull02.style;
+    const styles = this.allData.common_json.regions.top.pull02.style.pull03
+      .bgimage;
     const langs = this.allData.common_json.langs;
     const logo = {};
 

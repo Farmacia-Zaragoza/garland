@@ -28,6 +28,8 @@ export class TopHeaderComponent implements OnInit {
       this.config = top.styles;
       this.langs = top.langs;
       this.logo = this.service.getSiteLogo();
+
+      console.log(this.config);
     });
   }
 

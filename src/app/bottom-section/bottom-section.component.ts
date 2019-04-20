@@ -24,6 +24,7 @@ export class BottomSectionComponent implements OnInit {
       // console.log(res["common_json"]);
       this.menuItems = this.service.getBottomMenu();
       this.style = this.service.getBottomStyle();
+      // console.log(this.style)
       // console.log(this.menuItems);
     });
   }

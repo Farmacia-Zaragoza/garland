@@ -10,8 +10,8 @@ export class AppComponent implements OnInit {
   constructor(private service: PageService) {}
 
   configs = [];
-  leftStyle = {};
-  rightStyle = {};
+  leftStyle = { value: "fff" };
+  rightStyle = { value: "fff" };
 
   menuItems = [
     { link: "#", item: "item1" },
