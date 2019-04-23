@@ -1,6 +1,11 @@
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule, Routes } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import { CarouselModule } from "ngx-owl-carousel-o";
 
 import { AppComponent } from "./app.component";
 import { TopSectionComponent } from "./top-section/top-section.component";
@@ -10,7 +15,9 @@ import { BottomSectionComponent } from "./bottom-section/bottom-section.componen
 import { MainComponent } from "./main/main.component";
 import { HorizontalSliderComponent } from "./global/horizontal-slider/horizontal-slider.component";
 import { VerticalSliderComponent } from "./global/vertical-slider/vertical-slider.component";
-import { TopHeaderComponent } from './top-header/top-header.component';
+import { TopHeaderComponent } from "./top-header/top-header.component";
+
+const routes: Routes = [{ path: "**", component: MainComponent }];
 
 @NgModule({
   declarations: [
@@ -24,7 +31,13 @@ import { TopHeaderComponent } from './top-header/top-header.component';
     VerticalSliderComponent,
     TopHeaderComponent
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    CarouselModule
+  ],
   providers: [{ provide: "AppData", useValue: (<any>window).APP_DATA }],
   bootstrap: [AppComponent]
 })

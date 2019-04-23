@@ -9,8 +9,30 @@ import { Component, OnInit } from "@angular/core";
 export class AppComponent implements OnInit {
   constructor(private service: PageService) {}
 
+  customOptions: any = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: [
+      "<i class='fa fa-angle-left'></i>",
+      "<i class='fa fa-angle-right'></i>"
+    ],
+    responsive: {
+      0: {
+        items: 1
+      }
+    },
+    nav: true
+  };
+
   configs = [];
-  leftStyle = { value: "fff" };
+  leftStyle = {
+    bgcolor: { value: "fff" },
+    menuType: { value: "many" }
+  };
   rightStyle = { value: "fff" };
 
   menuItems = [

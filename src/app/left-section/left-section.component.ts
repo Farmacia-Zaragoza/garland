@@ -5,7 +5,8 @@ import {
   Input,
   AfterViewInit,
   ViewChildren,
-  QueryList
+  QueryList,
+  HostListener
 } from "@angular/core";
 declare var $: any;
 
@@ -17,9 +18,30 @@ declare var $: any;
 export class LeftSectionComponent implements OnInit, AfterViewInit {
   constructor(public service: PageService) {}
 
+  customOptions: any = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    responsive: {
+      0: {
+        items: 1
+      }
+    }
+  };
+
+  hidden = true;
+
   mainItems = {};
   @Input("config") config: any = {};
-  @ViewChildren("oneItems") oneItems: QueryList<any>;
+  // @ViewChildren("owlCar") oneItems: QueryList<any>;
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    this.hidden = false;
+  }
 
   pinned = false;
 
@@ -28,7 +50,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
       // this.mainItems = data["common_json"]["left"];
       const left = this.service.getLeft();
       this.mainItems = left.menus;
-      // this.styles = left.styles;
+      // this.config = left.styles;
 
       // this.config.value = ""; // quick fix
 
@@ -39,9 +61,15 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // console.log(this.config);
     // this.oneItems.changes.subscribe(t => {
-    //   console.log("working view children");
+    //   // console.log("working view children");
     //   // this.initOneSlider();
+    //   // this.hidden = false;
+    //   this.hidden = true;
     // });
+  }
+
+  initializedDone() {
+    console.log("working.. done");
   }
 
   showInnerMenu({ target }) {
@@ -50,7 +78,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
     $(target)
       .children(".left-inner-menu")
       .css({
-        display: "block",
+        visibility: "visible",
         top: $(target).position().top + 5 + "px",
         left: left + "px"
       });
@@ -60,7 +88,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
     $(target)
       .children(".left-inner-menu")
       .css({
-        display: "none"
+        visibility: "hidden"
       });
   }
 

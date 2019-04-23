@@ -12,7 +12,10 @@
           {{ item.value.id }}
         </a>
         <ng-template [ngIf]="item.value.childrens">
-          <div *ngIf="'more' === 'more'; else oneBlock" class="left-inner-menu">
+          <div
+            *ngIf="config?.menuType?.value === 'many'; else oneBlock"
+            class="left-inner-menu"
+          >
             <horizontal-slider>
               <i class="left-control fa fa-angle-left slider-controls"></i>
               <div class="items">
@@ -32,15 +35,26 @@
           </div>
 
           <ng-template #oneBlock>
-            <div class="left-inner-menu">
+            <div class="left-inner-menu single-type">
               <div class="oneItems">
-                <div
+                <!-- <div
                   #oneItems
                   *ngFor="let pItem of (item.pull04 | keyvalue)"
                   class="oneItem"
                 >
                   <a href="{{ pItem.value.clink }}">{{ pItem.value.name }}</a>
-                </div>
+                </div> -->
+                <i (click)="owlCar.prev()" class="fa fa-angle-left"></i>
+                <owl-carousel-o [options]="customOptions" #owlCar>
+                  <ng-template
+                    *ngFor="let pItem of (item.value.pull04 | keyvalue)"
+                    carouselSlide
+                    ><a class="oneItem" href="{{ pItem.value.clink }}">{{
+                      pItem.value.name
+                    }}</a></ng-template
+                  >
+                </owl-carousel-o>
+                <i (click)="owlCar.next()" class="fa fa-angle-right"></i>
               </div>
 
               <i

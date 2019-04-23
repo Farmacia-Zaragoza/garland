@@ -28,7 +28,7 @@ export class RightSectionComponent implements OnInit {
       // this.mainItems = data["common_json"]["right"];
       const right = this.service.getRight();
       this.mainItems = right.menus;
-      console.log(this.mainItems);
+      // console.log(this.mainItems);
     });
   }
 

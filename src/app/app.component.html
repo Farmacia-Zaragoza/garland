@@ -18,19 +18,29 @@
   <i class="down-control sliderControls fa fa-angle-down"></i>
 </vertical-slider> -->
 
+<!-- <owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide><a href="">Link One</a></ng-template>
+  <ng-template carouselSlide><a href="">Link 2</a></ng-template>
+  <ng-template carouselSlide><a href="">Link 3</a></ng-template>
+  <ng-template carouselSlide><a href="">Link 5</a></ng-template>
+  <ng-template carouselSlide><a href="">Link 5</a></ng-template>
+  <ng-template carouselSlide><a href="">Link 55</a></ng-template>
+  <ng-template carouselSlide><a href="">Link 5556</a></ng-template>
+</owl-carousel-o> -->
+
 <app-top-header></app-top-header>
 <app-top-section></app-top-section>
 <div class="container-fluid">
   <div class="row">
-    <div [style.background]="'#' + leftStyle.value" class="col">
+    <div [style.background]="'#' + leftStyle.bgcolor.value" class="col-2">
       <div class="side-bar">
         <app-left-section [config]="leftConfig()"></app-left-section>
       </div>
     </div>
 
-    <div class="col-8"><app-main></app-main></div>
+    <div class="col-8"><router-outlet></router-outlet></div>
 
-    <div [style.background]="'#' + rightStyle.value" class="col">
+    <div [style.background]="'#' + rightStyle.value" class="col-2">
       <div class="side-bar">
         <app-right-section [config]="rightConfig()"></app-right-section>
         <!-- <app-left-section [config]="rightConfig()"></app-left-section> -->

@@ -60,21 +60,24 @@ export class PageService {
   }
 
   public getHeader() {
-    const styles = this.allData.common_json.regions.header.pull02.style;
+    const styles = this.allData.common_json.regions.header.pull02.style.pull03
+      .bgcolor;
     const menus = this.allData.common_json.regions.header.pull02.content.pull03;
 
     return { styles, menus };
   }
 
   public getLeft() {
-    const styles = this.allData.common_json.regions.left.pull02.style;
+    const styles = this.allData.common_json.regions.left.pull02.style.pull03;
+
     const menus = this.allData.common_json.regions.left.pull02.content.pull03;
 
     return { styles, menus };
   }
 
   public getRight() {
-    const styles = this.allData.common_json.regions.right.pull02.style;
+    const styles = this.allData.common_json.regions.right.pull02.style.pull03
+      .bgcolor;
     const menus = this.allData.common_json.regions.right.pull02.content.pull03;
 
     return { styles, menus };

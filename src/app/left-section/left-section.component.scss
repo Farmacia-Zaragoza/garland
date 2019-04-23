@@ -1,5 +1,4 @@
-$text-color: rgb(33, 37, 41);
-$hover-color: #f5774f;
+@import "../config";
 
 :host {
   height: inherit;
@@ -20,7 +19,7 @@ vertical-slider {
     width: 30px;
     line-height: 29px;
     color: #78c55f;
-    transition: 0.5s;
+    transition: 0.5s ease-in color;
     margin: 5px auto;
     padding-left: 5px;
 
@@ -30,7 +29,7 @@ vertical-slider {
     }
   }
 
-  ul {
+  ul.items {
     li {
       text-align: center;
       margin: 15px 0;
@@ -47,7 +46,7 @@ vertical-slider {
       & > a {
         font-size: 1.5em;
         color: inherit;
-        transition: 0.5s;
+        transition: 0.5s ease-in color;
       }
     }
   }
@@ -57,8 +56,17 @@ vertical-slider {
     left: calc(100% - 42px);
     background-color: transparent;
     padding-left: 25px;
-    display: none;
+    visibility: hidden;
+    // display: none;
     // background: #78c55f;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.single-type {
+      width: 250px;
+    }
 
     horizontal-slider {
       width: 250px;
@@ -90,22 +98,47 @@ vertical-slider {
       }
     }
 
-    // .oneItems {
-    //   background: #78c55f;
-    //   padding: 10px 30px 55px 10px;
-    //   width: 250px;
-    //   // overflow: hidden;
-    //   // display: flex;
+    .oneItems {
+      background: #78c55f;
+      padding: 10px 10px 55px 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      // overflow: hidden;
+      // display: flex;
 
-    //   .oneItem {
-    //     display: inline;
+      i.fa {
+        font-size: 1.4rem;
+        cursor: pointer;
 
-    //     a {
-    //       // display: block;
-    //       padding: 10px;
-    //     }
-    //   }
-    // }
+        &:hover {
+          color: $hover-color;
+        }
+      }
+
+      owl-carousel-o {
+        width: 80%;
+        // display:
+
+        a.oneItem {
+          color: $text-color;
+          transition: 0.2s ease-in color;
+
+          &:hover {
+            color: $hover-color;
+          }
+        }
+      }
+
+      // .oneItem {
+      //   display: inline;
+
+      //   a {
+      //     // display: block;
+      //     padding: 10px;
+      //   }
+      // }
+    }
 
     i.sticky {
       position: absolute;
