@@ -32,15 +32,23 @@
 <app-top-section></app-top-section>
 <div class="container-fluid">
   <div class="row">
-    <div [style.background]="'#' + leftStyle.bgcolor.value" class="col-2">
+    <div
+      id="leftSidebar"
+      [style.background]="'#' + leftStyle.bgcolor.value"
+      class="col-2"
+    >
       <div class="side-bar">
         <app-left-section [config]="leftConfig()"></app-left-section>
       </div>
     </div>
 
-    <div class="col-8"><router-outlet></router-outlet></div>
+    <div class="col-lg-8 col-md-12"><router-outlet></router-outlet></div>
 
-    <div [style.background]="'#' + rightStyle.value" class="col-2">
+    <div
+      id="rightSidebar"
+      [style.background]="'#' + rightStyle.value"
+      class="col-2"
+    >
       <div class="side-bar">
         <app-right-section [config]="rightConfig()"></app-right-section>
         <!-- <app-left-section [config]="rightConfig()"></app-left-section> -->
