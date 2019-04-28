@@ -22,6 +22,7 @@
   color: red;
   font-size: 2em;
 }
+
 .side-bar {
   height: calc(100vh - 110px);
   display: flex;
@@ -30,11 +31,20 @@
   top: 0;
   left: 0;
   z-index: 5;
+  box-sizing: border-box;
+}
+.sidebar-control {
+  display: none;
 }
 
 // Responsive
 
 @include mediaLg() {
+  #mainContent {
+    flex: 100%;
+    max-width: 100%;
+  }
+
   #leftSidebar,
   #rightSidebar {
     position: fixed;
@@ -44,15 +54,60 @@
 
     max-width: 30%;
     font-size: 0.7rem;
+    transform: translateX(-100%);
 
     .side-bar {
-      height: 100vh;
+      height: calc(100vh - 19px);
+    }
+
+    .sidebar-control {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: -35px;
+      background-color: inherit;
+      border-radius: 5px;
+
+      i {
+        font-size: 2rem;
+        padding: 10px;
+        transition: 1s 1s ease-out;
+      }
+    }
+
+    &.sidebarVisible {
+      transform: translateX(0);
+
+      .sidebar-control {
+        i {
+          transform: rotateY(180deg);
+        }
+      }
     }
   }
 
   #rightSidebar {
     // position: fixed;
     // visibility: hidden;
+    transform: translateX(100%);
     right: 0;
+
+    .sidebar-control {
+      left: -35px;
+    }
+
+    &.sidebarVisible {
+      transform: translateX(0);
+    }
+  }
+}
+
+@include mediaMd {
+}
+
+@include mediaSm {
+  #leftSidebar,
+  #rightSidebar {
+    max-width: 200px;
   }
 }

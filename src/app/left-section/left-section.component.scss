@@ -57,6 +57,7 @@ vertical-slider {
     background-color: transparent;
     padding-left: 25px;
     visibility: hidden;
+    z-index: 10;
     // display: none;
     // background: #78c55f;
 
@@ -123,6 +124,7 @@ vertical-slider {
         a.oneItem {
           color: $text-color;
           transition: 0.2s ease-in color;
+          font-size: 1rem;
 
           &:hover {
             color: $hover-color;
@@ -145,6 +147,7 @@ vertical-slider {
       bottom: 5px;
       font-size: 12px;
       cursor: pointer;
+      z-index: 20;
 
       &.pinned {
         background: rgb(163, 157, 157);

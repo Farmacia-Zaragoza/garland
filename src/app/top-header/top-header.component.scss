@@ -1,3 +1,5 @@
+@import "../config";
+
 .container-fluid {
   height: 200px;
   background-size: cover;
@@ -34,6 +36,37 @@
           width: 60px;
         }
       }
+    }
+  }
+}
+
+@include mediaLg {
+  .container-fluid {
+    height: 180px;
+  }
+  #logo {
+    img {
+      width: 180px;
+    }
+  }
+}
+@include mediaMd {
+  .container-fluid {
+    height: 160px;
+  }
+  #logo {
+    img {
+      width: 150px;
+    }
+  }
+}
+@include mediaSm {
+  .container-fluid {
+    height: 120px;
+  }
+  #logo {
+    img {
+      width: 100px;
     }
   }
 }

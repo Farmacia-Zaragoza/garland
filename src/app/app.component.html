@@ -36,22 +36,36 @@
       id="leftSidebar"
       [style.background]="'#' + leftStyle.bgcolor.value"
       class="col-2"
+      [class.sidebarVisible]="leftVisible"
+      [@bounceInLeft]="leftVisible"
+      [@bounceOutLeft]="!leftVisible"
     >
       <div class="side-bar">
         <app-left-section [config]="leftConfig()"></app-left-section>
       </div>
+      <div (click)="leftVisible = !leftVisible" class="sidebar-control">
+        <i class="fa fa-angle-right"></i>
+      </div>
     </div>
 
-    <div class="col-lg-8 col-md-12"><router-outlet></router-outlet></div>
+    <div id="mainContent" class="col-lg-8 col-md-12">
+      <router-outlet></router-outlet>
+    </div>
 
     <div
       id="rightSidebar"
       [style.background]="'#' + rightStyle.value"
       class="col-2"
+      [class.sidebarVisible]="rightVisible"
+      [@bounceInRight]="rightVisible"
+      [@bounceOutRight]="!rightVisible"
     >
       <div class="side-bar">
         <app-right-section [config]="rightConfig()"></app-right-section>
         <!-- <app-left-section [config]="rightConfig()"></app-left-section> -->
+      </div>
+      <div (click)="rightVisible = !rightVisible" class="sidebar-control">
+        <i class="fa fa-angle-left"></i>
       </div>
     </div>
   </div>

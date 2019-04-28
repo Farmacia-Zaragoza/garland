@@ -4,10 +4,12 @@ $hover-color: #f5774f;
 :host {
   height: inherit;
   display: inherit;
-  margin-left: auto;
+  width: 100%;
+  justify-content: flex-end;
 
   .contentontainer {
     height: inherit;
+    // width: 100%;
   }
 }
 
