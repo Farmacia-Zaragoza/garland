@@ -32,16 +32,11 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
     }
   };
 
-  hidden = true;
+  // hidden = true;
 
   mainItems = {};
-  @Input("config") config: any = {};
+  config: any = {};
   // @ViewChildren("owlCar") oneItems: QueryList<any>;
-
-  @HostListener("window:resize", ["$event"])
-  onResize(event) {
-    this.hidden = false;
-  }
 
   pinned = false;
 
@@ -50,11 +45,10 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
       // this.mainItems = data["common_json"]["left"];
       const left = this.service.getLeft();
       this.mainItems = left.menus;
-      // this.config = left.styles;
+      this.config = left.styles.menutype;
 
       // this.config.value = ""; // quick fix
-
-      // console.log(this.mainItems);
+      // console.log(this.config);
     });
   }
 
@@ -74,6 +68,20 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
 
   showInnerMenu({ target }) {
     if (this.pinned) return;
+
+    if (this.config.value == "single") {
+      // console.log("working");
+      $(target)
+        .children(".oneItems")
+        .css({ visibility: "visible", height: "fit-content" });
+
+      $(target)
+        .children("a")
+        .css({ display: "none" });
+
+      return;
+    }
+
     const left = $(target).width() + $(target).position().left;
     $(target)
       .children(".left-inner-menu")

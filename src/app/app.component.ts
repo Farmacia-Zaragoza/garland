@@ -19,12 +19,7 @@ import {
     bounceInRightAnimation(),
     bounceOutRightAnimation(),
     bounceInLeftAnimation(),
-    bounceOutLeftAnimation(),
-
-    fadeInRightAnimation(),
-    fadeOutRightAnimation(),
-    fadeInLeftAnimation(),
-    fadeOutLeftAnimation()
+    bounceOutLeftAnimation()
   ]
 })
 export class AppComponent implements OnInit {

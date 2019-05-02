@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { PageService } from "./../page.service";
 import { environment } from "./../../environments/environment";
+import { collapseAnimation } from "angular-animations";
 
 @Component({
   selector: "app-top-header",
   templateUrl: "./top-header.component.html",
-  styleUrls: ["./top-header.component.scss"]
+  styleUrls: ["./top-header.component.scss"],
+  animations: [collapseAnimation()]
 })
 export class TopHeaderComponent implements OnInit {
   constructor(private service: PageService) {}
@@ -13,6 +15,8 @@ export class TopHeaderComponent implements OnInit {
   config: any;
   logo: any;
   langs: {};
+  activeLang = null;
+  visible = true;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
@@ -27,9 +31,11 @@ export class TopHeaderComponent implements OnInit {
       // console.log(top);
       this.config = top.styles;
       this.langs = top.langs;
+      this.activeLang = this.langs[0];
+      delete this.langs[0];
       this.logo = this.service.getSiteLogo();
 
-      // console.log(this.config);
+      console.log(this.activeLang);
     });
   }
 

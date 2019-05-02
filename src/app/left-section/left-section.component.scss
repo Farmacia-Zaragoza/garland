@@ -3,9 +3,11 @@
 :host {
   height: inherit;
   display: inherit;
+  width: 100%;
 
   .contentontainer {
     height: inherit;
+    width: 100%;
   }
 }
 
@@ -33,6 +35,9 @@ vertical-slider {
     li {
       text-align: center;
       margin: 15px 0;
+      width: 100%;
+      display: block;
+
       &:hover {
         // .left-inner-menu {
         //   display: block;
@@ -47,6 +52,53 @@ vertical-slider {
         font-size: 1.5em;
         color: inherit;
         transition: 0.5s ease-in color;
+      }
+
+      .oneItems {
+        // background: #78c55f;
+        // padding: 10px 10px 55px 10px;
+        width: 100%;
+        display: flex;
+        height: 0;
+        justify-content: space-around;
+        align-items: center;
+        visibility: hidden;
+        // overflow: hidden;
+        // display: flex;
+
+        i.fa {
+          font-size: 1.4rem;
+          cursor: pointer;
+
+          &:hover {
+            color: $hover-color;
+          }
+        }
+
+        owl-carousel-o {
+          width: 80%;
+          // display:
+
+          a.oneItem {
+            color: $text-color;
+            transition: 0.2s ease-in color;
+            font-size: 1.5em;
+            white-space: nowrap;
+
+            &:hover {
+              color: $hover-color;
+            }
+          }
+        }
+
+        // .oneItem {
+        //   display: inline;
+
+        //   a {
+        //     // display: block;
+        //     padding: 10px;
+        //   }
+        // }
       }
     }
   }
@@ -97,49 +149,6 @@ vertical-slider {
           color: $hover-color;
         }
       }
-    }
-
-    .oneItems {
-      background: #78c55f;
-      padding: 10px 10px 55px 10px;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      // overflow: hidden;
-      // display: flex;
-
-      i.fa {
-        font-size: 1.4rem;
-        cursor: pointer;
-
-        &:hover {
-          color: $hover-color;
-        }
-      }
-
-      owl-carousel-o {
-        width: 80%;
-        // display:
-
-        a.oneItem {
-          color: $text-color;
-          transition: 0.2s ease-in color;
-          font-size: 1rem;
-
-          &:hover {
-            color: $hover-color;
-          }
-        }
-      }
-
-      // .oneItem {
-      //   display: inline;
-
-      //   a {
-      //     // display: block;
-      //     padding: 10px;
-      //   }
-      // }
     }
 
     i.sticky {

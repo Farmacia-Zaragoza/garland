@@ -6,10 +6,31 @@
   <horizontal-slider id="flag-horizontal">
     <i class="left-control sliderControls fa fa-angle-left"></i>
     <div class="items">
-      <a *ngFor="let lang of (langs | keyvalue)" href="{{ lang.value.clink }}">
+      <a *ngFor="let lang of langs | keyvalue" href="{{ lang.value.clink }}">
         <img src="{{ server + lang.value.flag }}" alt="{{ lang.value.name }}" />
       </a>
     </div>
     <i class="right-control sliderControls fa fa-angle-right"></i>
   </horizontal-slider>
+
+  <div *ngIf="activeLang" id="flag-sm">
+    <div (click)="visible = !visible" class="active">
+      <img src="{{ server + activeLang.flag }}" alt="{{ activeLang.name }}" />
+    </div>
+    <ul
+      data-simplebar
+      data-simplebar-auto-hide="false"
+      [@collapse]="visible"
+      class="all"
+    >
+      <li *ngFor="let lang of langs | keyvalue">
+        <a href="{{ lang.value.clink }}">
+          <img
+            src="{{ server + lang.value.flag }}"
+            alt="{{ lang.value.name }}"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

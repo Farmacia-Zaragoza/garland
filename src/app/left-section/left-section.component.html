@@ -6,21 +6,31 @@
       <li
         (mouseenter)="showInnerMenu($event)"
         (mouseleave)="hideInnerMenu($event)"
-        *ngFor="let item of (mainItems | keyvalue)"
+        *ngFor="let item of mainItems | keyvalue"
       >
         <a href="{{ item.value.clink }}">
           {{ item.value.id }}
         </a>
+        <div *ngIf="config?.value === 'single'" class="oneItems">
+          <i (click)="owlCar.prev()" class="fa fa-angle-left"></i>
+          <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-template
+              *ngFor="let pItem of item.value.pull04 | keyvalue"
+              carouselSlide
+              ><a class="oneItem" href="{{ pItem.value.clink }}">{{
+                pItem.value.name
+              }}</a></ng-template
+            >
+          </owl-carousel-o>
+          <i (click)="owlCar.next()" class="fa fa-angle-right"></i>
+        </div>
         <ng-template [ngIf]="item.value.childrens">
-          <div
-            *ngIf="config?.menuType?.value === 'many'; else oneBlock"
-            class="left-inner-menu"
-          >
+          <div *ngIf="config?.value === 'many'" class="left-inner-menu">
             <horizontal-slider>
               <i class="left-control fa fa-angle-left slider-controls"></i>
               <div class="items">
                 <a
-                  *ngFor="let pItem of (item.value.pull04 | keyvalue)"
+                  *ngFor="let pItem of item.value.pull04 | keyvalue"
                   href="{{ pItem.value.clink }}"
                   >{{ pItem.value.name }}</a
                 >
@@ -33,37 +43,6 @@
               class="fa fa-asterisk sticky"
             ></i>
           </div>
-
-          <ng-template #oneBlock>
-            <div class="left-inner-menu single-type">
-              <div class="oneItems">
-                <!-- <div
-                  #oneItems
-                  *ngFor="let pItem of (item.pull04 | keyvalue)"
-                  class="oneItem"
-                >
-                  <a href="{{ pItem.value.clink }}">{{ pItem.value.name }}</a>
-                </div> -->
-                <i (click)="owlCar.prev()" class="fa fa-angle-left"></i>
-                <owl-carousel-o [options]="customOptions" #owlCar>
-                  <ng-template
-                    *ngFor="let pItem of (item.value.pull04 | keyvalue)"
-                    carouselSlide
-                    ><a class="oneItem" href="{{ pItem.value.clink }}">{{
-                      pItem.value.name
-                    }}</a></ng-template
-                  >
-                </owl-carousel-o>
-                <i (click)="owlCar.next()" class="fa fa-angle-right"></i>
-              </div>
-
-              <i
-                (click)="toggleSticky()"
-                [class.pinned]="pinned"
-                class="fa fa-asterisk sticky"
-              ></i>
-            </div>
-          </ng-template>
         </ng-template>
       </li>
     </ul>

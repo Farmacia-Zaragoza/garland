@@ -26,9 +26,10 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/simplebar/dist/simplebar.min.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": ["./node_modules/simplebar/dist/simplebar.min.js"],
             "es5BrowserSupport": true
           },
           "configurations": {
