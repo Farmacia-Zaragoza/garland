@@ -93,6 +93,20 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
   }
   hideInnerMenu({ target }) {
     if (this.pinned) return;
+
+    if (this.config.value == "single") {
+      // console.log("working");
+      $(target)
+        .children(".oneItems")
+        .css({ visibility: "hidden", height: "0" });
+
+      $(target)
+        .children("a")
+        .css({ display: "block" });
+
+      return;
+    }
+
     $(target)
       .children(".left-inner-menu")
       .css({

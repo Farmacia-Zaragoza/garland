@@ -17,20 +17,19 @@
     <div (click)="visible = !visible" class="active">
       <img src="{{ server + activeLang.flag }}" alt="{{ activeLang.name }}" />
     </div>
-    <ul
-      data-simplebar
-      data-simplebar-auto-hide="false"
-      [@collapse]="visible"
-      class="all"
-    >
-      <li *ngFor="let lang of langs | keyvalue">
-        <a href="{{ lang.value.clink }}">
-          <img
-            src="{{ server + lang.value.flag }}"
-            alt="{{ lang.value.name }}"
-          />
-        </a>
-      </li>
-    </ul>
+    <vertical-slider [@collapse]="visible" class="all">
+      <i class="up-control fa fa-angle-up"></i>
+      <ul class="items">
+        <li *ngFor="let lang of langs | keyvalue">
+          <a href="{{ lang.value.clink }}">
+            <img
+              src="{{ server + lang.value.flag }}"
+              alt="{{ lang.value.name }}"
+            />
+          </a>
+        </li>
+      </ul>
+      <i class="down-control fa fa-angle-down"></i>
+    </vertical-slider>
   </div>
 </div>
