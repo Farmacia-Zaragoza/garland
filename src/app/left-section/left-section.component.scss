@@ -165,6 +165,14 @@ vertical-slider {
       }
     }
   }
+
+  &.right {
+    .left-inner-menu {
+      left: unset;
+      right: 0;
+      padding-right: 25px;
+    }
+  }
 }
 
 @include mediaLg() {

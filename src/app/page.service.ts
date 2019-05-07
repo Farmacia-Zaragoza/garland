@@ -76,8 +76,7 @@ export class PageService {
   }
 
   public getRight() {
-    const styles = this.allData.common_json.regions.right.pull02.style.pull03
-      .bgcolor;
+    const styles = this.allData.common_json.regions.right.pull02.style.pull03;
     const menus = this.allData.common_json.regions.right.pull02.content.pull03;
 
     return { styles, menus };

@@ -25,29 +25,29 @@ import {
 export class AppComponent implements OnInit {
   constructor(private service: PageService) {}
 
-  configs = [];
   leftStyle = {
     bgcolor: { value: "fff" },
     menuType: { value: "many" }
   };
-  rightStyle = { value: "fff" };
+  left = null;
+
+  right = null;
+  rightStyle = {
+    bgcolor: { value: "fff" },
+    menuType: { value: "many" }
+  };
 
   leftVisible = false;
   rightVisible = false;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      this.leftStyle = this.service.getLeft().styles;
+      this.left = this.service.getLeft();
+      this.leftStyle = this.left.styles;
 
-      this.rightStyle = this.service.getRight().styles;
+      this.right = this.service.getRight();
+      this.rightStyle = this.right.styles;
+      console.log(this.right.styles.menutype);
     });
-  }
-
-  leftConfig() {
-    return this.configs.filter(config => config.name === "left")[0];
-  }
-
-  rightConfig() {
-    return this.configs.filter(config => config.name === "right")[0];
   }
 }

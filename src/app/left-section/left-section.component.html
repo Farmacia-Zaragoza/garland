@@ -1,6 +1,6 @@
 <!-- <div *ngIf="config?.type === 'doublemenu'" class="contentontainer"> -->
 <div class="contentontainer">
-  <vertical-slider>
+  <vertical-slider [class]="region === 'left' ? 'left' : 'right'">
     <i class="up-control main-slider-controls fa fa-angle-up"></i>
     <ul class="items">
       <li

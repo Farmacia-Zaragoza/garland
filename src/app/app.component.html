@@ -41,7 +41,11 @@
       [@bounceOutLeft]="!leftVisible"
     >
       <div class="side-bar">
-        <app-left-section></app-left-section>
+        <app-left-section
+          region="left"
+          [config]="left?.styles.menutype"
+          [data]="left?.menus"
+        ></app-left-section>
       </div>
       <div (click)="leftVisible = !leftVisible" class="sidebar-control">
         <i class="fa fa-angle-right"></i>
@@ -54,15 +58,20 @@
 
     <div
       id="rightSidebar"
-      [style.background]="'#' + rightStyle.value"
+      [style.background]="'#' + rightStyle.bgcolor.value"
       class="col-2"
       [class.sidebarVisible]="rightVisible"
       [@bounceInRight]="rightVisible"
       [@bounceOutRight]="!rightVisible"
     >
       <div class="side-bar">
-        <app-right-section [config]="rightConfig()"></app-right-section>
-        <!-- <app-left-section [config]="rightConfig()"></app-left-section> -->
+        <!-- <app-right-section [config]="right?.menutype"></app-right-section> -->
+        <!-- <app-left-section region='right' [config]="rightConfig()"></app-left-section> -->
+        <app-left-section
+          region="right"
+          [config]="right?.styles.menutype"
+          [data]="right?.menus"
+        ></app-left-section>
       </div>
       <div (click)="rightVisible = !rightVisible" class="sidebar-control">
         <i class="fa fa-angle-left"></i>
