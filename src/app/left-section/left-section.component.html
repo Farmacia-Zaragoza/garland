@@ -9,7 +9,7 @@
         *ngFor="let item of mainItems | keyvalue"
       >
         <a href="{{ item.value.clink }}">
-          {{ item.value.id }}
+          {{ item.value.value }}
         </a>
         <div *ngIf="config?.value === 'single'" class="oneItems">
           <i (click)="owlCar.prev()" class="fa fa-angle-left"></i>
@@ -18,7 +18,7 @@
               *ngFor="let pItem of item.value.pull04 | keyvalue"
               carouselSlide
               ><a class="oneItem" href="{{ pItem.value.clink }}">{{
-                pItem.value.name
+                pItem.value.value
               }}</a></ng-template
             >
           </owl-carousel-o>
@@ -32,7 +32,7 @@
                 <a
                   *ngFor="let pItem of item.value.pull04 | keyvalue"
                   href="{{ pItem.value.clink }}"
-                  >{{ pItem.value.name }}</a
+                  >{{ pItem.value.value }}</a
                 >
               </div>
               <i class="right-control fa fa-angle-right slider-controls"></i>

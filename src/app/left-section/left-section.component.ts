@@ -59,7 +59,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
   }
 
   showInnerMenu({ target }) {
-    console.log(this.config);
+    // console.log(this.config);
     if (this.pinned) return;
 
     if (this.config.value == "single") {

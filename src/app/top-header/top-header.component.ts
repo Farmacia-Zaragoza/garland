@@ -32,7 +32,7 @@ export class TopHeaderComponent implements OnInit {
       this.config = top.styles;
       this.langs = top.langs;
       this.activeLang = this.langs[0];
-      delete this.langs[0];
+      // delete this.langs[0];
       this.logo = this.service.getSiteLogo();
 
       console.log(this.activeLang);

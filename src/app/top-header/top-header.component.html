@@ -20,11 +20,11 @@
     <vertical-slider [@collapse]="visible" class="all">
       <i class="up-control fa fa-angle-up"></i>
       <ul class="items">
-        <li *ngFor="let lang of langs | keyvalue">
+        <li *ngFor="let lang of langs | slice: 1:langs.length | keyvalue">
           <a href="{{ lang.value.clink }}">
             <img
               src="{{ server + lang.value.flag }}"
-              alt="{{ lang.value.name }}"
+              alt="{{ lang.value.value }}"
             />
           </a>
         </li>

@@ -21,10 +21,12 @@
       <ul class="sliderContainer">
         <li
           #footerMenu
-          *ngFor="let item of (menuItems | keyvalue)"
+          *ngFor="let item of menuItems | keyvalue"
           class="footerNavItem"
         >
-          <a class="noselect" href="{{ item.value.clink }}">{{ item.key }}</a>
+          <a class="noselect" href="{{ item.value.clink }}">{{
+            item.value.value
+          }}</a>
         </li>
       </ul>
       <i

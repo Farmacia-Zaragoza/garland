@@ -6,9 +6,9 @@
         <i class="left-control fa fa-angle-left slider-controls"></i>
         <div class="items">
           <a
-            *ngFor="let item of (menuItems | keyvalue)"
+            *ngFor="let item of menuItems | keyvalue"
             href="{{ item.value.clink }}"
-            >{{ item.value.name }}</a
+            >{{ item.value.value }}</a
           >
         </div>
         <i class="right-control fa fa-angle-right slider-controls"></i>
