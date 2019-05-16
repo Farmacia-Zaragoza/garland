@@ -12,38 +12,49 @@ import { collapseAnimation } from "angular-animations";
 export class TopHeaderComponent implements OnInit {
   constructor(private service: PageService) {}
   server: string = environment.server;
-  config: any;
+  sectionStyles: any;
+  type: string = null;
   logo: any;
   langs: {};
   activeLang = null;
   visible = true;
+  bgImage = {};
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      // this.config = data.common_json.main.filter(
-      //   item => item.name === "top"
-      // )[0];
-      // this.logo = data.common_json.main.filter(item => item.name === "logo")[0];
-      // this.langs = data.common_json.langs;
-      // console.log(this.langs);
-
       const top = this.service.getTop();
       // console.log(top);
-      this.config = top.styles;
+      this.sectionStyles = top.styles;
+      this.type = this.sectionStyles.type;
+      this.topBgImage();
+
       this.langs = top.langs;
       this.activeLang = this.langs[0];
       // delete this.langs[0];
       this.logo = this.service.getSiteLogo();
 
-      console.log(this.activeLang);
+      console.log(top);
     });
   }
 
-  topBgUrl() {
-    if (!this.config) return {};
-    const style = {
-      backgroundImage: `url(${this.server + this.config.img})`
-    };
-    return style;
+  topBgImage() {
+    if (this.type !== "randomgallery") {
+      this.bgImage = {
+        backgroundImage: `url(${this.server +
+          this.sectionStyles.pull03.bgimage.img})`
+      };
+    } else {
+      let randImg = this.sectionStyles.pull03[
+        Math.floor(Math.random() * this.sectionStyles.pull03.length)
+      ];
+      this.bgImage = {
+        backgroundImage: `url(${this.server + randImg.img})`
+      };
+    }
+  }
+
+  randomgalleryImage() {
+    if (!this.sectionStyles) return {};
+    return {};
   }
 }

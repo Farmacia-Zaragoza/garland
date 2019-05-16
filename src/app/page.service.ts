@@ -27,6 +27,10 @@ export class PageService {
         spec_json: res[1]
       };
 
+      Object.keys(this.allData.spec_json).forEach(key => {
+        this.allData.common_json.regions[key] = this.allData.spec_json[key];
+      });
+
       console.log(this.allData);
       // this.getBottomMenu();
       this.done.emit(this.allData);
@@ -51,12 +55,11 @@ export class PageService {
   }
 
   public getTop() {
-    const styles = this.allData.common_json.regions.top.pull02.style.pull03
-      .bgimage;
+    const styles = this.allData.common_json.regions.top.pull02.style;
     const langs = this.allData.common_json.langs;
-    const logo = {};
+    // const logo = {};
 
-    return { styles, langs, logo };
+    return { styles, langs };
   }
 
   public getHeader() {
