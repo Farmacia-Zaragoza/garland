@@ -1,4 +1,12 @@
-<div [ngStyle]="bgImage" class="container-fluid">
+<owl-carousel-o *ngIf="bgImage.length" [options]="customOptions">
+  <ng-container *ngFor="let slide of bgImage">
+    <ng-template carouselSlide [id]="slide.index">
+      <img [src]="slide.img" />
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+
+<div id="content" class="container-fluid">
   <a href="/" id="logo">
     <img *ngIf="logo" src="{{ server + logo }}" alt="" />
   </a>

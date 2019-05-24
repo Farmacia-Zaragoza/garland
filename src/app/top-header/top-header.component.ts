@@ -18,7 +18,24 @@ export class TopHeaderComponent implements OnInit {
   langs: {};
   activeLang = null;
   visible = true;
-  bgImage = {};
+  bgImage = [];
+
+  customOptions: any = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    autoplay: false,
+    autoplayTimeout: 8000,
+    autoplaySpeed: 1500,
+    responsive: {
+      0: {
+        items: 1
+      }
+    }
+  };
 
   ngOnInit() {
     this.service.done.subscribe(data => {
@@ -33,24 +50,34 @@ export class TopHeaderComponent implements OnInit {
       // delete this.langs[0];
       this.logo = this.service.getSiteLogo();
 
-      console.log(top);
+      // console.log(top);
     });
   }
 
   topBgImage() {
-    if (this.type !== "randomgallery") {
-      this.bgImage = {
-        backgroundImage: `url(${this.server +
-          this.sectionStyles.pull03.bgimage.img})`
-      };
-    } else {
+    if (this.type === "randomgallery") {
       let randImg = this.sectionStyles.pull03[
         Math.floor(Math.random() * this.sectionStyles.pull03.length)
       ];
-      this.bgImage = {
-        backgroundImage: `url(${this.server + randImg.img})`
-      };
+      randImg.img = this.server + randImg.img;
+      this.bgImage.push(randImg);
+      // this.bgImage = this.sectionStyles.pull03.map(item => {
+      //   item.img = this.server + item.img;
+      //   return item;
+      // });
+    } else if (this.type === "slide") {
+      this.bgImage = this.sectionStyles.pull03.map(item => {
+        item.img = this.server + item.img;
+        return item;
+      });
+      this.customOptions.autoplay = true;
+      // console.log(this.bgImage);
+    } else {
+      const imgObj = this.sectionStyles.pull03.bgimage;
+      imgObj.img = this.server + imgObj.img;
+      this.bgImage.push(imgObj);
     }
+    console.log(this.bgImage);
   }
 
   randomgalleryImage() {
