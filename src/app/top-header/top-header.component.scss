@@ -1,12 +1,24 @@
 @import "../config";
 
+$height: 25vh;
+
 :host {
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: 300px;
-  max-height: 500px;
+  height: $height;
+  // min-height: 200px;
+  // max-height: 500px;
   display: block;
+  // overflow: hidden;
+}
+
+owl-carousel-o {
+  height: 100%;
+
+  .slide-image {
+    height: $height;
+    width: 100%;
+  }
 }
 
 .container-fluid {

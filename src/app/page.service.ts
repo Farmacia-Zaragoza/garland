@@ -8,6 +8,7 @@ import { Observable, forkJoin } from "rxjs";
 export class PageService {
   common_json_url: string;
   spec_json_url: string;
+  content_json_url: string;
   // lang_common_json_url: string;
   // lang_spec_json_url: string;
 
@@ -18,15 +19,18 @@ export class PageService {
   constructor(private http: HttpClient, @Inject("AppData") private appData) {
     this.common_json_url = appData.comm_json;
     this.spec_json_url = appData.spec_json;
+    this.content_json_url = appData.content_json;
     // this.lang_common_json_url = appData.lang_common_json;
     // this.lang_spec_json_url = appData.lang_spec_json;
 
     this.requestDataFromMultipleSources().subscribe(res => {
       this.allData = {
         common_json: res[0],
-        spec_json: res[1]
+        spec_json: res[1],
+        content: res[2]
       };
 
+      //marging common and spec json
       Object.keys(this.allData.spec_json).forEach(key => {
         this.allData.common_json.regions[key] = this.allData.spec_json[key];
       });
@@ -40,9 +44,9 @@ export class PageService {
   public requestDataFromMultipleSources(): Observable<any[]> {
     let response1 = this.http.get(this.common_json_url);
     let response2 = this.http.get(this.spec_json_url);
-    // let response3 = this.http.get(this.lang_common_json_url);
+    let response3 = this.http.get(this.content_json_url);
     // let response4 = this.http.get(this.lang_spec_json_url);
-    return forkJoin([response1, response2]);
+    return forkJoin([response1, response2, response3]);
   }
 
   public getBottomMenu() {

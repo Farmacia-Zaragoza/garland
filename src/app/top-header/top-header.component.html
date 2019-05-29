@@ -1,7 +1,7 @@
 <owl-carousel-o *ngIf="bgImage.length" [options]="customOptions">
   <ng-container *ngFor="let slide of bgImage">
     <ng-template carouselSlide [id]="slide.index">
-      <img [src]="slide.img" />
+      <img class="slide-image" [src]="slide.img" />
     </ng-template>
   </ng-container>
 </owl-carousel-o>
