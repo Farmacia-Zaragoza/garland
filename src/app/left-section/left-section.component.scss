@@ -32,6 +32,8 @@ vertical-slider {
   }
 
   ul.items {
+    // height: 100%;
+    // overflow: hidden;
     li {
       text-align: center;
       margin: 15px 0;
@@ -106,6 +108,7 @@ vertical-slider {
   .left-inner-menu {
     position: absolute;
     left: calc(100% - 42px);
+    top: 0;
     background-color: transparent;
     padding-left: 25px;
     visibility: hidden;

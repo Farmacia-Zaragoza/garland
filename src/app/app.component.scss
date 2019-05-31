@@ -1,5 +1,13 @@
 @import "./config";
 
+.middle-wrapper {
+  height: calc(100vh - 25vh - 60px);
+
+  & > div {
+    height: 100%;
+  }
+}
+
 .items {
   li {
     // display: inline-block;
@@ -24,10 +32,11 @@
 }
 
 .side-bar {
-  height: calc(100vh - 110px);
+  // height: calc(100vh - 110px);
+  height: 100%;
   display: flex;
   padding: 0 0 0 10px;
-  position: sticky;
+  // position: sticky;
   top: 0;
   left: 0;
   z-index: 5;

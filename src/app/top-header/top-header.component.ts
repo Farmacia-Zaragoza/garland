@@ -77,7 +77,7 @@ export class TopHeaderComponent implements OnInit {
       imgObj.img = this.server + imgObj.img;
       this.bgImage.push(imgObj);
     }
-    console.log(this.bgImage);
+    // console.log(this.bgImage);
   }
 
   randomgalleryImage() {
