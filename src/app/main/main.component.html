@@ -1,3 +1,11 @@
-<p *ngFor="let p of paragraphs">
-  {{ p.value }}
-</p>
+<div class="social-outer-container">
+  <div
+    (mousemove)="handleMouseMove($event)"
+    #socialInnerContainer
+    class="social-inner-container"
+  >
+    <p *ngFor="let p of paragraphs">
+      {{ p.value }}
+    </p>
+  </div>
+</div>

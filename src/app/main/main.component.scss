@@ -2,6 +2,19 @@
   padding: 20px;
   height: 100%;
   display: block;
-  overflow-y: scroll;
+  overflow: hidden;
   box-sizing: border-box;
+
+  .social-outer-container {
+    height: inherit;
+
+    .social-inner-container {
+      height: inherit;
+      overflow-y: scroll;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
 }
