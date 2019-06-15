@@ -4,6 +4,13 @@
     #socialInnerContainer
     class="social-inner-container"
   >
+    <img
+      *ngIf="image"
+      align="left"
+      class="p-image"
+      src="https://placeimg.com/640/840/any"
+      alt=""
+    />
     <p *ngFor="let p of paragraphs">
       {{ p.value }}
     </p>

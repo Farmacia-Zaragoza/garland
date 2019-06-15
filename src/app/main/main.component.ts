@@ -8,6 +8,7 @@ import {
   QueryList
 } from "@angular/core";
 import { PageService } from "../page.service";
+import { environment } from './../../environments/environment';
 declare var $: any;
 
 @Component({
@@ -21,10 +22,13 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
   @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
   paragraphs: Array<{}> = [];
+  image: string;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
       this.paragraphs = data.content.parragraphs.pull02;
+      this.image = environment.server + data.content.image.img;
+      console.log(this.image)
     });
   }
 
@@ -76,7 +80,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.left = offsets.left;
     this.bottom = this.top + this.objHeight;
     this.right = this.left + this.objWidth;
-    console.log(this.socialInnerContainer);
+    // console.log(this.socialInnerContainer);
   }
 
   verticalSlideUp() {
