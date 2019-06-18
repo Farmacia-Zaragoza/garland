@@ -8,13 +8,34 @@ import {
   QueryList
 } from "@angular/core";
 import { PageService } from "../page.service";
-import { environment } from './../../environments/environment';
+import { environment } from "./../../environments/environment";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+  // ...
+} from "@angular/animations";
 declare var $: any;
 
 @Component({
   selector: "app-main",
   templateUrl: "./main.component.html",
-  styleUrls: ["./main.component.scss"]
+  styleUrls: ["./main.component.scss"],
+  animations: [
+    trigger("zoomFadeIn", [
+      state(
+        "hidden",
+        style({
+          transform: "scale(1.5)",
+          opacity: 0
+        })
+      ),
+
+      transition("hidden => *", [animate("1s ease-in")])
+    ])
+  ]
 })
 export class MainComponent implements OnInit, AfterViewInit {
   constructor(private service: PageService) {}
@@ -23,18 +44,17 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
   paragraphs: Array<{}> = [];
   image: string;
+  animate = false;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
       this.paragraphs = data.content.parragraphs.pull02;
       this.image = environment.server + data.content.image.img;
-      console.log(this.image)
+      console.log(this.image);
     });
   }
 
   ngAfterViewInit() {
-    // this.obj = $(".scroll-inner-container");
-    // console.log();
     this.containerRef.changes.subscribe(t => {
       this.getPos();
     });
@@ -50,6 +70,11 @@ export class MainComponent implements OnInit, AfterViewInit {
   objHeight = 0;
   objWidth = 0;
   disableAutoScroll = true;
+
+  onImageLoad() {
+    console.log("loaded");
+    this.animate = true;
+  }
 
   //Get position of mouse pointer
   handleMouseMove(e) {
