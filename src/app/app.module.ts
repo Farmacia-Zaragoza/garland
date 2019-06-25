@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { CarouselModule } from "ngx-owl-carousel-o";
+import { LightboxModule } from 'ngx-lightbox';
 
 import { AppComponent } from "./app.component";
 import { TopSectionComponent } from "./top-section/top-section.component";
@@ -36,7 +37,8 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    CarouselModule
+    CarouselModule,
+    LightboxModule
   ],
   providers: [{ provide: "AppData", useValue: (<any>window).APP_DATA }],
   bootstrap: [AppComponent]

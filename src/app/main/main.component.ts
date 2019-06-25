@@ -17,6 +17,7 @@ import {
   transition
   // ...
 } from "@angular/animations";
+import { Lightbox } from "ngx-lightbox";
 declare var $: any;
 
 @Component({
@@ -38,19 +39,29 @@ declare var $: any;
   ]
 })
 export class MainComponent implements OnInit, AfterViewInit {
-  constructor(private service: PageService) {}
+  constructor(private service: PageService, private _lightbox: Lightbox) {}
 
   @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
   @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
-  paragraphs: Array<{}> = [];
-  image: string;
-  animate = false;
+  private paragraphs: Array<{}> = [];
+  private image: string;
+  private animate = false;
+  private _album = [];
 
   ngOnInit() {
     this.service.done.subscribe(data => {
       this.paragraphs = data.content.parragraphs.pull02;
       this.image = environment.server + data.content.image.img;
       console.log(this.image);
+
+      const src = environment.server + data.content.image.img;
+      const thumb = environment.server + data.content.image.img;
+      const item = {
+        src: src,
+        thumb: thumb
+      };
+
+      this._album.push(item);
     });
   }
 
@@ -58,6 +69,11 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.containerRef.changes.subscribe(t => {
       this.getPos();
     });
+  }
+
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._album, index);
   }
 
   obj: any;

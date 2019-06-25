@@ -8,7 +8,8 @@
       <img
         *ngIf="image"
         (load)="onImageLoad()"
-        [src]="image"
+        [src]="_album[0].src"
+        (click)="open(0)"
         alt=""
         [@zoomFadeIn]="animate ? 'visible' : 'hidden'"
       />
