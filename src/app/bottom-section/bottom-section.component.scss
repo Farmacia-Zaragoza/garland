@@ -1,3 +1,4 @@
+@import "../config";
 $text-color: rgb(33, 37, 41);
 $hover-color: #f5774f;
 
@@ -87,5 +88,23 @@ ul.sliderContainer li a {
 
   #footerToggle i {
     font-size: 60px;
+  }
+}
+
+@include mediaLg {
+  ul.sliderContainer li a {
+    font-size: 1rem;
+  }
+}
+
+@include mediaMd {
+  ul.sliderContainer li a {
+    font-size: 0.8rem;
+  }
+}
+
+@include mediaSm {
+  ul.sliderContainer li a {
+    font-size: 0.6rem;
   }
 }

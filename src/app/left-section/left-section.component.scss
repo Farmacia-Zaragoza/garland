@@ -51,7 +51,7 @@ vertical-slider {
       }
 
       & > a {
-        font-size: 1.5em;
+        font-size: 1.4em;
         color: inherit;
         transition: color 0.5s ease-in;
       }
@@ -178,5 +178,50 @@ vertical-slider {
   }
 }
 
-@include mediaLg() {
+@include mediaXL {
+  vertical-slider {
+    ul.items {
+      li {
+        a {
+          // font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include mediaLg {
+  vertical-slider {
+    ul.items {
+      li {
+        a {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include mediaMd {
+  vertical-slider {
+    ul.items {
+      li {
+        a {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@include mediaSm {
+  vertical-slider {
+    ul.items {
+      li {
+        a {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
 }
