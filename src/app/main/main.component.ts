@@ -43,10 +43,10 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
   @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
-  private paragraphs: Array<{}> = [];
-  private image: string;
-  private animate = false;
-  private _album = [];
+   paragraphs: Array<{}> = [];
+   image: string;
+   animate = false;
+   _album = [];
 
   ngOnInit() {
     this.service.done.subscribe(data => {
