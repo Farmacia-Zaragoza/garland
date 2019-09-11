@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  server: "http://garland.vbrqx.com/"
+  server: "http://garldru.vbrqx.com/"
 };
 
 /*

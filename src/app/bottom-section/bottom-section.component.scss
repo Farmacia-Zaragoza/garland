@@ -3,7 +3,7 @@ $text-color: rgb(33, 37, 41);
 $hover-color: #f5774f;
 
 #footer {
-  position: fixed;
+  position: absolute;
   bottom: -35px;
   left: 0;
   // background: #e8fcfb;
@@ -21,6 +21,7 @@ $hover-color: #f5774f;
 #footerNav {
   display: flex;
   justify-content: center;
+  display: none;
 }
 #footerNav i.sliderControls:hover {
   cursor: pointer;
@@ -51,8 +52,8 @@ ul.sliderContainer li a {
 
 #footerToggle {
   position: absolute;
-  top: -25px;
-  left: calc(50% - 32px);
+  bottom: 25px;
+  right: 0;
   border: none;
   z-index: 100;
   // background-color: #e8fcfb;

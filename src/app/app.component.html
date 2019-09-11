@@ -29,7 +29,7 @@
 </owl-carousel-o> -->
 
 <app-top-header></app-top-header>
-<app-top-section></app-top-section>
+
 <div class="container-fluid">
   <div class="middle-wrapper row">
     <div
@@ -53,7 +53,10 @@
     </div>
 
     <div id="mainContent" class="col-lg-8 col-md-12">
+      <app-top-section></app-top-section>
       <router-outlet></router-outlet>
+      <!-- <app-bottom-section></app-bottom-section> -->
+      <app-garldru-footer></app-garldru-footer>
     </div>
 
     <div
@@ -80,5 +83,5 @@
   </div>
 </div>
 <!-- <div class="container-fluid"> -->
-<app-bottom-section></app-bottom-section>
+<!-- <app-bottom-section></app-bottom-section> -->
 <!-- </div> -->

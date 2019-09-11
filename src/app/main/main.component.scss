@@ -2,13 +2,13 @@
 
 :host {
   padding: 20px;
-  height: 100%;
+  height: calc(100% - 48px);
   display: block;
   overflow: hidden;
   box-sizing: border-box;
 
   .social-outer-container {
-    height: inherit;
+    height: 100%;
   }
 }
 

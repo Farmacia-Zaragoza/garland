@@ -1,0 +1,42 @@
+:host {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+#footerToggle {
+  border: none;
+  z-index: 100;
+  // background-color: #e8fcfb;
+  //   border-radius: 5px;
+  padding: 10px;
+  //   margin-left: auto;
+}
+
+#footer {
+  width: calc(100% - 40px);
+  padding: 0 10px;
+  transform: translateX(110%);
+  transition: transform 0.7s ease-out;
+  //   position: absolute;
+  //   right: -100%;
+  &.visible {
+    transform: translateX(0);
+  }
+
+  i {
+    margin: 0 5px;
+  }
+
+  .items {
+    // margin: 0 5px;
+    a {
+      color: black;
+      padding: 5px;
+    }
+  }
+}

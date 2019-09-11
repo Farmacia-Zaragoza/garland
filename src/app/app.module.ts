@@ -17,6 +17,7 @@ import { MainComponent } from "./main/main.component";
 import { HorizontalSliderComponent } from "./global/horizontal-slider/horizontal-slider.component";
 import { VerticalSliderComponent } from "./global/vertical-slider/vertical-slider.component";
 import { TopHeaderComponent } from "./top-header/top-header.component";
+import { GarldruFooterComponent } from './garldru-footer/garldru-footer.component';
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -30,7 +31,8 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     MainComponent,
     HorizontalSliderComponent,
     VerticalSliderComponent,
-    TopHeaderComponent
+    TopHeaderComponent,
+    GarldruFooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 @import "./config";
 
 .middle-wrapper {
-  height: calc(100vh - 15vh - 60px);
+  height: calc(100vh - 15vh);
 
   & > div {
     height: 100%;
@@ -44,6 +44,12 @@
 }
 .sidebar-control {
   display: none;
+}
+
+#mainContent {
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
 }
 
 // Responsive

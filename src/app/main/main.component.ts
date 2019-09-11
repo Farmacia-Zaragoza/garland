@@ -43,19 +43,22 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
   @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
-   paragraphs: Array<{}> = [];
-   image: string;
-   animate = false;
-   _album = [];
+  paragraphs: Array<{}> = [];
+  image: string;
+  animate = false;
+  _album = [];
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      this.paragraphs = data.content.parragraphs.pull02;
-      this.image = environment.server + data.content.image.img;
-      console.log(this.image);
+      this.paragraphs = data.content.articles[0].pull02.parragraph.pull03;
+      this.image =
+        environment.server + data.content.articles[0].pull02.image.img;
+      console.log(this.paragraphs);
 
-      const src = environment.server + data.content.image.img;
-      const thumb = environment.server + data.content.image.img;
+      const src =
+        environment.server + data.content.articles[0].pull02.image.img;
+      const thumb =
+        environment.server + data.content.articles[0].pull02.image.img;
       const item = {
         src: src,
         thumb: thumb

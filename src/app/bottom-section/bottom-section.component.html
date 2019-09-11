@@ -3,15 +3,14 @@
   [ngClass]="{ visible: visible }"
   [style.background]="'#' + style?.value"
 >
+  <button
+    [style.background]="'#' + style?.value"
+    (click)="toggleFooter()"
+    id="footerToggle"
+  >
+    <i class="fa fa-angle-left"></i>
+  </button>
   <div class="container">
-    <button
-      [style.background]="'#' + style?.value"
-      (click)="toggleFooter()"
-      id="footerToggle"
-    >
-      <i class="fa fa-angle-up"></i>
-    </button>
-
     <div id="footerNav">
       <i
         (mouseover)="sService.slideRight($event)"
