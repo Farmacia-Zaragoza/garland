@@ -14,7 +14,14 @@
         [@zoomFadeIn]="animate ? 'visible' : 'hidden'"
       />
     </div>
-    <p *ngFor="let p of paragraphs">
+    <p
+      *ngFor="let p of paragraphs; let odd = odd"
+      [style.color]="
+        odd
+          ? '#' + siteThemeColors.stfc_text_even_color_.value
+          : '#' + siteThemeColors.stfc_text_odd_color.value
+      "
+    >
       {{ p.value }}
     </p>
   </div>

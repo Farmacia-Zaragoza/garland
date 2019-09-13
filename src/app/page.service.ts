@@ -49,6 +49,11 @@ export class PageService {
     return forkJoin([response1, response2, response3]);
   }
 
+  public getFontColor() {
+    return this.allData.common_json.site.theme.pull02.st_font.pull03
+      .stf_font_color.pull04;
+  }
+
   public getBottomMenu() {
     const data = this.allData.common_json.regions.bottom.pull02.content.pull03;
     return data;

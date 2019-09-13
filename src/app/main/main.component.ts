@@ -47,13 +47,21 @@ export class MainComponent implements OnInit, AfterViewInit {
   image: string;
   animate = false;
   _album = [];
+  siteThemeColors = {
+    stfc_link_default_color_: {index: "000v001v002v002v002", type: "item", value: "78348E"},
+    stfc_link_hover_color: {index: "000v001v002v002v003", type: "item", value: "99995B"},
+    stfc_text_even_color_: {index: "000v001v002v002v000", type: "item", value: "78348E"},
+    stfc_text_odd_color: {index: "000v001v002v002v001", type: "item", value: "9C7F24"}
+  };
 
   ngOnInit() {
     this.service.done.subscribe(data => {
+      this.siteThemeColors = this.service.getFontColor();
+      console.log(this.siteThemeColors);
       this.paragraphs = data.content.articles[0].pull02.parragraph.pull03;
       this.image =
         environment.server + data.content.articles[0].pull02.image.img;
-      console.log(this.paragraphs);
+      // console.log(this.paragraphs);
 
       const src =
         environment.server + data.content.articles[0].pull02.image.img;

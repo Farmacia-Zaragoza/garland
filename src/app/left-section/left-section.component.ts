@@ -35,21 +35,21 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
   // hidden = true;
 
   @Input("data") mainItems = {};
-  @Input("config") config: any = { value: "single" };
+  @Input("config") config: any;
   @Input("region") region: string = "left";
   // @ViewChildren("owlCar") oneItems: QueryList<any>;
 
   pinned = false;
 
   ngOnInit() {
-    this.service.done.subscribe(data => {
-      // this.mainItems = data["common_json"]["left"];
-      // const left = this.service.getLeft();
-      // this.mainItems = left.menus;
-      // this.config = left.styles.menutype;
-      // this.config.value = ""; // quick fix
-      // console.log(this.config);
-    });
+    // this.service.done.subscribe(data => {
+    //   this.mainItems = data["common_json"]["left"];
+    //   const left = this.service.getLeft();
+    //   this.mainItems = left.menus;
+    //   this.config = left.styles.menutype;
+    //   this.config.value = ""; // quick fix
+    //   console.log(this.config);
+    // });
   }
 
   ngAfterViewInit() {}
@@ -60,7 +60,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
 
   showInnerMenu({ target }) {
     // console.log(this.config);
-    if (this.pinned) return;
+    if (this.pinned || !this.config) return;
 
     if (this.config.value == "single") {
       // console.log("working");
@@ -97,7 +97,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
       });
   }
   hideInnerMenu({ target }) {
-    if (this.pinned) return;
+    if (this.pinned || !this.config) return;
 
     if (this.config.value == "single") {
       // console.log("working");

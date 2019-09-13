@@ -5,11 +5,9 @@
       <horizontal-slider>
         <i class="left-control fa fa-angle-left slider-controls"></i>
         <div class="items">
-          <a
-            *ngFor="let item of menuItems | keyvalue"
-            href="{{ item.value.clink }}"
-            >{{ item.value.value }}</a
-          >
+          <a *ngFor="let item of menuItems" href="{{ item.clink }}">{{
+            item.name
+          }}</a>
         </div>
         <i class="right-control fa fa-angle-right slider-controls"></i>
       </horizontal-slider>

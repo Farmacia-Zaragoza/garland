@@ -30,7 +30,7 @@ export class TopSectionComponent implements OnInit {
       // console.log(header);
       this.bgColor = header.styles.value;
       this.menuItems = header.menus;
-      // console.log(this.menuItems);
+      console.log(this.menuItems);
     });
   }
 }
