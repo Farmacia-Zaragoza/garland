@@ -1,3 +1,4 @@
+import { changeUrl } from "./../directives/multi-resolution.directive";
 import {
   Component,
   OnInit,
@@ -44,35 +45,67 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
   @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
   paragraphs: Array<{}> = [];
+  type: string;
   image: string;
   animate = false;
   _album = [];
   siteThemeColors = {
-    stfc_link_default_color_: {index: "000v001v002v002v002", type: "item", value: "78348E"},
-    stfc_link_hover_color: {index: "000v001v002v002v003", type: "item", value: "99995B"},
-    stfc_text_even_color_: {index: "000v001v002v002v000", type: "item", value: "78348E"},
-    stfc_text_odd_color: {index: "000v001v002v002v001", type: "item", value: "9C7F24"}
+    stfc_link_default_color_: {
+      index: "000v001v002v002v002",
+      type: "item",
+      value: "78348E"
+    },
+    stfc_link_hover_color: {
+      index: "000v001v002v002v003",
+      type: "item",
+      value: "99995B"
+    },
+    stfc_text_even_color_: {
+      index: "000v001v002v002v000",
+      type: "item",
+      value: "78348E"
+    },
+    stfc_text_odd_color: {
+      index: "000v001v002v002v001",
+      type: "item",
+      value: "9C7F24"
+    }
+  };
+
+  breakPoints: any = {
+    1171: "0900x1200",
+    769: "0750x0960",
+    501: "0600x0710",
+    220: "0480x0600"
   };
 
   ngOnInit() {
     this.service.done.subscribe(data => {
-      this.siteThemeColors = this.service.getFontColor();
-      console.log(this.siteThemeColors);
+      // this.siteThemeColors = this.service.getFontColor();
+      // console.log(this.siteThemeColors);
       this.paragraphs = data.content.articles[0].pull02.parragraph.pull03;
-      this.image =
-        environment.server + data.content.articles[0].pull02.image.img;
-      // console.log(this.paragraphs);
 
-      const src =
-        environment.server + data.content.articles[0].pull02.image.img;
-      const thumb =
-        environment.server + data.content.articles[0].pull02.image.img;
-      const item = {
-        src: src,
-        thumb: thumb
-      };
+      this.type = data.content.articles[0].pull02.parragraph.type;
+      if (this.type === "iparragraph") {
+        this.breakPoints = this.service.getBreakPoints();
 
-      this._album.push(item);
+        this.image =
+          environment.server + data.content.articles[0].pull02.image.img;
+        // console.log(this.paragraphs);
+
+        const src =
+          environment.server + data.content.articles[0].pull02.image.img;
+        const thumb =
+          environment.server + data.content.articles[0].pull02.image.img;
+
+        const item = {
+          src: changeUrl(this.breakPoints, src),
+          thumb: thumb
+        };
+        this._album.push(item);
+      }
+      // console.log(this.service.getBreakPoints());
+      console.log(this._album);
     });
   }
 

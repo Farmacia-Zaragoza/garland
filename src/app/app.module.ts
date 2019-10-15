@@ -18,6 +18,8 @@ import { HorizontalSliderComponent } from "./global/horizontal-slider/horizontal
 import { VerticalSliderComponent } from "./global/vertical-slider/vertical-slider.component";
 import { TopHeaderComponent } from "./top-header/top-header.component";
 import { GarldruFooterComponent } from './garldru-footer/garldru-footer.component';
+import { MultiResolutionDirective } from './directives/multi-resolution.directive';
+import { ImgResComponent } from './img-res/img-res.component';
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -32,7 +34,9 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     HorizontalSliderComponent,
     VerticalSliderComponent,
     TopHeaderComponent,
-    GarldruFooterComponent
+    GarldruFooterComponent,
+    MultiResolutionDirective,
+    ImgResComponent
   ],
   imports: [
     BrowserModule,

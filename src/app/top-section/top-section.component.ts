@@ -26,10 +26,9 @@ export class TopSectionComponent implements OnInit {
       //   (items: any) => items.name === "top"
       // )[0];
       // console.log(this.topConfig)
-      const header = this.service.getHeader();
+      this.menuItems = this.service.getHeader();
       // console.log(header);
-      this.bgColor = header.styles.value;
-      this.menuItems = header.menus;
+      this.bgColor = 'red';
       console.log(this.menuItems);
     });
   }

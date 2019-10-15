@@ -15,6 +15,7 @@
 .social-inner-container {
   height: inherit;
   overflow-y: scroll;
+  padding-right: 15px;
 
   .image-container {
     width: 300px;
@@ -37,13 +38,6 @@
     font-size: 1.3rem;
     text-align: justify;
     transition: 0.5s ease-out;
-
-    &:nth-child(even) {
-      color: #000;
-    }
-    &:nth-child(odd) {
-      color: blueviolet;
-    }
   }
 }
 

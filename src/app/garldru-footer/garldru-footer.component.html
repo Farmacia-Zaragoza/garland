@@ -1,21 +1,17 @@
 <horizontal-slider
+  class="region_bottom"
   [ngClass]="{ visible: visible }"
-  [style.background]="'#' + style?.value"
   id="footer"
 >
   <i class="left-control sliderControls fa fa-angle-left"></i>
   <div class="items">
-    <a *ngFor="let item of menuItems" href="{{ item.clink }}">
+    <a class="stfc_link" *ngFor="let item of menuItems" href="{{ item.clink }}">
       {{ item.name }}
     </a>
   </div>
   <i class="right-control sliderControls fa fa-angle-right"></i>
 </horizontal-slider>
 
-<button
-  (click)="toggleFooter()"
-  [style.background]="'#' + style?.value"
-  id="footerToggle"
->
+<button class="region_bottom" (click)="toggleFooter()" id="footerToggle">
   <i class="fa fa-angle-left"></i>
 </button>

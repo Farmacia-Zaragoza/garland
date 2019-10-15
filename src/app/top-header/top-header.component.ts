@@ -20,6 +20,9 @@ export class TopHeaderComponent implements OnInit {
   visible = true;
   bgImage = [];
 
+  title = "";
+  subtitle = "";
+
   customOptions: any = {
     loop: true,
     mouseDrag: false,
@@ -49,6 +52,8 @@ export class TopHeaderComponent implements OnInit {
       this.activeLang = this.langs[0];
       // delete this.langs[0];
       this.logo = this.service.getSiteLogo();
+      this.title = this.service.getSiteTitle();
+      this.subtitle = this.service.getSiteSubtitle();
 
       // console.log(top);
     });

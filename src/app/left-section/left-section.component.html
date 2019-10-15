@@ -8,7 +8,7 @@
         (mouseleave)="hideInnerMenu($event)"
         *ngFor="let item of mainItems | keyvalue"
       >
-        <a href="{{ item.value.clink }}">
+        <a class="stfc_link" href="{{ item.value.clink }}">
           {{ item.value.value }}
         </a>
         <div *ngIf="config?.value === 'single'" class="oneItems">

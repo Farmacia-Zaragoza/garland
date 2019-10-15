@@ -46,13 +46,13 @@ vertical-slider {
         // }
 
         & > a {
-          color: $hover-color;
+          // color: $hover-color;
         }
       }
 
       & > a {
         font-size: 1.4em;
-        color: inherit;
+        // color: inherit;
         transition: color 0.5s ease-in;
       }
 

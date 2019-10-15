@@ -42,6 +42,19 @@ owl-carousel-o {
     }
   }
 
+  .titles {
+    text-align: center;
+    transform: translateX(140px);
+    margin-top: auto;
+
+    h4 {
+      text-transform: uppercase;
+      margin-bottom: 0px;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+  }
+
   &#content {
     position: absolute;
     top: 0;

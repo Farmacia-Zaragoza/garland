@@ -2,25 +2,21 @@
   <div
     (mousemove)="handleMouseMove($event)"
     #socialInnerContainer
-    class="social-inner-container"
+    class="social-inner-container stfc_scrollbar"
   >
-    <div class="image-container">
+    <div *ngIf="type === 'iparragraph'" class="image-container">
       <img
-        *ngIf="image"
         (load)="onImageLoad()"
-        [src]="_album[0].src"
         (click)="open(0)"
+        [MultiResolution]="breakPoints"
+        src="{{ _album[0]?.thumb }}"
         alt=""
         [@zoomFadeIn]="animate ? 'visible' : 'hidden'"
       />
     </div>
     <p
       *ngFor="let p of paragraphs; let odd = odd"
-      [style.color]="
-        odd
-          ? '#' + siteThemeColors.stfc_text_even_color_.value
-          : '#' + siteThemeColors.stfc_text_odd_color.value
-      "
+      class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
     >
       {{ p.value }}
     </p>

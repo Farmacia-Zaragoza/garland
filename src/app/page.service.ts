@@ -32,7 +32,11 @@ export class PageService {
 
       //marging common and spec json
       Object.keys(this.allData.spec_json).forEach(key => {
-        this.allData.common_json.regions[key] = this.allData.spec_json[key];
+        Object.keys(this.allData.spec_json[key]).forEach(secLevelKey => {
+          this.allData.common_json[key][secLevelKey] = this.allData.spec_json[
+            key
+          ][secLevelKey];
+        });
       });
 
       console.log(this.allData);
@@ -49,18 +53,14 @@ export class PageService {
     return forkJoin([response1, response2, response3]);
   }
 
-  public getFontColor() {
-    return this.allData.common_json.site.theme.pull02.st_font.pull03
-      .stf_font_color.pull04;
-  }
+  // public getFontColor() {
+  //   return this.allData.common_json.site.theme.pull02.st_font.pull03
+  //     .stf_font_color.pull04;
+  // }
 
   public getBottomMenu() {
     const data = this.allData.common_json.regions.bottom.pull02.content.pull03;
     return data;
-  }
-
-  public getBottomStyle() {
-    return this.allData.common_json.regions.bottom.pull02.style.pull03.bgcolor;
   }
 
   public getTop() {
@@ -72,11 +72,11 @@ export class PageService {
   }
 
   public getHeader() {
-    const styles = this.allData.common_json.regions.header.pull02.style.pull03
-      .bgcolor;
+    // const styles = this.allData.common_json.regions.header.pull02.style.pull03
+    //   .bgcolor;
     const menus = this.allData.common_json.regions.header.pull02.content.pull03;
 
-    return { styles, menus };
+    return menus;
   }
 
   public getLeft() {
@@ -98,5 +98,35 @@ export class PageService {
     const logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
       .stl_site_logo.img;
     return logo;
+  }
+
+  getSiteTitle() {
+    return this.allData.spec_json.site.general.pull02.sg_site_title.value;
+  }
+
+  getSiteSubtitle() {
+    return this.allData.spec_json.site.general.pull02.sg_site_subtitle.value;
+  }
+
+  getSiteThumbRes() {
+    const str: string = this.allData.common_json.site.images.pull02
+      .si_thumb_resolutions.value;
+    return str.split(" ");
+  }
+
+  getSiteZoomRes() {
+    const str: string = this.allData.common_json.site.images.pull02
+      .si_zoom_resolutions.value;
+    return str.split(" ");
+  }
+
+  getBreakPoints() {
+    const raw = this.allData.common_json.site.images.pull02
+      .breakpoints_information.pull03;
+    const obj = {};
+    raw.forEach(p => {
+      obj[p.break] = p.resolution;
+    });
+    return obj;
   }
 }
