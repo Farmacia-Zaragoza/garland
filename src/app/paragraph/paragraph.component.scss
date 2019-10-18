@@ -1,0 +1,82 @@
+@import "../config";
+
+:host {
+  padding: 20px;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .social-outer-container {
+    height: 100%;
+  }
+}
+
+.social-inner-container {
+  height: inherit;
+  overflow-y: scroll;
+  padding-right: 15px;
+
+  .image-container {
+    width: 300px;
+    height: 400px;
+    float: left;
+    overflow: hidden;
+    margin: 5px 15px 5px 5px;
+    box-shadow: 1px 1px 10px 0.5px rgba(81, 78, 78, 0.6);
+    &:hover {
+      box-shadow: 1px 1px 10px 3px rgba(81, 78, 78, 0.6);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  p {
+    font-size: 1.3rem;
+    text-align: justify;
+    transition: 0.5s ease-out;
+  }
+}
+
+@include mediaLg {
+  .social-inner-container {
+    p {
+      font-size: 1rem;
+    }
+    .image-container {
+      width: 250px;
+      height: 320px;
+    }
+  }
+}
+
+@include mediaMd {
+  :host {
+    padding: 10px;
+  }
+
+  .social-inner-container {
+    p {
+      font-size: 0.8rem;
+    }
+    .image-container {
+      width: 200px;
+      height: 270px;
+    }
+  }
+}
+
+@include mediaSm {
+  .social-inner-container {
+    p {
+      font-size: 0.7rem;
+    }
+    .image-container {
+      width: 160px;
+      height: 200px;
+    }
+  }
+}

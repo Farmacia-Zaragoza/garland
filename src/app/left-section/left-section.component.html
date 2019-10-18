@@ -6,34 +6,30 @@
       <li
         (mouseenter)="showInnerMenu($event)"
         (mouseleave)="hideInnerMenu($event)"
-        *ngFor="let item of mainItems | keyvalue"
+        *ngFor="let item of mainItems"
       >
-        <a class="stfc_link" href="{{ item.value.clink }}">
-          {{ item.value.value }}
+        <a class="stfc_link" href="{{ item.clink }}">
+          {{ item.value }}
         </a>
         <div *ngIf="config?.value === 'single'" class="oneItems">
           <i (click)="owlCar.prev()" class="fa fa-angle-left"></i>
           <owl-carousel-o [options]="customOptions" #owlCar>
-            <ng-template
-              *ngFor="let pItem of item.value.pull04 | keyvalue"
-              carouselSlide
-              ><a class="oneItem" href="{{ pItem.value.clink }}">{{
-                pItem.value.value
+            <ng-template *ngFor="let pItem of item.pull04" carouselSlide
+              ><a class="oneItem" href="{{ pItem.clink }}">{{
+                pItem.value
               }}</a></ng-template
             >
           </owl-carousel-o>
           <i (click)="owlCar.next()" class="fa fa-angle-right"></i>
         </div>
-        <ng-template [ngIf]="item.value.childrens">
+        <ng-template [ngIf]="item.childrens">
           <div *ngIf="config?.value === 'many'" class="left-inner-menu">
             <horizontal-slider>
               <i class="left-control fa fa-angle-left slider-controls"></i>
               <div class="items">
-                <a
-                  *ngFor="let pItem of item.value.pull04 | keyvalue"
-                  href="{{ pItem.value.clink }}"
-                  >{{ pItem.value.value }}</a
-                >
+                <a *ngFor="let pItem of item.pull04" href="{{ pItem.clink }}">{{
+                  pItem.value
+                }}</a>
               </div>
               <i class="right-control fa fa-angle-right slider-controls"></i>
             </horizontal-slider>

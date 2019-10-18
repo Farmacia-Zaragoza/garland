@@ -20,6 +20,7 @@ import { TopHeaderComponent } from "./top-header/top-header.component";
 import { GarldruFooterComponent } from './garldru-footer/garldru-footer.component';
 import { MultiResolutionDirective } from './directives/multi-resolution.directive';
 import { ImgResComponent } from './img-res/img-res.component';
+import { ParagraphComponent } from './paragraph/paragraph.component';
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -36,7 +37,8 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     TopHeaderComponent,
     GarldruFooterComponent,
     MultiResolutionDirective,
-    ImgResComponent
+    ImgResComponent,
+    ParagraphComponent
   ],
   imports: [
     BrowserModule,

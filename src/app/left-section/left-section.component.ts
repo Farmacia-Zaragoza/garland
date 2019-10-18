@@ -34,7 +34,7 @@ export class LeftSectionComponent implements OnInit, AfterViewInit {
 
   // hidden = true;
 
-  @Input("data") mainItems = {};
+  @Input("data") mainItems = [];
   @Input("config") config: any;
   @Input("region") region: string = "left";
   // @ViewChildren("owlCar") oneItems: QueryList<any>;
