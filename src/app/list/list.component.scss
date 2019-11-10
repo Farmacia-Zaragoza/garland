@@ -1,0 +1,23 @@
+:host {
+  padding: 20px;
+  height: 100%;
+  display: block;
+  // overflow: hidden;
+  // overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+ul {
+  //   display: block;
+  li {
+    font-size: 1.4rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+
+    a {
+      // color: inherit;
+    }
+  }
+}

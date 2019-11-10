@@ -6,6 +6,7 @@
   display: block;
   overflow: hidden;
   box-sizing: border-box;
+  // padding-bottom: 40px;
 
   .social-outer-container {
     height: 100%;
@@ -34,7 +35,7 @@
     }
   }
 
-  p {
+  brqx-text {
     font-size: 1.3rem;
     text-align: justify;
     transition: 0.5s ease-out;
@@ -43,7 +44,7 @@
 
 @include mediaLg {
   .social-inner-container {
-    p {
+    brqx-text {
       font-size: 1rem;
     }
     .image-container {
@@ -59,7 +60,7 @@
   }
 
   .social-inner-container {
-    p {
+    brqx-text {
       font-size: 0.8rem;
     }
     .image-container {
@@ -71,7 +72,7 @@
 
 @include mediaSm {
   .social-inner-container {
-    p {
+    brqx-text {
       font-size: 0.7rem;
     }
     .image-container {

@@ -3,13 +3,17 @@
   <div class="row">
     <div class="container">
       <horizontal-slider>
-        <i class="left-control fa fa-angle-left slider-controls"></i>
+        <i class="to-left-control fa fa-angle-double-left slider-controls"></i>
+        <i class="left-control fa fa-caret-left slider-controls"></i>
         <div class="items">
           <a *ngFor="let item of menuItems" href="{{ item.clink }}">{{
             item.name
           }}</a>
         </div>
-        <i class="right-control fa fa-angle-right slider-controls"></i>
+        <i class="right-control fa fa-caret-right slider-controls"></i>
+        <i
+          class="to-right-control fa fa-angle-double-right slider-controls"
+        ></i>
       </horizontal-slider>
     </div>
   </div>

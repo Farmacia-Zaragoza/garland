@@ -76,6 +76,21 @@ export class HorizontalSliderComponent implements OnInit {
     );
   }
 
+  slideToLeft({ currentTarget }) {
+    let btn = currentTarget;
+    this.sliderContainer = $(btn).siblings(".sliderContainer");
+    this.remLength =
+      $(this.sliderContainer)[0].scrollWidth - $(this.sliderContainer).width();
+    this.scrollable = this.remLength - $(this.sliderContainer).scrollLeft();
+
+    $(this.sliderContainer).animate(
+      {
+        scrollLeft: this.remLength
+      },
+      1000
+    );
+  }
+
   // slideLeft({ currentTarget }) {
   //   this.sliderContainer = this.container.nativeElement;
   //   this.remLength =
@@ -110,6 +125,18 @@ export class HorizontalSliderComponent implements OnInit {
         scrollLeft: 0
       },
       this.speed * $(this.sliderContainer).scrollLeft()
+    );
+  }
+
+  slideToRight({ currentTarget }) {
+    let btn = currentTarget;
+    this.sliderContainer = $(btn).siblings(".sliderContainer");
+
+    $(this.sliderContainer).animate(
+      {
+        scrollLeft: 0
+      },
+      1000
     );
   }
 

@@ -14,11 +14,16 @@
         [@zoomFadeIn]="animate ? 'visible' : 'hidden'"
       />
     </div>
-    <p
+    <brqx-text
+      *ngFor="let p of paragraphs; let odd = odd"
+      class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
+      [content]="p.value"
+    ></brqx-text>
+    <!-- <p
       *ngFor="let p of paragraphs; let odd = odd"
       class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
     >
       {{ p.value }}
-    </p>
+    </p> -->
   </div>
 </div>

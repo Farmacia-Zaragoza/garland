@@ -1,0 +1,21 @@
+<ng-container [ngSwitch]="type">
+  <h4 class="{{ types['heading'].class }}" *ngSwitchCase="'heading'">
+    {{ content }}
+  </h4>
+  <p class="{{ types['subHeader'].class }}" *ngSwitchCase="'subHeader'">
+    {{ content }}
+  </p>
+  <p class="{{ types['paragraph'].class }}" *ngSwitchCase="'paragraph'">
+    {{ content }}
+  </p>
+  <p class="{{ types['versionTitle'].class }}" *ngSwitchCase="'versionTitle'">
+    {{ content }}
+  </p>
+  <a
+    class="{{ types['link'].class }}"
+    href="{{ href }}"
+    *ngSwitchCase="'link'"
+    >{{ content }}</a
+  >
+  <p *ngSwitchDefault>{{ input }}</p>
+</ng-container>

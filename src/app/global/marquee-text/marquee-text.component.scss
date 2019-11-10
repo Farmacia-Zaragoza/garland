@@ -1,0 +1,46 @@
+:host {
+  display: inherit;
+  width: 100%;
+  height: inherit;
+
+  .marquee-container {
+    width: 100%;
+    height: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.responsiveText {
+  //   display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+horizontal-slider {
+  align-content: center;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+
+  &.visible {
+    visibility: visible;
+    height: inherit;
+  }
+
+  .fa-angle-left {
+    padding-right: 10px;
+  }
+  .fa-angle-right {
+    padding-left: 10px;
+  }
+}

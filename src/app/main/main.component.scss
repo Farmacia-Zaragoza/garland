@@ -1,9 +1,9 @@
 :host {
   //   padding: 20px;
-  height: 100%;
+  height: calc(100% - 48px);
   display: block;
 }
 
 #main-container {
-  height: calc(100% - 48px);
+  height: calc(100% - 45px);
 }

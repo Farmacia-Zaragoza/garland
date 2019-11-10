@@ -28,8 +28,8 @@ export class TopSectionComponent implements OnInit {
       // console.log(this.topConfig)
       this.menuItems = this.service.getHeader();
       // console.log(header);
-      this.bgColor = 'red';
-      console.log(this.menuItems);
+      this.bgColor = "red";
+      // console.log(this.menuItems);
     });
   }
 }

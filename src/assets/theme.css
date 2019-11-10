@@ -10,55 +10,70 @@ body {
 }
 
 /* links */
-a.stfc_link {
+.stfc_link {
   color: #78348e;
 }
 
-a.stfc_link:hover {
+.stfc_link:hover {
   color: #acac79;
 }
 
 /* even/odd */
-a.stfc_link.even {
+.stfc_link.even {
   color: #78348e;
 }
 
-a.stfc_link.even:hover {
+.stfc_link.even:hover {
   color: #78348e;
 }
 
-a.stfc_link.odd {
+.stfc_link.odd {
   color: #78348e;
 }
 
-a.stfc_link.odd:hover {
+.stfc_link.odd:hover {
   color: #78348e;
 }
 
 /* Paragraphs */
-p.stfc_paragraph {
+.stfc_paragraph {
   color: #000;
+  font-weight: bold;
 }
 
-p.stfc_paragraph:hover {
+.stfc_paragraph:hover {
   color: #000;
 }
 
 /* even/odd */
-p.stfc_paragraph.even {
+.stfc_paragraph.even {
   color: #78348e;
 }
 
-p.stfc_paragraph.even:hover {
+.stfc_paragraph.even:hover {
   color: #78348e;
 }
 
-p.stfc_paragraph.odd {
+.stfc_paragraph.odd {
   color: black;
 }
 
-p.stfc_paragraph.odd:hover {
+.stfc_paragraph.odd:hover {
   color: #78348e;
+}
+
+/* .stfc_header{
+  font-weight: bold;
+}
+
+.stfc_subheader {
+  font-weight: bold;
+} */
+
+/* Arrow color */
+
+.stfc_arrows {
+  color: red;
 }
 
 /* Regions */

@@ -22,9 +22,9 @@ import { Lightbox } from "ngx-lightbox";
 declare var $: any;
 
 @Component({
-  selector: 'app-paragraph',
-  templateUrl: './paragraph.component.html',
-  styleUrls: ['./paragraph.component.scss'],
+  selector: "app-paragraph",
+  templateUrl: "./paragraph.component.html",
+  styleUrls: ["./paragraph.component.scss"],
   animations: [
     trigger("zoomFadeIn", [
       state(
@@ -40,7 +40,6 @@ declare var $: any;
   ]
 })
 export class ParagraphComponent implements OnInit {
-
   constructor(private service: PageService, private _lightbox: Lightbox) {}
 
   @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
@@ -106,7 +105,7 @@ export class ParagraphComponent implements OnInit {
         this._album.push(item);
       }
       // console.log(this.service.getBreakPoints());
-      console.log(this._album);
+      // console.log(this._album);
     });
   }
 
@@ -207,5 +206,4 @@ export class ParagraphComponent implements OnInit {
       }
     );
   }
-
 }

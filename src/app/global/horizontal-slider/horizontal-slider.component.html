@@ -4,14 +4,37 @@
   class="right-control sliderControls fa fa-angle-left"
 ></i> -->
 <!-- <div class="slider-wrapper"> -->
-<span (mouseover)="slideRight($event)" (mouseleave)="slideStop($event)">
+<span
+  class="stfc_arrows"
+  (mouseover)="slideToRight($event)"
+  (mouseleave)="slideStop($event)"
+>
+  <ng-content select=".to-left-control"></ng-content>
+</span>
+<span
+  class="stfc_arrows"
+  (mouseover)="slideRight($event)"
+  (mouseleave)="slideStop($event)"
+>
   <ng-content select=".left-control"></ng-content>
 </span>
 
 <div #sliderContainer class="sliderContainer">
   <ng-content select=".items"></ng-content>
 </div>
-<span (mouseover)="slideLeft($event)" (mouseleave)="slideStop($event)">
+
+<span
+  class="stfc_arrows"
+  (mouseover)="slideLeft($event)"
+  (mouseleave)="slideStop($event)"
+>
   <ng-content select=".right-control"></ng-content>
+</span>
+<span
+  class="stfc_arrows"
+  (mouseover)="slideToLeft($event)"
+  (mouseleave)="slideStop($event)"
+>
+  <ng-content select=".to-right-control"></ng-content>
 </span>
 <!-- </div> -->

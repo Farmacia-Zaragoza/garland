@@ -1,0 +1,14 @@
+<div
+  class="marquee-container"
+  (mouseover)="showSlider()"
+  (mouseout)="hideSlider()"
+>
+  <div #responsiveText class="responsiveText {{ slider ? 'hidden' : '' }}">
+    <ng-content></ng-content>
+  </div>
+  <horizontal-slider class="{{ slider ? 'visible' : '' }}">
+    <i class="fa fa-angle-left left-control"></i>
+    <p #sliderItem class="items"></p>
+    <i class="fa fa-angle-right right-control"></i>
+  </horizontal-slider>
+</div>

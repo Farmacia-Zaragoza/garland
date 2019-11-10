@@ -21,6 +21,10 @@ import { GarldruFooterComponent } from './garldru-footer/garldru-footer.componen
 import { MultiResolutionDirective } from './directives/multi-resolution.directive';
 import { ImgResComponent } from './img-res/img-res.component';
 import { ParagraphComponent } from './paragraph/paragraph.component';
+import { ListComponent } from './list/list.component';
+import { AutoScrollComponent } from './global/auto-scroll/auto-scroll.component';
+import { MarqueeTextComponent } from './global/marquee-text/marquee-text.component';
+import { BrqxTextComponent } from './global/brqx-text/brqx-text.component';
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -38,7 +42,11 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     GarldruFooterComponent,
     MultiResolutionDirective,
     ImgResComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    ListComponent,
+    AutoScrollComponent,
+    MarqueeTextComponent,
+    BrqxTextComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<auto-scroll>
+  <ul>
+    <!-- <li>
+      <marquee-text>
+        <a>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a>
+      </marquee-text>
+    </li> -->
+    <!-- <li><brqx-text></brqx-text></li> -->
+    <li *ngFor="let article of articles; odd as odd">
+      <marquee-text>
+        <a
+          class="stfc_link {{ odd ? 'even' : 'odd' }}"
+          href="{{ article?.clink }}"
+          >{{ article?.name }}</a
+        >
+      </marquee-text>
+    </li>
+  </ul>
+</auto-scroll>
