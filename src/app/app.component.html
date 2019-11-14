@@ -40,7 +40,7 @@
       [@bounceOutLeft]="!leftVisible"
     >
       <div class="side-bar">
-        <app-left-section region="left" [data]="left?.menus"></app-left-section>
+        <app-left-section region="left" [data]="left"></app-left-section>
       </div>
       <div (click)="leftVisible = !leftVisible" class="sidebar-control">
         <i class="fa fa-angle-right"></i>
@@ -64,10 +64,7 @@
       <div class="side-bar">
         <!-- <app-right-section [config]="right?.menutype"></app-right-section> -->
         <!-- <app-left-section region='right' [config]="rightConfig()"></app-left-section> -->
-        <app-left-section
-          region="right"
-          [data]="right?.menus"
-        ></app-left-section>
+        <app-left-section region="right" [data]="right"></app-left-section>
       </div>
       <div (click)="rightVisible = !rightVisible" class="sidebar-control">
         <i class="fa fa-angle-left"></i>

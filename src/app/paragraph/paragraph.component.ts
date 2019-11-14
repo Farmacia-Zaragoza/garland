@@ -42,35 +42,11 @@ declare var $: any;
 export class ParagraphComponent implements OnInit {
   constructor(private service: PageService, private _lightbox: Lightbox) {}
 
-  @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
-  @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
   paragraphs: Array<{}> = [];
   type: string;
   image: string;
   animate = false;
   _album = [];
-  siteThemeColors = {
-    stfc_link_default_color_: {
-      index: "000v001v002v002v002",
-      type: "item",
-      value: "78348E"
-    },
-    stfc_link_hover_color: {
-      index: "000v001v002v002v003",
-      type: "item",
-      value: "99995B"
-    },
-    stfc_text_even_color_: {
-      index: "000v001v002v002v000",
-      type: "item",
-      value: "78348E"
-    },
-    stfc_text_odd_color: {
-      index: "000v001v002v002v001",
-      type: "item",
-      value: "9C7F24"
-    }
-  };
 
   breakPoints: any = {
     1171: "0900x1200",
@@ -109,101 +85,15 @@ export class ParagraphComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit() {
-    this.containerRef.changes.subscribe(t => {
-      this.getPos();
-    });
-  }
+  ngAfterViewInit() {}
 
   open(index: number): void {
     // open lightbox
     this._lightbox.open(this._album, index);
   }
 
-  obj: any;
-  // mouse movement exucution start here .when mouse hover over 10% top or 10% bottom then scroll up/down start
-  top = 0;
-  left = 0;
-  bottom = 0;
-  right = 0;
-  excldH = 0;
-  objHeight = 0;
-  objWidth = 0;
-  disableAutoScroll = true;
-
   onImageLoad() {
     console.log("loaded");
     this.animate = true;
-  }
-
-  //Get position of mouse pointer
-  handleMouseMove(e) {
-    const posY = e.clientY;
-    if (posY < this.top + this.excldH && this.disableAutoScroll == true) {
-      this.verticalSlideDown();
-      // console.log("down");
-    } else if (
-      posY > this.bottom - this.excldH &&
-      this.disableAutoScroll == true
-    ) {
-      this.verticalSlideUp();
-      // console.log("up");
-    } else {
-      // console.log("stop");
-      var div = $(this.obj);
-      div.stop();
-    }
-  }
-  // Get position of the div 'scroll-inner-container'
-  getPos() {
-    this.obj = $(this.socialInnerContainer.nativeElement);
-    var offsets = this.obj.offset();
-    this.objHeight = this.socialInnerContainer.nativeElement.clientHeight;
-    this.objWidth = this.socialInnerContainer.nativeElement.clientWidth;
-    this.excldH = this.objHeight / 3; //Caculating 10% height
-    this.top = offsets.top;
-    this.left = offsets.left;
-    this.bottom = this.top + this.objHeight;
-    this.right = this.left + this.objWidth;
-    // console.log(this.socialInnerContainer);
-  }
-
-  verticalSlideUp() {
-    var div = $(this.obj);
-    div.stop();
-    var remHeight =
-      this.socialInnerContainer.nativeElement.scrollHeight - this.objHeight;
-    var scrollableHeight = remHeight - div.scrollTop();
-    var pos = div.scrollTop();
-    var remainingTime = ((remHeight - pos) * 100) / 5; //here 5 is a speed
-    // console.log("pos : "+ pos);
-    div.animate(
-      {
-        scrollTop: remHeight
-      },
-      {
-        duration: remainingTime,
-        easing: "linear"
-      }
-    );
-  }
-  verticalSlideDown() {
-    var div = $(this.obj);
-    div.stop();
-    var remHeight =
-      this.socialInnerContainer.nativeElement.scrollHeight - this.objHeight;
-    var scrollableHeight = remHeight - div.scrollTop();
-    var pos = div.scrollTop();
-    // console.log("pos : "+ pos);
-    var remainingTime = (pos * 100) / 5; //here 5 is a speed
-    div.animate(
-      {
-        scrollTop: 0
-      },
-      {
-        duration: remainingTime,
-        easing: "linear"
-      }
-    );
   }
 }

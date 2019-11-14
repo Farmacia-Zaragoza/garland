@@ -1,24 +1,24 @@
 // $base-fontSize: 1.3rem;
 
-:host {
-  //   display: inherit;
-  font-size: inherit;
+// :host {
+//   //   display: inherit;
+//   font-size: inherit;
 
-  .stfc_header {
-    font-size: calc(100% + 2px);
-  }
-
-  .stfc_subheader {
-    font-size: calc(100% + 1px);
-  }
-
-  .stfc_version {
-    font-size: calc(100% - 1px);
-  }
-
+p {
   .stfc_link {
     text-decoration: underline;
-    margin-bottom: 1rem;
-    display: block;
   }
 }
+
+.stfc_header {
+  font-size: calc(100% + 2px);
+}
+
+.stfc_subheader {
+  font-size: calc(100% + 1px);
+}
+
+.stfc_version {
+  font-size: calc(100% - 1px);
+}
+// }

@@ -1,14 +1,21 @@
-import { Component, OnInit, Input, AfterViewInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  AfterViewInit,
+  ViewEncapsulation
+} from "@angular/core";
 
 @Component({
   selector: "brqx-text",
   templateUrl: "./brqx-text.component.html",
-  styleUrls: ["./brqx-text.component.scss"]
+  styleUrls: ["./brqx-text.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class BrqxTextComponent implements OnInit {
   // input = "$: S [- Upd_line [X_001]: Upd_181115 - V_0.0.1 -]";
   @Input("content") input: string;
-  type: string | undefined;
+  type: any;
   content: string;
   href: string;
 
@@ -21,10 +28,6 @@ export class BrqxTextComponent implements OnInit {
       class: "stfc_subheader",
       expression: /^\$:S\[([^]+)\]/g
     },
-    link: {
-      class: "stfc_link",
-      expression: /^\$:L\[([^]+)@([^]+)\]/g
-    },
     paragraph: {
       class: "stfc_parragraph",
       expression: /^\$:P\[([^]+)\]/g
@@ -34,8 +37,9 @@ export class BrqxTextComponent implements OnInit {
       expression: /^\$:V\[([^]+)\]/g
     }
   };
+  html: any = "";
 
-  matchResult;
+  matchResult: string[];
 
   constructor() {}
 
@@ -45,21 +49,29 @@ export class BrqxTextComponent implements OnInit {
 
   ngOnInit() {}
 
-  getType() {
+  private getType() {
+    this.genLinks();
+
     Object.keys(this.types).forEach(key => {
       if (this.matchResult) return;
-      this.matchResult = this.types[key].expression.exec(this.input);
+      this.matchResult = this.types[key].expression.exec(this.content);
 
       if (this.matchResult) {
-        this.type = key;
-
-        if (key === "link") {
-          this.href = this.matchResult[1];
-          this.content = this.matchResult[2];
-        } else {
-          this.content = this.matchResult[1];
-        }
+        this.type = this.types[key];
+        this.content = this.matchResult[1];
       }
     });
+  }
+
+  private genLinks() {
+    const expression = /\$:L\[([^@]+)@([^\]]+)\]/g;
+    let groups;
+    while ((groups = expression.exec(this.input))) {
+      this.input = this.input.replace(
+        groups[0],
+        `<a class="stfc_link" href="${groups[1]}">${groups[2]}</a>`
+      );
+    }
+    this.content = this.input;
   }
 }

@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="type">
+<!-- <ng-container [ngSwitch]="type">
   <h4 class="{{ types['heading'].class }}" *ngSwitchCase="'heading'">
     {{ content }}
   </h4>
@@ -17,5 +17,6 @@
     *ngSwitchCase="'link'"
     >{{ content }}</a
   >
-  <p *ngSwitchDefault>{{ input }}</p>
-</ng-container>
+</ng-container> -->
+
+<p class="{{ type?.class }}" [innerHTML]="content"></p>

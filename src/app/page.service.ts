@@ -80,18 +80,15 @@ export class PageService {
   }
 
   public getLeft() {
-    const styles = this.allData.common_json.regions.left.pull02.style.pull03;
-
     const menus = this.allData.common_json.regions.left.pull02.content.pull03;
 
-    return { styles, menus };
+    return menus;
   }
 
   public getRight() {
-    const styles = this.allData.common_json.regions.right.pull02.style.pull03;
     const menus = this.allData.common_json.regions.right.pull02.content.pull03;
 
-    return { styles, menus };
+    return menus;
   }
 
   getSiteLogo() {

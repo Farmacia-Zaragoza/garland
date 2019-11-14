@@ -1,29 +1,23 @@
-<div class="social-outer-container">
-  <div
-    (mousemove)="handleMouseMove($event)"
-    #socialInnerContainer
-    class="social-inner-container stfc_scrollbar"
-  >
-    <div *ngIf="type === 'iparragraph'" class="image-container">
-      <img
-        (load)="onImageLoad()"
-        (click)="open(0)"
-        [MultiResolution]="breakPoints"
-        src="{{ _album[0]?.thumb }}"
-        alt=""
-        [@zoomFadeIn]="animate ? 'visible' : 'hidden'"
-      />
-    </div>
-    <brqx-text
-      *ngFor="let p of paragraphs; let odd = odd"
-      class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
-      [content]="p.value"
-    ></brqx-text>
-    <!-- <p
-      *ngFor="let p of paragraphs; let odd = odd"
-      class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
-    >
-      {{ p.value }}
-    </p> -->
+<auto-scroll class="social">
+  <div *ngIf="type === 'iparragraph'" class="image-container">
+    <img
+      (load)="onImageLoad()"
+      (click)="open(0)"
+      [MultiResolution]="breakPoints"
+      src="{{ _album[0]?.thumb }}"
+      alt=""
+      [@zoomFadeIn]="animate ? 'visible' : 'hidden'"
+    />
   </div>
-</div>
+
+  <!-- <brqx-text
+    [content]="
+      'Once $:L[http://drupalarchitecture.com@first] be working $:L[http://domain.com@test1] we will $:L[http://domain.com@test and test] see $:L[http://third.com@third] how that will change'
+    "
+  ></brqx-text> -->
+  <brqx-text
+    *ngFor="let p of paragraphs; let odd = odd"
+    class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
+    [content]="p.value"
+  ></brqx-text>
+</auto-scroll>

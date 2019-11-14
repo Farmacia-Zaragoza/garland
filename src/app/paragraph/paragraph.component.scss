@@ -7,16 +7,10 @@
   overflow: hidden;
   box-sizing: border-box;
   // padding-bottom: 40px;
-
-  .social-outer-container {
-    height: 100%;
-  }
 }
 
-.social-inner-container {
+auto-scroll {
   height: inherit;
-  overflow-y: scroll;
-  padding-right: 15px;
 
   .image-container {
     width: 300px;
@@ -43,7 +37,7 @@
 }
 
 @include mediaLg {
-  .social-inner-container {
+  auto-scroll {
     brqx-text {
       font-size: 1rem;
     }
@@ -59,7 +53,7 @@
     padding: 10px;
   }
 
-  .social-inner-container {
+  auto-scroll {
     brqx-text {
       font-size: 0.8rem;
     }
@@ -71,7 +65,7 @@
 }
 
 @include mediaSm {
-  .social-inner-container {
+  auto-scroll {
     brqx-text {
       font-size: 0.7rem;
     }
