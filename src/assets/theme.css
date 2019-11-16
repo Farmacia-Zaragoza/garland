@@ -38,7 +38,6 @@ body {
 /* Paragraphs */
 .stfc_paragraph {
   color: #000;
-  font-weight: bold;
 }
 
 .stfc_paragraph:hover {
@@ -62,13 +61,36 @@ body {
   color: #78348e;
 }
 
-/* .stfc_header{
+/* RegEX specific styles start */
+.stfc_headings {
+  /* H, S, P */
   font-weight: bold;
 }
 
-.stfc_subheader {
-  font-weight: bold;
-} */
+.stfc_regex_H {
+  color: inherit;
+}
+
+.stfc_regex_S {
+  color: inherit;
+}
+
+.stfc_regex_P {
+  color: inherit;
+}
+
+.stfc_regex_H:hover {
+  color: orange;
+}
+
+.stfc_regex_S:hover {
+  color: brown;
+}
+
+.stfc_regex_P:hover {
+  color: red;
+}
+/* RegEX specific styles end */
 
 /* Arrow color */
 

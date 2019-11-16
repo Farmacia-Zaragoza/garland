@@ -21,15 +21,15 @@ export class BrqxTextComponent implements OnInit {
 
   types = {
     heading: {
-      class: "stfc_header",
+      class: "stfc_regex_H",
       expression: /^\$:H\[([^]+)\]/g
     },
     subHeader: {
-      class: "stfc_subheader",
+      class: "stfc_regex_S",
       expression: /^\$:S\[([^]+)\]/g
     },
     paragraph: {
-      class: "stfc_parragraph",
+      class: "stfc_regex_P",
       expression: /^\$:P\[([^]+)\]/g
     },
     versionTitle: {
@@ -57,7 +57,7 @@ export class BrqxTextComponent implements OnInit {
       this.matchResult = this.types[key].expression.exec(this.content);
 
       if (this.matchResult) {
-        this.type = this.types[key];
+        this.type = key;
         this.content = this.matchResult[1];
       }
     });

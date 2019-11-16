@@ -1,22 +1,25 @@
-<!-- <ng-container [ngSwitch]="type">
-  <h4 class="{{ types['heading'].class }}" *ngSwitchCase="'heading'">
-    {{ content }}
-  </h4>
-  <p class="{{ types['subHeader'].class }}" *ngSwitchCase="'subHeader'">
-    {{ content }}
-  </p>
-  <p class="{{ types['paragraph'].class }}" *ngSwitchCase="'paragraph'">
-    {{ content }}
-  </p>
-  <p class="{{ types['versionTitle'].class }}" *ngSwitchCase="'versionTitle'">
-    {{ content }}
-  </p>
-  <a
-    class="{{ types['link'].class }}"
-    href="{{ href }}"
-    *ngSwitchCase="'link'"
-    >{{ content }}</a
-  >
-</ng-container> -->
+<ng-container [ngSwitch]="type">
+  <p
+    class="{{ types[type].class + ' stfc_headings' }}"
+    [innerHTML]="content"
+    *ngSwitchCase="'heading'"
+  ></p>
+  <p
+    class="{{ types[type].class + ' stfc_headings' }}"
+    [innerHTML]="content"
+    *ngSwitchCase="'subHeader'"
+  ></p>
+  <p
+    class="{{ types[type].class + ' stfc_headings' }}"
+    [innerHTML]="content"
+    *ngSwitchCase="'paragraph'"
+  ></p>
+  <p
+    class="{{ types[type].class }}"
+    [innerHTML]="content"
+    *ngSwitchCase="'versionTitle'"
+  ></p>
+  <p [innerHTML]="content" *ngSwitchDefault></p>
+</ng-container>
 
-<p class="{{ type?.class }}" [innerHTML]="content"></p>
+<!-- <p class="{{ types[type].class }}" [innerHTML]="content"></p> -->

@@ -4,17 +4,19 @@
 //   //   display: inherit;
 //   font-size: inherit;
 
+@import "../../config";
+
 p {
   .stfc_link {
-    text-decoration: underline;
+    // text-decoration: underline;
   }
 }
 
-.stfc_header {
+.stfc_regex_H {
   font-size: calc(100% + 2px);
 }
 
-.stfc_subheader {
+.stfc_regex_S {
   font-size: calc(100% + 1px);
 }
 
@@ -22,3 +24,9 @@ p {
   font-size: calc(100% - 1px);
 }
 // }
+
+@include mediaLg {
+  .stfc_version {
+    display: none;
+  }
+}
