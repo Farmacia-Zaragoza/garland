@@ -1,9 +1,53 @@
-<div class="social-outer-container">
+<div class="social-outer-container stfc_scrollbar" #scrollerContainer>
+  <div class="toTop">
+    <i
+      (mouseover)="getToTop()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-up stfc_arrows"
+    ></i>
+    <i
+      (mouseover)="getToTop()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-up stfc_arrows"
+    ></i>
+    <i
+      (mouseover)="getToTop()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-up stfc_arrows"
+    ></i>
+    <i
+      (mouseover)="getToTop()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-up stfc_arrows"
+    ></i>
+  </div>
   <div
-    (mousemove)="handleMouseMove($event)"
-    #socialInnerContainer
-    class="social-inner-container stfc_scrollbar"
+    (mouseover)="handleMouseMove($event)"
+    (mouseleave)="stop()"
+    class="social-inner-container "
   >
     <ng-content></ng-content>
+  </div>
+  <div class="toBottom">
+    <i
+      (mouseover)="getToBottom()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-down stfc_arrows"
+    ></i>
+    <i
+      (mouseover)="getToBottom()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-down stfc_arrows"
+    ></i>
+    <i
+      (mouseover)="getToBottom()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-down stfc_arrows"
+    ></i>
+    <i
+      (mouseover)="getToBottom()"
+      (mouseleave)="stop()"
+      class="fa fa-angle-down stfc_arrows"
+    ></i>
   </div>
 </div>

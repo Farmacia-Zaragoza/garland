@@ -26,8 +26,8 @@ export class AutoScrollComponent implements OnInit {
   objWidth = 0;
   disableAutoScroll = true;
 
-  @ViewChild("socialInnerContainer") socialInnerContainer: ElementRef;
-  // @ViewChildren("socialInnerContainer") containerRef: QueryList<any>;
+  @ViewChild("scrollerContainer") scrollerContainer: ElementRef;
+  // @ViewChildren("scrollerContainer") containerRef: QueryList<any>;
 
   ngOnInit() {}
 
@@ -48,33 +48,65 @@ export class AutoScrollComponent implements OnInit {
       this.verticalSlideUp();
       // console.log("up");
     } else {
-      // console.log("stop");
-      var div = $(this.obj);
-      div.stop();
+      this.stop();
     }
+  }
+
+  stop() {
+    this.obj = $(this.scrollerContainer.nativeElement);
+    this.obj.stop();
+  }
+
+  getToTop() {
+    this.obj = $(this.scrollerContainer.nativeElement);
+    this.obj.animate(
+      {
+        scrollTop: 0
+      },
+      {
+        duration: 1000,
+        easing: "linear"
+      }
+    );
+  }
+
+  getToBottom() {
+    this.obj = $(this.scrollerContainer.nativeElement);
+    const remHeight =
+      this.scrollerContainer.nativeElement.scrollHeight - this.objHeight;
+    this.obj.animate(
+      {
+        scrollTop: remHeight
+      },
+      {
+        duration: 1000,
+        easing: "linear"
+      }
+    );
   }
   // Get position of the div 'scroll-inner-container'
   getPos() {
-    this.obj = $(this.socialInnerContainer.nativeElement);
-    var offsets = this.obj.offset();
-    this.objHeight = this.socialInnerContainer.nativeElement.clientHeight;
-    this.objWidth = this.socialInnerContainer.nativeElement.clientWidth;
+    this.obj = $(this.scrollerContainer.nativeElement);
+    const offsets = this.obj.offset();
+    this.objHeight = this.scrollerContainer.nativeElement.clientHeight;
+    this.objWidth = this.scrollerContainer.nativeElement.clientWidth;
     this.excldH = this.objHeight / 3; //Caculating 10% height
     this.top = offsets.top;
     this.left = offsets.left;
     this.bottom = this.top + this.objHeight;
     this.right = this.left + this.objWidth;
-    // console.log(this.socialInnerContainer);
+    // console.log(this.objHeight, this.objWidth, this.top, this.left);
+    // console.log(this.scrollerContainer);
   }
 
   verticalSlideUp() {
-    var div = $(this.obj);
+    const div = $(this.obj);
     div.stop();
-    var remHeight =
-      this.socialInnerContainer.nativeElement.scrollHeight - this.objHeight;
-    var scrollableHeight = remHeight - div.scrollTop();
-    var pos = div.scrollTop();
-    var remainingTime = ((remHeight - pos) * 100) / 5; //here 5 is a speed
+    const remHeight =
+      this.scrollerContainer.nativeElement.scrollHeight - this.objHeight;
+    const scrollableHeight = remHeight - div.scrollTop();
+    const pos = div.scrollTop();
+    const remainingTime = ((remHeight - pos) * 100) / 5; //here 5 is a speed
     // console.log("pos : "+ pos);
     div.animate(
       {
@@ -87,12 +119,12 @@ export class AutoScrollComponent implements OnInit {
     );
   }
   verticalSlideDown() {
-    var div = $(this.obj);
+    const div = $(this.obj);
     div.stop();
-    var remHeight =
-      this.socialInnerContainer.nativeElement.scrollHeight - this.objHeight;
-    var scrollableHeight = remHeight - div.scrollTop();
-    var pos = div.scrollTop();
+    const remHeight =
+      this.scrollerContainer.nativeElement.scrollHeight - this.objHeight;
+    const scrollableHeight = remHeight - div.scrollTop();
+    const pos = div.scrollTop();
     // console.log("pos : "+ pos);
     var remainingTime = (pos * 100) / 5; //here 5 is a speed
     div.animate(

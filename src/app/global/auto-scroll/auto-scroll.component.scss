@@ -4,13 +4,56 @@
   display: block;
   overflow: hidden;
   box-sizing: border-box;
+  position: relative;
 }
+
+$distance: 5px;
+
 .social-outer-container {
   height: 100%;
+  overflow-y: scroll;
+  // position: relative;
+  // padding-right: 15px;
+
+  .stfc_arrows {
+    // position: absolute;
+    font-size: 1.5rem;
+    margin: 0 5px;
+    // display: none;
+  }
+
+  .toTop,
+  .toBottom {
+    left: calc(50% - 50px);
+    transition: 0.3s ease-in;
+    position: absolute;
+    text-align: center;
+  }
+
+  .toTop {
+    top: -30px;
+    // transform: translateY(-30px);
+  }
+  .toBottom {
+    bottom: -30px;
+  }
+
+  &:hover {
+    .stfc_arrows {
+      // display: inline-block;
+    }
+
+    .toTop {
+      top: $distance;
+    }
+    .toBottom {
+      bottom: $distance;
+    }
+  }
 }
 
 .social-inner-container {
   height: inherit;
-  overflow-y: scroll;
+  // overflow-y: scroll;
   padding-right: 15px;
 }
