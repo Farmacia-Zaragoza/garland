@@ -4,7 +4,10 @@
   class="right-control sliderControls fa fa-angle-left"
 ></i> -->
 <!-- <div class="slider-wrapper"> -->
+
+<!-- <span id="test">scrollablewidth: {{ scrollableWidth | async }}</span> -->
 <span
+  [style.opacity]="currentScrollLeft | async"
   class="stfc_arrows"
   (mouseover)="slideToRight($event)"
   (mouseleave)="slideStop($event)"
@@ -12,6 +15,7 @@
   <ng-content select=".to-left-control"></ng-content>
 </span>
 <span
+  [style.opacity]="currentScrollLeft | async"
   class="stfc_arrows"
   (mouseover)="slideRight($event)"
   (mouseleave)="slideStop($event)"
@@ -24,6 +28,7 @@
 </div>
 
 <span
+  [style.opacity]="scrollableWidth | async"
   class="stfc_arrows"
   (mouseover)="slideLeft($event)"
   (mouseleave)="slideStop($event)"
@@ -31,6 +36,7 @@
   <ng-content select=".right-control"></ng-content>
 </span>
 <span
+  [style.opacity]="scrollableWidth | async"
   class="stfc_arrows"
   (mouseover)="slideToLeft($event)"
   (mouseleave)="slideStop($event)"

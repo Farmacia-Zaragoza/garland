@@ -1,4 +1,5 @@
 <span
+  [style.opacity]="currentScrollTop | async"
   class="stfc_arrows"
   (mouseover)="slideUp($event)"
   (mouseleave)="slideStop($event)"
@@ -6,10 +7,11 @@
   <ng-content select=".up-control"></ng-content>
 </span>
 
-<div class="sliderContainer">
+<div #sliderContainer class="sliderContainer">
   <ng-content select=".items"></ng-content>
 </div>
 <span
+  [style.opacity]="scrollableHeight | async"
   class="stfc_arrows"
   (mouseover)="slideDown($event)"
   (mouseleave)="slideStop($event)"

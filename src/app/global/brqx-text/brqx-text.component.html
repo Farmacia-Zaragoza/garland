@@ -3,23 +3,30 @@
     class="{{ types[type].class + ' stfc_headings' }}"
     [innerHTML]="content"
     *ngSwitchCase="'heading'"
+    id="{{ anchorId ? anchorId : '' }}"
   ></p>
   <p
     class="{{ types[type].class + ' stfc_headings' }}"
     [innerHTML]="content"
     *ngSwitchCase="'subHeader'"
+    id="{{ anchorId ? anchorId : '' }}"
   ></p>
   <p
     class="{{ types[type].class + ' stfc_headings' }}"
     [innerHTML]="content"
     *ngSwitchCase="'paragraph'"
+    id="{{ anchorId ? anchorId : '' }}"
   ></p>
   <p
     class="{{ types[type].class }}"
     [innerHTML]="content"
     *ngSwitchCase="'versionTitle'"
   ></p>
-  <p [innerHTML]="content" *ngSwitchDefault></p>
+  <p
+    id="{{ anchorId ? anchorId : '' }}"
+    [innerHTML]="content"
+    *ngSwitchDefault
+  ></p>
 </ng-container>
 
 <!-- <p class="{{ types[type].class }}" [innerHTML]="content"></p> -->

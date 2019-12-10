@@ -1,4 +1,13 @@
-import { Component, OnInit, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  AfterViewInit,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
+import { fromEvent, Subscription, BehaviorSubject } from "rxjs";
+import { map } from "rxjs/operators";
 declare var $: any;
 
 @Component({
@@ -6,7 +15,7 @@ declare var $: any;
   templateUrl: "./vertical-slider.component.html",
   styleUrls: ["./vertical-slider.component.scss"]
 })
-export class VerticalSliderComponent implements OnInit {
+export class VerticalSliderComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   @Input("duration") speed = 5;
@@ -14,7 +23,33 @@ export class VerticalSliderComponent implements OnInit {
   remLength;
   scrollable;
 
+  @ViewChild("sliderContainer") scrollerContainer: ElementRef;
+
+  private subscription: Subscription;
+  currentScrollTop = new BehaviorSubject(0);
+  scrollableHeight = new BehaviorSubject(1);
+
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    const element = this.scrollerContainer.nativeElement;
+    const scroll$ = fromEvent(element, "scroll").pipe(map(() => element));
+    // console.log(scrollWidth, objWidth);
+
+    // const obj = $(this.scrollerContainer.nativeElement);
+
+    this.subscription = scroll$.subscribe(element => {
+      const obj = $(element);
+      const scrollable =
+        $(element)[0].scrollHeight -
+        $(element).height() -
+        $(element).scrollTop();
+
+      this.scrollableHeight.next(scrollable < 1 ? 0 : scrollable);
+
+      this.currentScrollTop.next($(element).scrollTop());
+    });
+  }
 
   slideStop({ currentTarget }) {
     let btn = currentTarget;

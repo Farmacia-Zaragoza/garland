@@ -1,5 +1,5 @@
 <div class="social-outer-container stfc_scrollbar" #scrollerContainer>
-  <div class="toTop">
+  <div *ngIf="currentScrollTop | async" class="toTop">
     <i
       (mouseover)="getToTop()"
       (mouseleave)="stop()"
@@ -20,6 +20,7 @@
       (mouseleave)="stop()"
       class="fa fa-angle-up stfc_arrows"
     ></i>
+    <!-- <span>currentScrollTop: {{ currentScrollTop | async }}</span> -->
   </div>
   <div
     (mouseover)="handleMouseMove($event)"
@@ -28,7 +29,7 @@
   >
     <ng-content></ng-content>
   </div>
-  <div class="toBottom">
+  <div *ngIf="scrollableHeight | async" class="toBottom">
     <i
       (mouseover)="getToBottom()"
       (mouseleave)="stop()"
@@ -49,5 +50,7 @@
       (mouseleave)="stop()"
       class="fa fa-angle-down stfc_arrows"
     ></i>
+
+    <!-- <span>scrollableHeight: {{ scrollableHeight | async }}</span> -->
   </div>
 </div>

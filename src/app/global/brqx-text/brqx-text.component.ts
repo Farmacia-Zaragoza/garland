@@ -18,6 +18,7 @@ export class BrqxTextComponent implements OnInit {
   type: any;
   content: string;
   href: string;
+  anchorId: string;
 
   types = {
     heading: {
@@ -41,9 +42,13 @@ export class BrqxTextComponent implements OnInit {
 
   matchResult: string[];
 
-  constructor() {}
+  constructor() {
+    const prtocol = window.location.protocol;
+    // console.log(prtocol);
+  }
 
   ngOnChanges() {
+    this.content = this.input;
     this.getType();
   }
 
@@ -54,24 +59,56 @@ export class BrqxTextComponent implements OnInit {
 
     Object.keys(this.types).forEach(key => {
       if (this.matchResult) return;
-      this.matchResult = this.types[key].expression.exec(this.content);
 
+      this.matchResult = this.types[key].expression.exec(this.content);
       if (this.matchResult) {
+        // console.log(this.matchResult);
         this.type = key;
         this.content = this.matchResult[1];
       }
     });
+
+    switch (this.type) {
+      case "versionTitle":
+        break;
+
+      default:
+        this.getAnchorId();
+        break;
+    }
   }
 
   private genLinks() {
     const expression = /\$:L\[([^@]+)@([^\]]+)\]/g;
     let groups;
-    while ((groups = expression.exec(this.input))) {
-      this.input = this.input.replace(
+    while ((groups = expression.exec(this.content))) {
+      this.content = this.content.replace(
         groups[0],
-        `<a class="stfc_link" href="${groups[1]}">${groups[2]}</a>`
+        `<a class="stfc_link" href="${this.fixProtocol(groups[1])}">${
+          groups[2]
+        }</a>`
       );
     }
-    this.content = this.input;
+    // this.content = this.input;
+  }
+
+  private fixProtocol(link: string): string {
+    if (!link.includes("http")) {
+      return window.location.protocol + "//" + link;
+    }
+    return link;
+  }
+
+  private getAnchorId() {
+    const expression = /\#([^(?!\"\>)]+)$/g;
+    const result = expression.exec(this.content);
+    // console.log(this.content);
+
+    if (result) {
+      // console.log(result);
+      this.anchorId = result[1];
+      this.content = this.content.replace(`#${this.anchorId}`, "");
+      console.log(this.anchorId);
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { environment } from "./../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Injectable, Inject, EventEmitter } from "@angular/core";
 import { Observable, forkJoin } from "rxjs";
@@ -25,21 +26,33 @@ export class PageService {
 
     this.requestDataFromMultipleSources().subscribe(res => {
       this.allData = {
-        common_json: res[0],
-        spec_json: res[1],
-        content: res[2]
+        common_json: res[0] || {},
+        spec_json: res[1] || {},
+        content: res[2] || {}
       };
 
       //marging common and spec json
-      Object.keys(this.allData.spec_json).forEach(key => {
-        Object.keys(this.allData.spec_json[key]).forEach(secLevelKey => {
-          this.allData.common_json[key][secLevelKey] = this.allData.spec_json[
-            key
-          ][secLevelKey];
+      try {
+        Object.keys(this.allData.spec_json).forEach(key => {
+          Object.keys(this.allData.spec_json[key]).forEach(secLevelKey => {
+            this.allData.common_json[key][secLevelKey] = this.allData.spec_json[
+              key
+            ][secLevelKey];
+          });
         });
-      });
+      } catch (err) {
+        // const confirmationn = window.confirm(
+        //   "Error occured while merging the json data. Dow you want to @reload?"
+        // );
+        // console.log(window.location.href);
+        // if (confirmationn)
+        //   window.location.href = window.location.href + "@reload";
+        console.error("Error Occured while merging the json data.", err);
+      }
 
-      console.log(this.allData);
+      if (!environment.production) {
+        console.log(this.allData);
+      }
       // this.getBottomMenu();
       this.done.emit(this.allData);
     });
@@ -125,5 +138,9 @@ export class PageService {
       obj[p.break] = p.resolution;
     });
     return obj;
+  }
+
+  getCurrentPosition() {
+    return this.allData.content.articles[0].pull02.current_position;
   }
 }

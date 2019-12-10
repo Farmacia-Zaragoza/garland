@@ -8,6 +8,8 @@ import {
   ElementRef,
   DoCheck
 } from "@angular/core";
+import { Subscription, BehaviorSubject, fromEvent } from "rxjs";
+import { map } from "rxjs/operators";
 declare var $: any;
 
 @Component({
@@ -22,6 +24,12 @@ export class HorizontalSliderComponent implements OnInit {
   sliderContainer;
   remLength;
   scrollable;
+
+  @ViewChild("sliderContainer") scrollerContainer: ElementRef;
+
+  private subscription: Subscription;
+  currentScrollLeft = new BehaviorSubject(0);
+  scrollableWidth = new BehaviorSubject(1);
 
   // controlsVisible = true;
 
@@ -43,6 +51,23 @@ export class HorizontalSliderComponent implements OnInit {
 
   ngAfterViewInit() {
     // this.checkControlsVisibility();
+    const element = this.scrollerContainer.nativeElement;
+    const scroll$ = fromEvent(element, "scroll").pipe(map(() => element));
+    // console.log(scrollWidth, objWidth);
+
+    // const obj = $(this.scrollerContainer.nativeElement);
+
+    this.subscription = scroll$.subscribe(element => {
+      const obj = $(element);
+      const scrollable =
+        $(element)[0].scrollWidth -
+        $(element).width() -
+        $(element).scrollLeft();
+
+      this.scrollableWidth.next(scrollable < 1 ? 0 : scrollable);
+
+      this.currentScrollLeft.next($(element).scrollLeft());
+    });
   }
 
   // checkControlsVisibility() {

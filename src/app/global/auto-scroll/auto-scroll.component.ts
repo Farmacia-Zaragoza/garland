@@ -6,6 +6,11 @@ import {
   ElementRef,
   QueryList
 } from "@angular/core";
+import { fromEvent, Observable, of, BehaviorSubject, Subscription } from "rxjs";
+import { map } from "rxjs/operators";
+// import { of } from 'rxjs/observable/of';
+// import 'rxjs/add/observable/of';
+
 declare const $: any;
 @Component({
   selector: "auto-scroll",
@@ -28,11 +33,33 @@ export class AutoScrollComponent implements OnInit {
 
   @ViewChild("scrollerContainer") scrollerContainer: ElementRef;
   // @ViewChildren("scrollerContainer") containerRef: QueryList<any>;
+  private subscription: Subscription;
+  currentScrollTop = new BehaviorSubject(0);
+  scrollableHeight = new BehaviorSubject(1);
 
   ngOnInit() {}
 
   ngAfterViewInit() {
+    const element = this.scrollerContainer.nativeElement;
+    const scroll$ = fromEvent(element, "scroll").pipe(map(() => element));
+
+    this.subscription = scroll$.subscribe(element => {
+      const scrollable =
+        this.scrollerContainer.nativeElement.scrollHeight -
+        this.objHeight -
+        $(element).scrollTop();
+      this.scrollableHeight.next(scrollable);
+
+      this.currentScrollTop.next($(element).scrollTop());
+    });
+
     this.getPos();
+
+    console.log(window.location.hash);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   //Get position of mouse pointer
@@ -95,8 +122,6 @@ export class AutoScrollComponent implements OnInit {
     this.left = offsets.left;
     this.bottom = this.top + this.objHeight;
     this.right = this.left + this.objWidth;
-    // console.log(this.objHeight, this.objWidth, this.top, this.left);
-    // console.log(this.scrollerContainer);
   }
 
   verticalSlideUp() {
@@ -118,6 +143,7 @@ export class AutoScrollComponent implements OnInit {
       }
     );
   }
+
   verticalSlideDown() {
     const div = $(this.obj);
     div.stop();
@@ -135,6 +161,17 @@ export class AutoScrollComponent implements OnInit {
         duration: remainingTime,
         easing: "linear"
       }
+    );
+  }
+
+  goToTarget(target: string) {
+    const element = $(target);
+    if (!element[0]) return;
+
+    const position = element.position();
+    $(this.scrollerContainer.nativeElement).animate(
+      { scrollTop: position.top },
+      1000
     );
   }
 }

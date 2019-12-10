@@ -19,6 +19,8 @@ import {
   // ...
 } from "@angular/animations";
 import { Lightbox } from "ngx-lightbox";
+import { ActivatedRoute } from "@angular/router";
+import { AutoScrollComponent } from "../global/auto-scroll/auto-scroll.component";
 declare var $: any;
 
 @Component({
@@ -39,7 +41,7 @@ declare var $: any;
     ])
   ]
 })
-export class ParagraphComponent implements OnInit {
+export class ParagraphComponent implements OnInit, AfterViewInit {
   constructor(private service: PageService, private _lightbox: Lightbox) {}
 
   paragraphs: Array<{}> = [];
@@ -54,6 +56,8 @@ export class ParagraphComponent implements OnInit {
     501: "0600x0710",
     220: "0480x0600"
   };
+
+  @ViewChild(AutoScrollComponent) autoScroller: AutoScrollComponent;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
@@ -82,10 +86,24 @@ export class ParagraphComponent implements OnInit {
       }
       // console.log(this.service.getBreakPoints());
       // console.log(this._album);
+
+      // animate scroll feature for the first time page load
+      setTimeout(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          this.autoScroller.goToTarget(hash);
+        }
+      }, 1000);
     });
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    // console.log("view initialized...");
+  }
+
+  // ngAfterContentChecked() {
+  //   console.log("changes happened..");
+  // }
 
   open(index: number): void {
     // open lightbox

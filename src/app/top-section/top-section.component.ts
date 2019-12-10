@@ -14,7 +14,7 @@ export class TopSectionComponent implements OnInit {
   };
 
   menuItems = [];
-  bgColor;
+  activeItem;
 
   constructor(private service: PageService) {}
 
@@ -28,8 +28,9 @@ export class TopSectionComponent implements OnInit {
       // console.log(this.topConfig)
       this.menuItems = this.service.getHeader();
       // console.log(header);
-      this.bgColor = "red";
       // console.log(this.menuItems);
+      this.activeItem = this.service.getCurrentPosition();
+      console.log(this.activeItem, this.menuItems);
     });
   }
 }
