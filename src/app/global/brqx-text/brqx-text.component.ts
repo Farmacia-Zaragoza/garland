@@ -13,7 +13,7 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class BrqxTextComponent implements OnInit {
-  // input = "$: S [- Upd_line [X_001]: Upd_181115 - V_0.0.1 -]";
+  //input as a props
   @Input("content") input: string;
   type: any;
   content: string;
@@ -48,6 +48,7 @@ export class BrqxTextComponent implements OnInit {
   }
 
   ngOnChanges() {
+    //runs whenever this component have any change to apply. kind of same as the render method in #React
     this.content = this.input;
     this.getType();
   }
@@ -80,6 +81,7 @@ export class BrqxTextComponent implements OnInit {
 
   private genLinks() {
     const expression = /\$:L\[([^@]+)@([^\]]+)\]/g;
+    // Matching and replacing with a anchor tag
     let groups;
     while ((groups = expression.exec(this.content))) {
       this.content = this.content.replace(
@@ -89,17 +91,18 @@ export class BrqxTextComponent implements OnInit {
         }</a>`
       );
     }
-    // this.content = this.input;
   }
 
   private fixProtocol(link: string): string {
     if (!link.includes("http")) {
+      // link could be just an hash value. ex: '#logical_info
       return window.location.protocol + "//" + link;
     }
     return link;
   }
 
   private getAnchorId() {
+    // Matching and replacing the Id with an empty string, extracting the id as well.
     const expression = /\#([^(?!\"\>)]+)$/g;
     const result = expression.exec(this.content);
     // console.log(this.content);
