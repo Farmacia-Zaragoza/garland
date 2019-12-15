@@ -18,33 +18,38 @@
     </p>
   </div>
 
-  <horizontal-slider id="flag-horizontal">
-    <i class="left-control sliderControls fa fa-angle-left"></i>
-    <div class="items">
-      <a *ngFor="let lang of langs | keyvalue" href="{{ lang.value.clink }}">
-        <img src="{{ server + lang.value.flag }}" alt="{{ lang.value.name }}" />
-      </a>
-    </div>
-    <i class="right-control sliderControls fa fa-angle-right"></i>
-  </horizontal-slider>
+  <div id="flags">
+    <horizontal-slider id="flag-horizontal">
+      <i class="left-control sliderControls fa fa-angle-left"></i>
+      <div class="items">
+        <a *ngFor="let lang of langs | keyvalue" href="{{ lang.value.clink }}">
+          <img
+            src="{{ server + lang.value.flag }}"
+            alt="{{ lang.value.name }}"
+          />
+        </a>
+      </div>
+      <i class="right-control sliderControls fa fa-angle-right"></i>
+    </horizontal-slider>
 
-  <div *ngIf="activeLang" id="flag-sm">
-    <div (click)="visible = !visible" class="active">
-      <img src="{{ server + activeLang.flag }}" alt="{{ activeLang.name }}" />
+    <div *ngIf="activeLang" id="flag-sm">
+      <div (click)="visible = !visible" class="active">
+        <img src="{{ server + activeLang.flag }}" alt="{{ activeLang.name }}" />
+      </div>
+      <vertical-slider [@collapse]="visible" class="all">
+        <i class="up-control fa fa-angle-up"></i>
+        <ul class="items">
+          <li *ngFor="let lang of langs | slice: 1:langs.length | keyvalue">
+            <a href="{{ lang.value.clink }}">
+              <img
+                src="{{ server + lang.value.flag }}"
+                alt="{{ lang.value.value }}"
+              />
+            </a>
+          </li>
+        </ul>
+        <i class="down-control fa fa-angle-down"></i>
+      </vertical-slider>
     </div>
-    <vertical-slider [@collapse]="visible" class="all">
-      <i class="up-control fa fa-angle-up"></i>
-      <ul class="items">
-        <li *ngFor="let lang of langs | slice: 1:langs.length | keyvalue">
-          <a href="{{ lang.value.clink }}">
-            <img
-              src="{{ server + lang.value.flag }}"
-              alt="{{ lang.value.value }}"
-            />
-          </a>
-        </li>
-      </ul>
-      <i class="down-control fa fa-angle-down"></i>
-    </vertical-slider>
   </div>
 </div>

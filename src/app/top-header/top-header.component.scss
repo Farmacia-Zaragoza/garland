@@ -26,7 +26,7 @@ owl-carousel-o {
   background-size: cover;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
 
   z-index: 1;
 
@@ -35,6 +35,7 @@ owl-carousel-o {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 20%;
 
     img {
       width: 110px;
@@ -43,8 +44,9 @@ owl-carousel-o {
   }
 
   .titles {
+    width: 60%;
     text-align: center;
-    transform: translateX(140px);
+    // transform: translateX(140px);
     margin-top: auto;
 
     h4 {
@@ -78,16 +80,31 @@ owl-carousel-o {
     );
     z-index: -1;
   }
+}
+
+#flags {
+  width: 20%;
+  // overflow: hidden;
+  max-height: 100%;
+  // display: flex;
+  // height: $height;
 
   #flag-horizontal {
-    width: 35%;
+    // width: 35%;
     align-self: flex-start;
-
+    width: 100%;
+    height: 45px;
     .sliderControls {
       font-size: 1.5rem;
       margin: 5px;
     }
     .items {
+      // height: fit-content;
+      // height: $height;
+      // height: 100%;
+      height: inherit;
+      display: flex;
+      align-items: center;
       a {
         padding: 5px 10px;
 
@@ -97,10 +114,10 @@ owl-carousel-o {
       }
     }
   }
+}
 
-  #flag-sm {
-    display: none;
-  }
+#flag-sm {
+  display: none;
 }
 
 @include mediaLg {
@@ -113,19 +130,35 @@ owl-carousel-o {
       }
     }
 
+    .titles {
+      margin: auto;
+      h4 {
+        font-size: 1.4rem;
+      }
+      p {
+        display: none;
+      }
+    }
+
     #flag-horizontal {
       display: none;
     }
 
     #flag-sm {
-      display: block;
-      width: 100px;
+      display: flex;
+      // width: 60px;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
       position: relative;
-      margin-right: 50px;
+
+      .active {
+        width: 60px;
+      }
 
       .all {
         position: absolute;
-        top: 100%;
+        top: 80%;
         left: 0;
         height: 400px;
         // z-index: 99999;
@@ -141,6 +174,15 @@ owl-carousel-o {
 
         li {
           padding: 10px;
+
+          a {
+            display: block;
+            height: 50px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
         }
       }
     }
@@ -156,8 +198,10 @@ owl-carousel-o {
     }
 
     #flag-sm {
-      width: 90px;
-      margin-right: 10px;
+      // width: 45px;
+      // display: flex;
+      // margin: auto;
+      // margin-right: 10px;
 
       .all {
         height: 300px;
