@@ -16,6 +16,7 @@ export class TopHeaderComponent implements OnInit {
   type: string = null;
   logo: any;
   langs: {};
+  diamondLangs: [];
   activeLang = null;
   visible = true;
   bgImage = [];
@@ -50,6 +51,8 @@ export class TopHeaderComponent implements OnInit {
 
       this.langs = top.langs;
       this.activeLang = this.langs[0];
+
+      this.diamondLangs = this.service.diamondFlags;
       // delete this.langs[0];
       this.logo = this.service.getSiteLogo();
       this.title = this.service.getSiteTitle();

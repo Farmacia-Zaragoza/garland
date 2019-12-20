@@ -79,7 +79,6 @@ export class PageService {
   public getTop() {
     const styles = this.allData.common_json.regions.top.pull02.style;
     const langs = this.allData.common_json.langs;
-    // const logo = {};
 
     return { styles, langs };
   }
@@ -142,5 +141,9 @@ export class PageService {
 
   getCurrentPosition() {
     return this.allData.content.articles[0].pull02.current_position;
+  }
+
+  get diamondFlags() {
+    return this.allData.common_json.diamond_langs;
   }
 }

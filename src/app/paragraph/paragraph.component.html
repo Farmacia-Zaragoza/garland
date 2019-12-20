@@ -10,7 +10,16 @@
     />
   </div>
 
-  <!-- <brqx-text [content]="'$ : L [garldru.vbrqx.com/en/article/a30#logical_level@Drupal Architecture - Example of anchor]'"></brqx-text> -->
+  <!-- <brqx-text
+    [content]="
+      '$:L[garldru.vbrqx.com/en/article/a30#logical_level@Drupal Architecture - Example of anchor]'
+    "
+  ></brqx-text>
+  <brqx-text
+    [content]="
+      '$:H[a.Spanish ... The push for $:L[garldru.vbrqx.com/en/article/a30#logical_level@Drupal Architecture - Example of anchor] such a beautiful language#beautiful_lang]'
+    "
+  ></brqx-text> -->
   <brqx-text
     *ngFor="let p of paragraphs; let odd = odd"
     class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"

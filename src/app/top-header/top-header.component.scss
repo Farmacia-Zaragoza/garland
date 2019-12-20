@@ -88,8 +88,37 @@ owl-carousel-o {
   max-height: 100%;
   // display: flex;
   // height: $height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   #flag-horizontal {
+    // width: 35%;
+    align-self: flex-start;
+    width: 100%;
+    height: 45px;
+    .sliderControls {
+      font-size: 1.5rem;
+      margin: 5px;
+    }
+    .items {
+      // height: fit-content;
+      // height: $height;
+      // height: 100%;
+      height: inherit;
+      display: flex;
+      align-items: center;
+      a {
+        padding: 5px 10px;
+
+        img {
+          width: 45px;
+        }
+      }
+    }
+  }
+
+  #flag2-horizontal {
     // width: 35%;
     align-self: flex-start;
     width: 100%;
@@ -140,7 +169,8 @@ owl-carousel-o {
       }
     }
 
-    #flag-horizontal {
+    #flag-horizontal,
+    #flag2-horizontal {
       display: none;
     }
 

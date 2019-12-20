@@ -32,6 +32,16 @@
       <i class="right-control sliderControls fa fa-angle-right"></i>
     </horizontal-slider>
 
+    <horizontal-slider *ngIf="diamondLangs" id="flag2-horizontal">
+      <i class="left-control sliderControls fa fa-angle-left"></i>
+      <div class="items">
+        <a *ngFor="let lang of diamondLangs" href="{{ lang.clink }}">
+          <img src="{{ server + lang.flag }}" alt="{{ lang.name }}" />
+        </a>
+      </div>
+      <i class="right-control sliderControls fa fa-angle-right"></i>
+    </horizontal-slider>
+
     <div *ngIf="activeLang" id="flag-sm">
       <div (click)="visible = !visible" class="active">
         <img src="{{ server + activeLang.flag }}" alt="{{ activeLang.name }}" />
