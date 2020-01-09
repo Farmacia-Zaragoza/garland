@@ -7,6 +7,7 @@
         <i class="left-control fa fa-caret-left slider-controls"></i>
         <div class="items">
           <a
+            class="stfc_link"
             [class.active]="item.clink === activeItem"
             *ngFor="let item of menuItems"
             href="{{ item.clink }}"

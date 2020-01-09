@@ -7,9 +7,11 @@
 </owl-carousel-o>
 
 <div id="content" class="container-fluid">
-  <a href="/" id="logo">
-    <img *ngIf="logo" src="{{ server + logo }}" alt="" />
-  </a>
+  <div id="logo">
+    <a href="/">
+      <img *ngIf="logo" src="{{ server + logo }}" alt="" />
+    </a>
+  </div>
 
   <div class="titles">
     <h4 class="stfc_title">{{ title }}</h4>

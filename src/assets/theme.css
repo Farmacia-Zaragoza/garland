@@ -18,6 +18,10 @@ body {
   color: #acac79;
 }
 
+.stfc_link.active {
+  color: #acac79;
+}
+
 /* even/odd */
 .stfc_link.even {
   color: #78348e;
