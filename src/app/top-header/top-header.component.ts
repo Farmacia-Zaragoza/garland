@@ -54,7 +54,7 @@ export class TopHeaderComponent implements OnInit {
 
       this.diamondLangs = this.service.diamondFlags;
       // delete this.langs[0];
-      this.logo = this.service.getSiteLogo();
+      this.logo = this.service.siteLogo;
       this.title = this.service.getSiteTitle();
       this.subtitle = this.service.getSiteSubtitle();
 

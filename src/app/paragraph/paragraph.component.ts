@@ -45,6 +45,8 @@ export class ParagraphComponent implements OnInit, AfterViewInit {
   constructor(private service: PageService, private _lightbox: Lightbox) {}
 
   paragraphs: Array<{}> = [];
+  next: any;
+  prev: any;
   type: string;
   image: string;
   animate = false;
@@ -64,6 +66,9 @@ export class ParagraphComponent implements OnInit, AfterViewInit {
       // this.siteThemeColors = this.service.getFontColor();
       // console.log(this.siteThemeColors);
       this.paragraphs = data.content.articles[0].pull02.parragraph.pull03;
+      this.prev = data.content.articles[0].pull02.prev_item;
+      this.next = data.content.articles[0].pull02.next_item;
+      // console.log(this.prev, this.next);
 
       this.type = data.content.articles[0].pull02.parragraph.type;
       if (this.type === "iparragraph") {

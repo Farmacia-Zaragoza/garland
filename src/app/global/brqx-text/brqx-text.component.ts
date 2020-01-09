@@ -105,13 +105,13 @@ export class BrqxTextComponent implements OnInit {
     // Matching and replacing the Id with an empty string, extracting the id as well.
     const expression = /\#([^(?!\"\>)]+)$/g;
     const result = expression.exec(this.content);
-    console.log(this.content);
+    // console.log(this.content);
 
     if (result) {
-      console.log(result);
+      // console.log(result);
       this.anchorId = result[1];
       this.content = this.content.replace(`#${this.anchorId}`, "");
-      console.log(this.anchorId);
+      // console.log(this.anchorId);
     }
   }
 }

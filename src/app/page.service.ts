@@ -103,9 +103,31 @@ export class PageService {
     return menus;
   }
 
-  getSiteLogo() {
-    const logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
-      .stl_site_logo.img;
+  get siteLogo() {
+    let width = window.innerWidth;
+    let logo = "";
+    if (width <= 500) {
+      //mobile
+      // console.log("mobile");
+      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+        .stl_mobile_logo.img;
+    } else if (width <= 1170) {
+      // console.log("tablet");
+      //tablet
+      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+        .stl_tablet_logo.img;
+    } else if (width < 3200) {
+      //desktop
+      // console.log("desktop");
+      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+        .stl_desktop_logo.img;
+    } else {
+      //4k
+      // console.log("4k");
+      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+        .stl_4k_logo.img;
+    }
+    // console.log(logo);
     return logo;
   }
 
@@ -139,8 +161,8 @@ export class PageService {
     return obj;
   }
 
-  getCurrentPosition() {
-    return this.allData.content.articles[0].pull02.current_position;
+  get cLink() {
+    return this.allData.content.articles[0].clink;
   }
 
   get diamondFlags() {

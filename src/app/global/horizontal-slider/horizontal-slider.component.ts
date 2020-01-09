@@ -31,15 +31,6 @@ export class HorizontalSliderComponent implements OnInit {
   currentScrollLeft = new BehaviorSubject(0);
   scrollableWidth = new BehaviorSubject(1);
 
-  // controlsVisible = true;
-
-  // @HostListener("window:resize", ["$event"])
-  // onResize(event) {
-  //   // this.checkControlsVisibility();
-  // }
-
-  // @ViewChild("sliderContainer") container: ElementRef;
-
   ngOnInit() {
     // if (
     //   this.container.nativeElement.scrollWidth ===
@@ -69,22 +60,6 @@ export class HorizontalSliderComponent implements OnInit {
       this.currentScrollLeft.next($(element).scrollLeft());
     });
   }
-
-  // checkControlsVisibility() {
-  //   // const orig = this.controlsVisible;
-  //   if (
-  //     this.container.nativeElement.scrollWidth ===
-  //     this.container.nativeElement.clientWidth
-  //   )
-  //     this.controlsVisible = false;
-  //   else this.controlsVisible = true;
-
-  //   // orig === this.controlsVisible ? this.ngDoCheck() : "";
-
-  //   // console.log(this.controlsVisible);
-  // }
-
-  // ngDoCheck() {}
 
   slideLeft({ currentTarget }) {
     let btn = currentTarget;
@@ -116,31 +91,6 @@ export class HorizontalSliderComponent implements OnInit {
     );
   }
 
-  // slideLeft({ currentTarget }) {
-  //   this.sliderContainer = this.container.nativeElement;
-  //   this.remLength =
-  //     this.sliderContainer.scrollWidth - this.sliderContainer.clientWidth;
-  //   this.scrollable = this.remLength - this.sliderContainer.scrollLeft;
-
-  //   $(this.sliderContainer).animate(
-  //     {
-  //       scrollLeft: this.remLength
-  //     },
-  //     this.speed * this.scrollable
-  //   );
-  // }
-
-  // slideRight({ currentTarget }) {
-  //   this.sliderContainer = this.container.nativeElement;
-
-  //   $(this.sliderContainer).animate(
-  //     {
-  //       scrollLeft: 0
-  //     },
-  //     this.speed * this.sliderContainer.scrollLeft
-  //   );
-  // }
-
   slideRight({ currentTarget }) {
     let btn = currentTarget;
     this.sliderContainer = $(btn).siblings(".sliderContainer");
@@ -170,5 +120,19 @@ export class HorizontalSliderComponent implements OnInit {
     $(btn)
       .siblings(".sliderContainer")
       .stop(true);
+  }
+
+  slideToActive() {
+    const container = this.scrollerContainer.nativeElement;
+    const element = $(container).find(".active")[0];
+    if (!element) return;
+
+    const containerPosition = $(container).position().left;
+    const containerWidth = $(container).width();
+    const elPosition = $(element).position().left - containerPosition;
+    // console.log(containerPosition, elPosition, containerWidth);
+    if (containerWidth < elPosition) {
+      $(container).animate({ scrollLeft: elPosition }, 1000);
+    }
   }
 }

@@ -54,8 +54,6 @@ export class AutoScrollComponent implements OnInit {
     });
 
     this.getPos();
-
-    console.log(window.location.hash);
   }
 
   ngOnDestroy() {

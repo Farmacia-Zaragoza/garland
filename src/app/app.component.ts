@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 
       this.right = this.service.getRight();
 
-      console.log(this.left);
+      // console.log(this.left);
       // console.log(this.right.styles.menutype);
     });
   }

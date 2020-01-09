@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { HorizontalSliderComponent } from "./../global/horizontal-slider/horizontal-slider.component";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { PageService } from "../page.service";
 
 @Component({
@@ -15,6 +16,7 @@ export class TopSectionComponent implements OnInit {
 
   menuItems = [];
   activeItem;
+  @ViewChild(HorizontalSliderComponent) slider: HorizontalSliderComponent;
 
   constructor(private service: PageService) {}
 
@@ -29,8 +31,16 @@ export class TopSectionComponent implements OnInit {
       this.menuItems = this.service.getHeader();
       // console.log(header);
       // console.log(this.menuItems);
-      this.activeItem = this.service.getCurrentPosition();
+      this.activeItem = this.service.cLink;
+      // this.activeItem = "en/article/a00";
+      // this.activeItem = "en/article/a16";
+      // this.activeItem = "en/article/a37";
+
       console.log(this.activeItem, this.menuItems);
+
+      setTimeout(() => {
+        this.slider.slideToActive();
+      }, 1000);
     });
   }
 }

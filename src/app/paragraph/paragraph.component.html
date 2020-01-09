@@ -1,4 +1,7 @@
 <auto-scroll class="social">
+  <a *ngIf="prev?.clink" class="articleNav prev" href="{{ prev?.clink }}">
+    <i class="fa fa-angle-left stfc_arrows"></i>
+  </a>
   <div *ngIf="type === 'iparragraph'" class="image-container">
     <img
       (load)="onImageLoad()"
@@ -25,4 +28,7 @@
     class="{{ odd ? 'stfc_paragraph odd' : 'stfc_paragraph even' }}"
     [content]="p.value"
   ></brqx-text>
+  <a *ngIf="next?.clink" class="articleNav next" href="{{ next?.clink }}">
+    <i class="fa fa-angle-right stfc_arrows"></i>
+  </a>
 </auto-scroll>
