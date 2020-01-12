@@ -2,6 +2,7 @@ import { environment } from "./../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Injectable, Inject, EventEmitter } from "@angular/core";
 import { Observable, forkJoin } from "rxjs";
+declare var $: any;
 
 @Injectable({
   providedIn: "root"
@@ -15,7 +16,7 @@ export class PageService {
 
   allData: any;
 
-  done = new EventEmitter();
+  done = new EventEmitter(true);
 
   constructor(private http: HttpClient, @Inject("AppData") private appData) {
     this.common_json_url = appData.comm_json;
@@ -55,6 +56,7 @@ export class PageService {
       }
       // this.getBottomMenu();
       this.done.emit(this.allData);
+      $("#loadingContainer").css("display", "none");
     });
   }
 

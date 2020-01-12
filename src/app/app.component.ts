@@ -23,7 +23,7 @@ import {
   ]
 })
 export class AppComponent implements OnInit {
-  constructor(private service: PageService) {}
+  constructor(public service: PageService) {}
 
   left = null;
 

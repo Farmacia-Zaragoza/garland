@@ -27,47 +27,49 @@
   <ng-template carouselSlide><a href="">Link 55</a></ng-template>
   <ng-template carouselSlide><a href="">Link 5556</a></ng-template>
 </owl-carousel-o> -->
+<!-- <app-loading *ngIf="!(service.done | async)"></app-loading> -->
+<div [style.display]="!(service.done | async) ? 'none' : 'block'">
+  <app-top-header></app-top-header>
 
-<app-top-header></app-top-header>
-
-<div class="container-fluid">
-  <div class="middle-wrapper row">
-    <div
-      id="leftSidebar"
-      class="col-2 region_left"
-      [class.sidebarVisible]="leftVisible"
-      [@bounceInLeft]="leftVisible"
-      [@bounceOutLeft]="!leftVisible"
-    >
-      <div class="side-bar">
-        <app-left-section region="left" [data]="left"></app-left-section>
+  <div class="container-fluid">
+    <div class="middle-wrapper row">
+      <div
+        id="leftSidebar"
+        class="col-2 region_left"
+        [class.sidebarVisible]="leftVisible"
+        [@bounceInLeft]="leftVisible"
+        [@bounceOutLeft]="!leftVisible"
+      >
+        <div class="side-bar">
+          <app-left-section region="left" [data]="left"></app-left-section>
+        </div>
+        <div (click)="leftVisible = !leftVisible" class="sidebar-control">
+          <i class="fa fa-angle-right"></i>
+        </div>
       </div>
-      <div (click)="leftVisible = !leftVisible" class="sidebar-control">
-        <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
 
-    <div id="mainContent" class="col-lg-8 col-md-12 region_middle">
-      <app-top-section></app-top-section>
-      <router-outlet></router-outlet>
-      <!-- <app-bottom-section></app-bottom-section> -->
-      <app-garldru-footer></app-garldru-footer>
-    </div>
-
-    <div
-      id="rightSidebar"
-      class="col-2 region_right"
-      [class.sidebarVisible]="rightVisible"
-      [@bounceInRight]="rightVisible"
-      [@bounceOutRight]="!rightVisible"
-    >
-      <div class="side-bar">
-        <!-- <app-right-section [config]="right?.menutype"></app-right-section> -->
-        <!-- <app-left-section region='right' [config]="rightConfig()"></app-left-section> -->
-        <app-left-section region="right" [data]="right"></app-left-section>
+      <div id="mainContent" class="col-lg-8 col-md-12 region_middle">
+        <app-top-section></app-top-section>
+        <router-outlet></router-outlet>
+        <!-- <app-bottom-section></app-bottom-section> -->
+        <app-garldru-footer></app-garldru-footer>
       </div>
-      <div (click)="rightVisible = !rightVisible" class="sidebar-control">
-        <i class="fa fa-angle-left"></i>
+
+      <div
+        id="rightSidebar"
+        class="col-2 region_right"
+        [class.sidebarVisible]="rightVisible"
+        [@bounceInRight]="rightVisible"
+        [@bounceOutRight]="!rightVisible"
+      >
+        <div class="side-bar">
+          <!-- <app-right-section [config]="right?.menutype"></app-right-section> -->
+          <!-- <app-left-section region='right' [config]="rightConfig()"></app-left-section> -->
+          <app-left-section region="right" [data]="right"></app-left-section>
+        </div>
+        <div (click)="rightVisible = !rightVisible" class="sidebar-control">
+          <i class="fa fa-angle-left"></i>
+        </div>
       </div>
     </div>
   </div>
