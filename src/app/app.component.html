@@ -28,7 +28,8 @@
   <ng-template carouselSlide><a href="">Link 5556</a></ng-template>
 </owl-carousel-o> -->
 <!-- <app-loading *ngIf="!(service.done | async)"></app-loading> -->
-<div [style.display]="!(service.done | async) ? 'none' : 'block'">
+<div [style.opacity]="!(service.done | async) ? 0 : 1">
+  <!-- <div> -->
   <app-top-header></app-top-header>
 
   <div class="container-fluid">

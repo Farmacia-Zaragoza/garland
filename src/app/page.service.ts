@@ -51,12 +51,17 @@ export class PageService {
         console.error("Error Occured while merging the json data.", err);
       }
 
-      if (!environment.production) {
-        console.log(this.allData);
-      }
+      // if (!environment.production) {
+      console.log(this.allData);
+      // }
       // this.getBottomMenu();
       this.done.emit(this.allData);
-      $("#loadingContainer").css("display", "none");
+
+      // remove the loading class from body
+      const loadingBody = document.querySelector("body.loading");
+      if (loadingBody) {
+        loadingBody.className = "";
+      }
     });
   }
 
