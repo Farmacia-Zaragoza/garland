@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: 202;
+}
+
+nav {
+  margin-top: -20px;
+  width: 100%;
+  position: absolute;
+}
+
+.trigger {
+  position: absolute;
+  font-size: 25px;
+  right: 20px;
+  top: -10px;
+  cursor: pointer;
+}
