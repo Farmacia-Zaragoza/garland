@@ -173,6 +173,6 @@ export class PageService {
   }
 
   get diamondFlags() {
-    return this.allData.common_json.diamond_langs;
+    return this.allData.content.diamond_langs;
   }
 }

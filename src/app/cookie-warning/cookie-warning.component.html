@@ -1,0 +1,18 @@
+<div *ngIf="trigger" [@bounceInUpOnEnter] [@bounceOutDownOnLeave] id="wrapper">
+  <div class="container grad-area text-center">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
+      architecto recusandae reprehenderit unde odit quia maiores? Quos sit ex
+      aliquam dolore, explicabo repellat, fugit vero voluptatem veniam sequi
+      iure nulla.
+    </p>
+    <div>
+      <button (click)="accepted()" class="btn btn-outline-success">
+        <i class="fas fa-check"></i>
+      </button>
+      <button (click)="denied()" class="btn btn-outline-danger">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</div>

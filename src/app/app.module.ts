@@ -26,6 +26,8 @@ import { AutoScrollComponent } from './global/auto-scroll/auto-scroll.component'
 import { MarqueeTextComponent } from './global/marquee-text/marquee-text.component';
 import { BrqxTextComponent } from './global/brqx-text/brqx-text.component';
 import { LoadingComponent } from './loading/loading.component';
+import { CookieWarningComponent } from './cookie-warning/cookie-warning.component';
+import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -48,7 +50,9 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     AutoScrollComponent,
     MarqueeTextComponent,
     BrqxTextComponent,
-    LoadingComponent
+    LoadingComponent,
+    CookieWarningComponent,
+    BreadCrumbComponent
   ],
   imports: [
     BrowserModule,

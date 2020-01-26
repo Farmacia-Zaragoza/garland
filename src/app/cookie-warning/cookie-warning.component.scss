@@ -1,0 +1,46 @@
+// .grad-area {
+//   background-image: linear-gradient(
+//     to right,
+//     #232526 0%,
+//     #414345 51%,
+//     #232526 100%
+//   );
+// }
+// .grad-area:hover {
+//   background-position: right center;
+// }
+
+// .btn-grad {
+//   background-image: linear-gradient(
+//     to right,
+//     #000000 0%,
+//     #434343 51%,
+//     #000000 100%
+//   );
+// }
+// .btn-grad:hover {
+//   background-position: right center;
+// }
+#wrapper {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+
+  z-index: 200;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px 0;
+  border-radius: 5px;
+  margin: 0 auto;
+
+  p {
+    color: #fff;
+  }
+  button {
+    margin: 0 10px;
+  }
+}
