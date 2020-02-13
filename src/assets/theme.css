@@ -102,6 +102,16 @@ body {
   color: red;
 }
 
+/* theme background colors */
+
+.stfc_cookie_warning_bg {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+body .stfc_breadcrumb_bg {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
 /* Regions */
 .region_top {
   background-color: #fff;

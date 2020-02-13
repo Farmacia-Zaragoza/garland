@@ -1,16 +1,22 @@
 <nav
-  *ngIf="visible"
+  *ngIf="visible && breadCrumbs"
   [@slideInDownOnEnter]
   [@slideOutUpOnLeave]
   aria-label="breadcrumb"
 >
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  <ol class="breadcrumb stfc_breadcrumb_bg">
+    <li
+      *ngFor="let item of breadCrumbs; let last = last"
+      class="breadcrumb-item"
+    >
+      <a [class.active]="last" class="stfc_link" href="{{ item.link }}">{{
+        item.name
+      }}</a>
+    </li>
   </ol>
 </nav>
 <i
+  *ngIf="breadCrumbs"
   (click)="visible = !visible"
   class="trigger fas fa-directions stfc_arrows"
 ></i>

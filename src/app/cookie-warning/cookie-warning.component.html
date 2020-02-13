@@ -1,10 +1,7 @@
 <div *ngIf="trigger" [@bounceInUpOnEnter] [@bounceOutDownOnLeave] id="wrapper">
-  <div class="container grad-area text-center">
+  <div class="container text-center stfc_cookie_warning_bg">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
-      architecto recusandae reprehenderit unde odit quia maiores? Quos sit ex
-      aliquam dolore, explicabo repellat, fugit vero voluptatem veniam sequi
-      iure nulla.
+      {{ message }}
     </p>
     <div>
       <button (click)="accepted()" class="btn btn-outline-success">

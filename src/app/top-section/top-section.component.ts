@@ -36,7 +36,7 @@ export class TopSectionComponent implements OnInit {
       // this.activeItem = "en/article/a16";
       // this.activeItem = "en/article/a37";
 
-      console.log(this.activeItem, this.menuItems);
+      // console.log(this.activeItem, this.menuItems);
 
       setTimeout(() => {
         this.slider.slideToActive();

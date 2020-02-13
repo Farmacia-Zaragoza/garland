@@ -169,10 +169,15 @@ export class PageService {
   }
 
   get cLink() {
-    return this.allData.content.articles[0].clink;
+    return this.allData.content.articles.clink;
   }
 
   get diamondFlags() {
     return this.allData.content.diamond_langs;
+  }
+
+  get cookieMessage() {
+    return this.allData.common_json.cookies_warning.information.pull02
+      .main_cookies_msg.value;
   }
 }

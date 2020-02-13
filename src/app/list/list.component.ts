@@ -1,22 +1,20 @@
-import { PageService } from './../page.service';
-import { Component, OnInit } from '@angular/core';
+import { PageService } from "./../page.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: "app-list",
+  templateUrl: "./list.component.html",
+  styleUrls: ["./list.component.scss"]
 })
 export class ListComponent implements OnInit {
+  constructor(private service: PageService) {}
 
-  constructor(private service: PageService) { }
-
-  articles:any;
+  articles: any;
 
   ngOnInit() {
-    this.service.done.subscribe(res=>{
-      this.articles = res.content.articles;
+    this.service.done.subscribe(res => {
+      this.articles = res.content.articles.pull02;
       console.log(this.articles);
-    })
+    });
   }
-
 }

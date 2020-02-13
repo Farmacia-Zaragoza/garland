@@ -6,7 +6,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { CarouselModule } from "ngx-owl-carousel-o";
-import { LightboxModule } from 'ngx-lightbox';
+import { LightboxModule } from "ngx-lightbox";
+import { CookieService } from "ngx-cookie-service";
 
 import { AppComponent } from "./app.component";
 import { TopSectionComponent } from "./top-section/top-section.component";
@@ -17,17 +18,17 @@ import { MainComponent } from "./main/main.component";
 import { HorizontalSliderComponent } from "./global/horizontal-slider/horizontal-slider.component";
 import { VerticalSliderComponent } from "./global/vertical-slider/vertical-slider.component";
 import { TopHeaderComponent } from "./top-header/top-header.component";
-import { GarldruFooterComponent } from './garldru-footer/garldru-footer.component';
-import { MultiResolutionDirective } from './directives/multi-resolution.directive';
-import { ImgResComponent } from './img-res/img-res.component';
-import { ParagraphComponent } from './paragraph/paragraph.component';
-import { ListComponent } from './list/list.component';
-import { AutoScrollComponent } from './global/auto-scroll/auto-scroll.component';
-import { MarqueeTextComponent } from './global/marquee-text/marquee-text.component';
-import { BrqxTextComponent } from './global/brqx-text/brqx-text.component';
-import { LoadingComponent } from './loading/loading.component';
-import { CookieWarningComponent } from './cookie-warning/cookie-warning.component';
-import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
+import { GarldruFooterComponent } from "./garldru-footer/garldru-footer.component";
+import { MultiResolutionDirective } from "./directives/multi-resolution.directive";
+import { ImgResComponent } from "./img-res/img-res.component";
+import { ParagraphComponent } from "./paragraph/paragraph.component";
+import { ListComponent } from "./list/list.component";
+import { AutoScrollComponent } from "./global/auto-scroll/auto-scroll.component";
+import { MarqueeTextComponent } from "./global/marquee-text/marquee-text.component";
+import { BrqxTextComponent } from "./global/brqx-text/brqx-text.component";
+import { LoadingComponent } from "./loading/loading.component";
+import { CookieWarningComponent } from "./cookie-warning/cookie-warning.component";
+import { BreadCrumbComponent } from "./bread-crumb/bread-crumb.component";
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -62,7 +63,10 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     CarouselModule,
     LightboxModule
   ],
-  providers: [{ provide: "AppData", useValue: (<any>window).APP_DATA }],
+  providers: [
+    { provide: "AppData", useValue: (<any>window).APP_DATA },
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
