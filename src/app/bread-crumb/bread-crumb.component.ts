@@ -1,5 +1,5 @@
 import { PageService } from "./../page.service";
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Input } from "@angular/core";
 import {
   slideInDownOnEnterAnimation,
   slideOutUpOnLeaveAnimation
@@ -23,12 +23,21 @@ export class BreadCrumbComponent implements OnInit {
   // /language/articles -> articles
   // /language/articles/a00 -> a00
   breadCrumbs = null;
+  // @Input("path") path: string;
 
   ngOnInit() {
     this.service.done.subscribe(data => {
       // this.service.getTop
-      this.breadCrumbStr = data.content.articles[0].sg_breadcrumb;
-      this.mapBreadCrumbs();
+      try {
+        if (this.AppData.page.type === "list") {
+          this.breadCrumbStr = data.content.articles.sg_breadcrumb;
+        } else {
+          this.breadCrumbStr = data.content.articles[0].sg_breadcrumb;
+        }
+        this.mapBreadCrumbs();
+      } catch (err) {
+        console.log("BreadCrumb not found...", err);
+      }
     });
   }
 
@@ -42,6 +51,6 @@ export class BreadCrumbComponent implements OnInit {
           .join("/");
       return { name: item, link };
     });
-    console.log(this.breadCrumbs);
+    // console.log(this.breadCrumbs);
   }
 }

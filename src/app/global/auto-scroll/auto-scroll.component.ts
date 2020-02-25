@@ -63,6 +63,7 @@ export class AutoScrollComponent implements OnInit {
   //Get position of mouse pointer
   handleMouseMove(e) {
     const posY = e.clientY;
+
     if (posY < this.top + this.excldH && this.disableAutoScroll == true) {
       this.verticalSlideDown();
       // console.log("down");

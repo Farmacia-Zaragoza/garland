@@ -33,6 +33,10 @@ export class BrqxTextComponent implements OnInit {
       class: "stfc_regex_P",
       expression: /^\$:P\[([^]+)\]/g
     },
+    image: {
+      class: "stfc_regex_I",
+      expression: /^\$:I\[([^]+)\]/g
+    },
     versionTitle: {
       class: "stfc_version",
       expression: /^\$:V\[([^]+)\]/g
@@ -47,15 +51,13 @@ export class BrqxTextComponent implements OnInit {
     // console.log(prtocol);
   }
 
-  ngOnChanges() {
-    //runs whenever this component have any change to apply. kind of same as the render method in #React
+  ngOnInit() {
+    //runs whenever this component init kind of same as the componentDidMount method in #React
     this.content = this.input;
-    this.getType();
+    this.init();
   }
 
-  ngOnInit() {}
-
-  private getType() {
+  private init() {
     this.genLinks();
 
     Object.keys(this.types).forEach(key => {

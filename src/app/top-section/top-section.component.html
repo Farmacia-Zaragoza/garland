@@ -9,6 +9,9 @@
           <a
             class="stfc_link"
             [class.active]="item.clink === activeItem"
+            popover="{{ item.hover }}"
+            placement="bottom"
+            triggers="mouseenter:mouseleave"
             *ngFor="let item of menuItems"
             href="{{ item.clink }}"
             >{{ item.value }}</a

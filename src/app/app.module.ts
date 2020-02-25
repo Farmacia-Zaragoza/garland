@@ -5,6 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { PopoverModule } from "ngx-bootstrap/popover";
+
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { LightboxModule } from "ngx-lightbox";
 import { CookieService } from "ngx-cookie-service";
@@ -60,6 +62,7 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    PopoverModule.forRoot(),
     CarouselModule,
     LightboxModule
   ],

@@ -22,6 +22,9 @@
     [innerHTML]="content"
     *ngSwitchCase="'versionTitle'"
   ></p>
+  <p class="{{ types[type].class }}" *ngSwitchCase="'image'">
+    <img src="{{ content }}" alt="" />
+  </p>
   <p
     id="{{ anchorId ? anchorId : '' }}"
     [innerHTML]="content"
