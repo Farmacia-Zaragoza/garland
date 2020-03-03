@@ -95,6 +95,7 @@ export class ParagraphComponent implements OnInit, AfterViewInit {
       // animate scroll feature for the first time page load
       setTimeout(() => {
         const hash = window.location.hash;
+        console.log(hash);
         if (hash) {
           this.autoScroller.goToTarget(hash);
         }

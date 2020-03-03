@@ -64,13 +64,10 @@ export class AutoScrollComponent implements OnInit {
   handleMouseMove(e) {
     const posY = e.clientY;
 
-    if (posY < this.top + this.excldH && this.disableAutoScroll == true) {
+    if (posY < this.top + this.excldH && this.disableAutoScroll) {
       this.verticalSlideDown();
       // console.log("down");
-    } else if (
-      posY > this.bottom - this.excldH &&
-      this.disableAutoScroll == true
-    ) {
+    } else if (posY > this.bottom - this.excldH && this.disableAutoScroll) {
       this.verticalSlideUp();
       // console.log("up");
     } else {
@@ -116,7 +113,7 @@ export class AutoScrollComponent implements OnInit {
     const offsets = this.obj.offset();
     this.objHeight = this.scrollerContainer.nativeElement.clientHeight;
     this.objWidth = this.scrollerContainer.nativeElement.clientWidth;
-    this.excldH = this.objHeight / 3; //Caculating 10% height
+    this.excldH = this.objHeight * 0.15; //Caculating 15% height
     this.top = offsets.top;
     this.left = offsets.left;
     this.bottom = this.top + this.objHeight;
@@ -164,7 +161,9 @@ export class AutoScrollComponent implements OnInit {
   }
 
   goToTarget(target: string) {
+    // console.log(target);
     const element = $(target);
+    console.log(element);
     if (!element[0]) return;
 
     const position = element.position();
