@@ -169,7 +169,8 @@ export class PageService {
   }
 
   get cLink() {
-    return this.allData.content.articles.clink;
+    return this.allData.content.articles[0].clink;
+    // return "en/article/a34";
   }
 
   get diamondFlags() {

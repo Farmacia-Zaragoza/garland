@@ -8,7 +8,7 @@
         <div class="items">
           <a
             class="stfc_link"
-            [class.active]="item.clink === activeItem"
+            [class.active]="activeItem.includes(item.clink)"
             popover="{{ item.hover }}"
             placement="bottom"
             triggers="mouseenter:mouseleave"
