@@ -24,6 +24,11 @@
   ></p>
   <p
     class="{{ types[type].class }}"
+    [innerHTML]="content.repeat(100)"
+    *ngSwitchCase="'HR'"
+  ></p>
+  <p
+    class="{{ types[type].class }}"
     *ngSwitchCase="'image'"
     id="{{ anchorId ? anchorId : '' }}"
   >

@@ -13,6 +13,10 @@ export class MultiResolutionDirective {
   ngOnInit() {
     this.el.nativeElement.src = changeUrl(this.breakPoints, this.origSrc);
   }
+
+  // static maxResUrl(genBreakPoints: {}, origSrc: string) {
+
+  // }
 }
 
 export const changeUrl = (breakPoints: {}, url: string) => {
@@ -20,7 +24,9 @@ export const changeUrl = (breakPoints: {}, url: string) => {
 
   const points = Object.keys(breakPoints);
 
+  //descending order
   points.sort((a: any, b: any) => b - a);
+  // console.log(points);
 
   for (let i = 0; i < points.length; i++) {
     let point = points[i];

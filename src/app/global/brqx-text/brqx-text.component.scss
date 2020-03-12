@@ -23,6 +23,13 @@ p {
 .stfc_version {
   font-size: calc(100% - 1px);
 }
+
+p.stfc_hr {
+  // position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
 // }
 
 @include mediaLg {

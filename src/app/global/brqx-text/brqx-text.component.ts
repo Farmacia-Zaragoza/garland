@@ -40,6 +40,10 @@ export class BrqxTextComponent implements OnInit {
     versionTitle: {
       class: "stfc_version",
       expression: /^\$:V\[([^]+)\]/g
+    },
+    HR: {
+      class: "stfc_hr",
+      expression: /^\$:HR\[([^]+)\]/g
     }
   };
   html: any = "";

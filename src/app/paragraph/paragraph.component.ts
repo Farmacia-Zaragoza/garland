@@ -73,6 +73,7 @@ export class ParagraphComponent implements OnInit, AfterViewInit {
       this.type = data.content.articles[0].pull02.parragraph.type;
       if (this.type === "iparragraph") {
         this.breakPoints = this.service.getBreakPoints();
+        console.log(this.breakPoints);
 
         this.image =
           environment.server + data.content.articles[0].pull02.image.img;
