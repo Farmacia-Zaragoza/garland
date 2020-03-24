@@ -1,0 +1,21 @@
+<div class="controls">
+  <i
+    (click)="changeView()"
+    [class.active]="view === 'grid'"
+    class="fas fa-th stfc_link"
+  ></i>
+  <i
+    (click)="changeView()"
+    [class.active]="view === 'list'"
+    class="fas fa-list stfc_link"
+  ></i>
+</div>
+<app-bread-crumb></app-bread-crumb>
+
+<auto-scroll>
+  <div *ngIf="photos" class="wrapper" [class.grid]="view === 'grid'">
+    <div class="single-item" *ngFor="let photo of photos">
+      <img src="https://picsum.photos/200/200" [alt]="photo.categories" />
+    </div>
+  </div>
+</auto-scroll>

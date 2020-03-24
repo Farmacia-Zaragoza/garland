@@ -79,6 +79,9 @@ export class BrqxTextComponent implements OnInit {
       case "versionTitle":
         break;
 
+      case "HR":
+        this.content = this.content.repeat(1000);
+
       default:
         this.getAnchorId();
         break;

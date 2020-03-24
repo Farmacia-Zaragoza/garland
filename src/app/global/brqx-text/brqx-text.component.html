@@ -22,11 +22,9 @@
     [innerHTML]="content"
     *ngSwitchCase="'versionTitle'"
   ></p>
-  <p
-    class="{{ types[type].class }}"
-    [innerHTML]="content.repeat(100)"
-    *ngSwitchCase="'HR'"
-  ></p>
+  <p class="{{ types[type].class }}" *ngSwitchCase="'HR'">
+    {{ content }}
+  </p>
   <p
     class="{{ types[type].class }}"
     *ngSwitchCase="'image'"

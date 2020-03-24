@@ -93,9 +93,20 @@ export class PageService {
   public getHeader() {
     // const styles = this.allData.common_json.regions.header.pull02.style.pull03
     //   .bgcolor;
-    const menus = this.allData.common_json.regions.header.pull02.content.pull03;
+    try {
+      const menus = this.allData.common_json.regions.header.pull02.content
+        .pull03;
 
-    return menus;
+      return menus;
+    } catch (err) {
+      console.log("error occured while loading top section data..");
+      console.error(err);
+      return [];
+    }
+  }
+
+  get photos() {
+    return this.allData.content.photos[0].pull02.parragraph.pull03;
   }
 
   public getLeft() {
@@ -113,37 +124,51 @@ export class PageService {
   get siteLogo() {
     let width = window.innerWidth;
     let logo = "";
-    if (width <= 500) {
-      //mobile
-      // console.log("mobile");
-      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
-        .stl_mobile_logo.img;
-    } else if (width <= 1170) {
-      // console.log("tablet");
-      //tablet
-      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
-        .stl_tablet_logo.img;
-    } else if (width < 3200) {
-      //desktop
-      // console.log("desktop");
-      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
-        .stl_desktop_logo.img;
-    } else {
-      //4k
-      // console.log("4k");
-      logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
-        .stl_4k_logo.img;
+    try {
+      if (width <= 500) {
+        //mobile
+        // console.log("mobile");
+        logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+          .stl_mobile_logo.img;
+      } else if (width <= 1170) {
+        // console.log("tablet");
+        //tablet
+        logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+          .stl_tablet_logo.img;
+      } else if (width < 3200) {
+        //desktop
+        // console.log("desktop");
+        logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+          .stl_desktop_logo.img;
+      } else {
+        //4k
+        // console.log("4k");
+        logo = this.allData.common_json.site.theme.pull02.st_logo.pull03
+          .stl_4k_logo.img;
+      }
+    } catch (err) {
+      console.log("error occured while getting the siteLogo..");
     }
     // console.log(logo);
     return logo;
   }
 
   getSiteTitle() {
-    return this.allData.spec_json.site.general.pull02.sg_site_title.value;
+    try {
+      return this.allData.spec_json.site.general.pull02.sg_site_title.value;
+    } catch {
+      console.log("error occured while getting the siteTitle..");
+      return "";
+    }
   }
 
   getSiteSubtitle() {
-    return this.allData.spec_json.site.general.pull02.sg_site_subtitle.value;
+    try {
+      return this.allData.spec_json.site.general.pull02.sg_site_subtitle.value;
+    } catch {
+      console.log("error occured while getting the SiteSubtitle..");
+      return "";
+    }
   }
 
   getSiteThumbRes() {
@@ -169,7 +194,11 @@ export class PageService {
   }
 
   get cLink() {
-    return this.allData.content.articles[0].clink;
+    try {
+      return this.allData.content.articles[0].clink;
+    } catch {
+      return "";
+    }
     // return "en/article/a34";
   }
 

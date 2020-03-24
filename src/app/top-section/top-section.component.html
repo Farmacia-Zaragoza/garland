@@ -1,5 +1,5 @@
 <!-- <div [ngStyle]="styles" class="container-fluid"> -->
-<div class="container-fluid region_header">
+<div *ngIf="menuItems.length" class="container-fluid region_header">
   <div class="row">
     <div class="container">
       <horizontal-slider>

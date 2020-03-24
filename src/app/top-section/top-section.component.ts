@@ -29,6 +29,8 @@ export class TopSectionComponent implements OnInit {
       // )[0];
       // console.log(this.topConfig)
       this.menuItems = this.service.getHeader();
+      console.log(this.menuItems);
+      if (!this.menuItems.length) return;
       // console.log(header);
       // console.log(this.menuItems);
       this.activeItem = this.service.cLink;

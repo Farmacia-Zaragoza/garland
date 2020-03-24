@@ -1,5 +1,6 @@
 <div id="main-container" [ngSwitch]="pageType">
   <app-paragraph *ngSwitchCase="'product'"></app-paragraph>
   <app-list *ngSwitchCase="'list'"></app-list>
+  <brqx-photo *ngSwitchCase="'photo'"></brqx-photo>
   <app-paragraph *ngSwitchDefault></app-paragraph>
 </div>

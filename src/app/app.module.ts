@@ -31,6 +31,7 @@ import { BrqxTextComponent } from "./global/brqx-text/brqx-text.component";
 import { LoadingComponent } from "./loading/loading.component";
 import { CookieWarningComponent } from "./cookie-warning/cookie-warning.component";
 import { BreadCrumbComponent } from "./bread-crumb/bread-crumb.component";
+import { PhotoComponent } from './photo/photo.component';
 
 const routes: Routes = [{ path: "**", component: MainComponent }];
 
@@ -55,7 +56,8 @@ const routes: Routes = [{ path: "**", component: MainComponent }];
     BrqxTextComponent,
     LoadingComponent,
     CookieWarningComponent,
-    BreadCrumbComponent
+    BreadCrumbComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
