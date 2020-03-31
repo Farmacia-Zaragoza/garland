@@ -11,10 +11,10 @@ export class PhotoComponent implements OnInit {
   constructor(private service: PageService) {
     this.server = environment.server;
   }
-  private photos;
-  private breakpoints;
-  private server;
-  private view = "grid";
+  photos;
+  breakpoints;
+  server;
+  view = "grid";
 
   ngOnInit() {
     this.service.done.subscribe(data => {

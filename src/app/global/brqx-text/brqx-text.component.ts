@@ -55,9 +55,20 @@ export class BrqxTextComponent implements OnInit {
     // console.log(prtocol);
   }
 
+  fixTriSlash(str: string) {
+    const expression = /\\"([^]+)\\"/g;
+    let groups;
+
+    while ((groups = expression.exec(str)))
+      str = str.replace(groups[0], `"${groups[1]}"`);
+
+    return str;
+  }
+
   ngOnInit() {
     //runs whenever this component init kind of same as the componentDidMount method in #React
-    this.content = this.input;
+    // console.log(this.input);
+    this.content = this.fixTriSlash(this.input);
     this.init();
   }
 
