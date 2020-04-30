@@ -23,7 +23,7 @@
     "angular-animations": "0.0.9",
     "bootstrap": "4.2.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^3.2.0",
     "ngx-lightbox": "^2.0.0",
     "ngx-owl-carousel-o": "^1.1.2",
